@@ -1,7 +1,5 @@
-using System;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class PreviwSystem : MonoBehaviour
 {
@@ -53,25 +51,36 @@ public class PreviwSystem : MonoBehaviour
     public void StopShowPreaview()
     {
         cellIndicator.SetActive(false);
-        Destroy(previewObjects);
+        if(previewObjects != null)
+            Destroy(previewObjects);
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
-        MovoPreview(position);
+        if(previewObjects != null)
+        {
+            MovoPreview(position);
+            ApplyfeedbackToPreview(validity);
+        }
+       
         MoveCursosr(position);
-        Applyfeedback(validity);
-
+        ApplyfeedbackToCursor(validity);
     }
 
-    private void Applyfeedback(bool validity)
+    private void ApplyfeedbackToPreview(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
         c.a = 0.5f;
         cellIndicatorRender.color = c;
         //previewMatarialInstance.color = c;
     }
-
+    private void ApplyfeedbackToCursor(bool validity)
+    {
+        Color c = validity ? Color.white : Color.red;
+        c.a = 0.5f;
+        cellIndicatorRender.color = c;
+        //previewMatarialInstance.color = c;
+    }
     private void MoveCursosr(Vector3 position)
     {
         cellIndicator.transform.position = position;
@@ -80,5 +89,12 @@ public class PreviwSystem : MonoBehaviour
     private void MovoPreview(Vector3 position)
     {
         previewObjects.transform.position = new Vector3(position.x, position.y + previwYOffset,0);
+    }
+
+    internal void StartShowingRemovePreview()
+    {
+        cellIndicator.SetActive(true);
+        PrepareCursoe(Vector2Int.one);
+        ApplyfeedbackToCursor(false);
     }
 }
