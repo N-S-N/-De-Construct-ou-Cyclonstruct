@@ -14,10 +14,11 @@ public class Inventary : MonoBehaviour
     [SerializeField] float RayCastDistance = 5;
     [SerializeField] LayerMask itemLayer;
 
+    PlayerControler playerControler;
     public void Start()
     {
         toggleInventory(false);
-
+        playerControler = GetComponent<PlayerControler>();
         foreach (Slot uislot in InventorySlot)
         {
             uislot.inistialiseSlot();
@@ -46,6 +47,7 @@ public class Inventary : MonoBehaviour
                     if (newItem)
                     {
                         addItemInventory(newItem);
+                        playerControler.interection = true;
                     }
                 }
                 else //Get the Name
@@ -54,8 +56,13 @@ public class Inventary : MonoBehaviour
                     {
                         ItemHoverText.text = newItem.Name;
                     }
+                    playerControler.interection = false;
                 }
             }
+        }
+        else
+        {
+            playerControler.interection = false;
         }
     }
 
