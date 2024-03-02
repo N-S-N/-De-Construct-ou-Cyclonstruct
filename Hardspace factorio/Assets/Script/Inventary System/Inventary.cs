@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,19 +8,36 @@ public class Inventary : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] GameObject Inventory;
-    public List<Slot> InventorySlot =  new List<Slot>();
+    private List<Slot> allInventorySlot =  new List<Slot>();
+    public List<Slot> inventorySlot =  new List<Slot>();
+    public List<Slot> hotbarSlots = new List<Slot>();
+
     [SerializeField] TMP_Text ItemHoverText;
 
     [Header("Raycast")]
     [SerializeField] float RayCastDistance = 5;
     [SerializeField] LayerMask itemLayer;
+    public Transform dropLocation;
+
+    [Header("Drog and Drop")]
+    public Image dragInconImage;
+    private Item currentDraggedItem;
+    private int currentDragSlotIndex = -1;
+
+    [Header("EquippableItems")]
+    public List<GameObject> eqippableItems = new List<GameObject>();
+    public Transform selectrsItemImage;
 
     PlayerControler playerControler;
     public void Start()
     {
-        toggleInventory(false);
         playerControler = GetComponent<PlayerControler>();
-        foreach (Slot uislot in InventorySlot)
+        toggleInventory(false);
+
+        allInventorySlot.AddRange(inventorySlot);
+        allInventorySlot.AddRange(hotbarSlots);
+        
+        foreach (Slot uislot in allInventorySlot)
         {
             uislot.inistialiseSlot();
         }
@@ -30,7 +48,33 @@ public class Inventary : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
             toggleInventory(!Inventory.activeInHierarchy);
+        if(Input.GetKeyDown(KeyCode.Escape))
+            toggleInventory(false);
+
+        if(Inventory.activeInHierarchy && Input.GetMouseButtonDown(0))
+        {
+            dragInventoryIcon();
+        }
+        else if (currentDragSlotIndex != -1 && Input.GetMouseButtonUp(0) || currentDragSlotIndex != -1 && !Inventory.activeInHierarchy)
+        {
+            dropInventoryIcon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            dropItem();
+
+        for(int i = 1; i< hotbarSlots.Count+1; i++)
+        {
+            if (Input.GetKeyDown(i.ToString()))
+            {
+                enableHotBarItem(i-1);
+            }
+        }
+
+        dragInconImage.transform.position = Input.mousePosition;
+
     }
+
 
     private void itemRaycast(bool hasCliced = false)
     {
@@ -70,9 +114,9 @@ public class Inventary : MonoBehaviour
     {
         int leftoverQuantity = itemToAdd.currentQuantity;
         Slot openSholt = null;
-        for(int i = 0; i < InventorySlot.Count; i++)
+        for(int i = 0; i < allInventorySlot.Count; i++)
         {
-            Item heldItem = InventorySlot[i].getItem();
+            Item heldItem = allInventorySlot[i].getItem();
 
             if (heldItem != null && itemToAdd.ID == heldItem.ID)
             {
@@ -81,7 +125,7 @@ public class Inventary : MonoBehaviour
                 {
                     heldItem.currentQuantity += leftoverQuantity;
                     Destroy(itemToAdd.gameObject);
-                    InventorySlot[i].UpdateData();
+                    allInventorySlot[i].UpdateData();
                     return;
                 }
                 else// DD as much as we can to the currest Slot
@@ -93,10 +137,10 @@ public class Inventary : MonoBehaviour
             else if (heldItem == null)
             {
                 if(!openSholt)
-                    openSholt = InventorySlot[i];
+                    openSholt = allInventorySlot[i];
             }
 
-            InventorySlot[i].UpdateData();
+            allInventorySlot[i].UpdateData();
         }
 
         if(leftoverQuantity > 0 && openSholt)
@@ -114,5 +158,97 @@ public class Inventary : MonoBehaviour
     {
         Inventory.SetActive(enable);
 
+    }
+
+    private void dragInventoryIcon()
+    {
+        for (int i = 0; i < allInventorySlot.Count; i++)
+        {
+            Slot curSlot = allInventorySlot[i];
+            if(curSlot.Havered && curSlot.hasItem())
+            {
+                currentDragSlotIndex = i;
+
+                currentDraggedItem = curSlot.getItem();
+                dragInconImage.sprite = currentDraggedItem.icone;
+                dragInconImage.color = new Color(1,1,1,1);
+
+                curSlot.SetItem(null);
+            }
+        }
+    }
+
+    private void dropItem()
+    {
+        for (int i = 0; i < allInventorySlot.Count; i++)
+        {
+            Slot curSlot = allInventorySlot[i];
+            if(curSlot.Havered && curSlot.hasItem())
+            {
+                curSlot.getItem().gameObject.SetActive(true);
+                curSlot.getItem().transform.position = dropLocation.position;
+                curSlot.SetItem(null);
+                break;
+            }
+        }
+    }
+    private void dropInventoryIcon()
+    {
+        dragInconImage.sprite = null;
+        dragInconImage.color = new Color(1, 1, 1, 0);
+
+        for (int i = 0; i < allInventorySlot.Count; i++)
+        {
+            Slot curSlot = allInventorySlot[i];
+            if (curSlot.Havered)
+            {
+                if (curSlot.hasItem())
+                {
+                    Item itemToSlot = curSlot.getItem();
+
+                    curSlot.SetItem(currentDraggedItem);
+
+                    allInventorySlot[currentDragSlotIndex].SetItem(itemToSlot);
+
+                    resetDragVariables();
+                    return;
+                }
+                else
+                {
+                    curSlot.SetItem(currentDraggedItem);
+                    resetDragVariables();
+                    return;
+                }
+            }
+        }
+
+        allInventorySlot[currentDragSlotIndex].SetItem(currentDraggedItem);
+        resetDragVariables();
+
+    }
+
+    private void resetDragVariables()
+    {
+        currentDraggedItem = null;
+        currentDragSlotIndex = -1;
+    }
+
+    private void enableHotBarItem(int hotbarItex)
+    {
+        foreach (GameObject a in eqippableItems) 
+        {
+            a.SetActive(false);
+        }
+
+        Slot hotbarSlot = hotbarSlots[hotbarItex];
+        selectrsItemImage.transform.position = hotbarSlots[hotbarItex].transform.position;
+
+        if (hotbarSlot.hasItem())
+        {
+            if (hotbarSlot.getItem().equippableItemItex != -1)
+            {
+                eqippableItems[hotbarSlot.getItem().equippableItemItex].SetActive(true);
+            }
+        }
     }
 }

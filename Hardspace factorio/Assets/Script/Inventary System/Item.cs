@@ -8,4 +8,6 @@ public class Item : MonoBehaviour
     public Sprite icone;
     public int currentQuantity = 1;
     public int MaxQuabttity = 100;
+
+    public int equippableItemItex = -1;
 }

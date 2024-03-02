@@ -50,10 +50,14 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     }
 
-
     public Item getItem()
     {
         return heldItem;
+    }
+
+    public bool hasItem()
+    {
+        return heldItem ? true : false;
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
