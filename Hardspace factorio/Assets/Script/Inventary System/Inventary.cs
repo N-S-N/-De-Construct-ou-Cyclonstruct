@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class Inventary : MonoBehaviour
 {
@@ -28,6 +28,12 @@ public class Inventary : MonoBehaviour
     public List<GameObject> eqippableItems = new List<GameObject>();
     public Transform selectrsItemImage;
 
+    [Header("Sava / Load")]
+    public List<GameObject> allItemPrefabs = new List<GameObject>();
+    private string saveFileName = "inventorySava.json";
+    
+
+
     PlayerControler playerControler;
     public void Start()
     {
@@ -41,7 +47,15 @@ public class Inventary : MonoBehaviour
         {
             uislot.inistialiseSlot();
         }
+
+        loadInventory();
     }
+
+    public void OnApplicationQuit()
+    {
+        saveInventory();
+    }
+
     public void Update()
     {
         itemRaycast(Input.GetKeyDown(KeyCode.E));
@@ -110,8 +124,16 @@ public class Inventary : MonoBehaviour
         }
     }
 
-    private void addItemInventory(Item itemToAdd)
+    private void addItemInventory(Item itemToAdd, int overideIndex = -1)
     {
+        if (overideIndex != -1)
+        {
+            allInventorySlot[overideIndex].SetItem(itemToAdd);
+            itemToAdd.gameObject.SetActive(false);
+            allInventorySlot[overideIndex].UpdateData();
+            return;
+        }
+
         int leftoverQuantity = itemToAdd.currentQuantity;
         Slot openSholt = null;
         for(int i = 0; i < allInventorySlot.Count; i++)
@@ -157,7 +179,9 @@ public class Inventary : MonoBehaviour
     private void toggleInventory(bool enable)
     {
         Inventory.SetActive(enable);
-
+        if (!enable)
+            foreach (Slot curSlot in allInventorySlot)
+                curSlot.Havered = false;
     }
 
     private void dragInventoryIcon()
@@ -251,4 +275,84 @@ public class Inventary : MonoBehaviour
             }
         }
     }
+    private void saveInventory()
+    {
+        InvantoryData data =  new InvantoryData();
+
+        foreach (Slot slot in allInventorySlot)
+        {
+            Item item = slot.getItem();
+            if(item != null)
+            {
+                ItemData itemdata = new ItemData(item.ID, item.currentQuantity, allInventorySlot.IndexOf(slot), item.Name);
+                data.slotData.Add(itemdata);
+            }
+        }
+        string jsonData = JsonUtility.ToJson(data);
+
+        File.WriteAllText(saveFileName, jsonData);
+    }
+
+    private void loadInventory()
+    {
+        if (File.Exists(saveFileName))
+        {
+            string jsonData = File.ReadAllText(saveFileName);
+
+            InvantoryData data = JsonUtility.FromJson<InvantoryData>(jsonData);
+
+            cleamInventory();
+
+            foreach (ItemData itemData in data.slotData)
+            {
+                GameObject itemPrefab = allItemPrefabs.Find(prefab => prefab.GetComponent<Item>().ID == itemData.ItemID);
+
+                if(itemPrefab != null)
+                {
+                    GameObject createdItem = Instantiate(itemPrefab, dropLocation.position,Quaternion.identity);
+                    Item item = createdItem.GetComponent<Item>();
+
+                    item.currentQuantity = itemData.quantity;
+
+                    addItemInventory(item,itemData.slotIndex);
+                }
+            }
+        }
+
+        foreach (Slot slot in allInventorySlot) 
+        {
+            slot.UpdateData();
+        }
+    }
+
+    private void cleamInventory()
+    {
+        foreach(Slot slot in allInventorySlot)
+        {
+            slot.SetItem(null);
+        }
+    }
 }
+
+[System.Serializable]
+public class ItemData 
+{
+    public int ItemID;
+    public int quantity;
+    public int slotIndex;
+    public string itemName; 
+
+    public ItemData(int ItemID,int quantity,int slotIndex,string itemName)
+    {
+        this.ItemID = ItemID;
+        this.quantity = quantity;
+        this.slotIndex = slotIndex;
+        this.itemName = itemName;
+    }
+}
+[System.Serializable]
+public class InvantoryData 
+{
+    public List<ItemData> slotData = new List<ItemData>();
+}
+
