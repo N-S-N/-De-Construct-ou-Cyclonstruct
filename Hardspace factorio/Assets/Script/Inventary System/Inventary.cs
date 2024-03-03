@@ -258,7 +258,7 @@ public class Inventary : MonoBehaviour
             
             if (curSlot.Havered && curSlot.hasItem())
             {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
                     curSlot.getItem().gameObject.SetActive(true);
                     curSlot.getItem().transform.position = dropLocation.position;
