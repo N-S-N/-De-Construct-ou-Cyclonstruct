@@ -3,13 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
 
 public class Inventary : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] GameObject Inventory;
-    private List<Slot> allInventorySlot =  new List<Slot>();
-    public List<Slot> inventorySlot =  new List<Slot>();
+    private List<Slot> allInventorySlot = new List<Slot>();
+    public List<Slot> inventorySlot = new List<Slot>();
     public List<Slot> hotbarSlots = new List<Slot>();
 
     [SerializeField] TMP_Text ItemHoverText;
@@ -17,6 +18,7 @@ public class Inventary : MonoBehaviour
     [Header("Raycast")]
     [SerializeField] float RayCastDistance = 5;
     [SerializeField] LayerMask itemLayer;
+    [SerializeField] LayerMask everOne;
     public Transform dropLocation;
 
     [Header("Drog and Drop")]
@@ -27,12 +29,14 @@ public class Inventary : MonoBehaviour
     [Header("EquippableItems")]
     public List<GameObject> eqippableItems = new List<GameObject>();
     public Transform selectrsItemImage;
+    private int curHotbarIndex = -1;
 
     [Header("Sava / Load")]
     public List<GameObject> allItemPrefabs = new List<GameObject>();
     private string saveFileName = "inventorySava.json";
-    
 
+    private List<Slot> chestSlot = new List<Slot>();
+    private GameObject chestSlotParant;
 
     PlayerControler playerControler;
     public void Start()
@@ -42,7 +46,7 @@ public class Inventary : MonoBehaviour
 
         allInventorySlot.AddRange(inventorySlot);
         allInventorySlot.AddRange(hotbarSlots);
-        
+
         foreach (Slot uislot in allInventorySlot)
         {
             uislot.inistialiseSlot();
@@ -62,10 +66,10 @@ public class Inventary : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
             toggleInventory(!Inventory.activeInHierarchy);
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
             toggleInventory(false);
 
-        if(Inventory.activeInHierarchy && Input.GetMouseButtonDown(0))
+        if (Inventory.activeInHierarchy && Input.GetMouseButtonDown(0))
         {
             dragInventoryIcon();
         }
@@ -77,12 +81,19 @@ public class Inventary : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             dropItem();
 
-        for(int i = 1; i< hotbarSlots.Count+1; i++)
+        for (int i = 1; i < hotbarSlots.Count + 1; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
             {
-                enableHotBarItem(i-1);
+                enableHotBarItem(i - 1);
+
+                curHotbarIndex = i - 1;
             }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            attenptTouseItem();
         }
 
         dragInconImage.transform.position = Input.mousePosition;
@@ -94,8 +105,9 @@ public class Inventary : MonoBehaviour
     {
         ItemHoverText.text = "";
         RaycastHit2D m_HitDetect = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.zero, 0, itemLayer);
+        RaycastHit2D m_HitDetectinChest = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.zero, 0, everOne);
 
-        if (m_HitDetect) 
+        if (m_HitDetect)
         {
             if (m_HitDetect.collider != null)
             {
@@ -118,10 +130,32 @@ public class Inventary : MonoBehaviour
                 }
             }
         }
+        else if (hasCliced && m_HitDetectinChest)
+        {
+            if (m_HitDetectinChest.collider.CompareTag("Chest") && chestSlotParant == null)
+            {
+                openChest(m_HitDetectinChest.collider.GetComponent<Chest>());
+            }
+            else
+            {
+                playerControler.interection = false;
+            }
+        }
         else
         {
             playerControler.interection = false;
         }
+    }
+
+    private void openChest(Chest chest) 
+    {
+        toggleInventory(true);
+
+        chest.chestInstantiatedParent.SetActive(true);
+        chestSlotParant = chest.chestInstantiatedParent;
+
+        allInventorySlot.AddRange(chest.allChestSlot);
+        chestSlot = chest.allChestSlot;
     }
 
     private void addItemInventory(Item itemToAdd, int overideIndex = -1)
@@ -136,7 +170,7 @@ public class Inventary : MonoBehaviour
 
         int leftoverQuantity = itemToAdd.currentQuantity;
         Slot openSholt = null;
-        for(int i = 0; i < allInventorySlot.Count; i++)
+        for (int i = 0; i < allInventorySlot.Count; i++)
         {
             Item heldItem = allInventorySlot[i].getItem();
 
@@ -158,14 +192,14 @@ public class Inventary : MonoBehaviour
             }
             else if (heldItem == null)
             {
-                if(!openSholt)
+                if (!openSholt)
                     openSholt = allInventorySlot[i];
             }
 
             allInventorySlot[i].UpdateData();
         }
 
-        if(leftoverQuantity > 0 && openSholt)
+        if (leftoverQuantity > 0 && openSholt)
         {
             openSholt.SetItem(itemToAdd);
             itemToAdd.currentQuantity = leftoverQuantity;
@@ -178,6 +212,20 @@ public class Inventary : MonoBehaviour
     }
     private void toggleInventory(bool enable)
     {
+        if (!enable && chestSlotParant != null)
+        {
+            foreach(Slot chestSlot in chestSlot) 
+            {
+                allInventorySlot.Remove(chestSlot);
+            }
+
+            chestSlotParant.SetActive(false);
+
+            chestSlotParant = null;
+            chestSlot = null;
+        }
+
+
         Inventory.SetActive(enable);
         if (!enable)
             foreach (Slot curSlot in allInventorySlot)
@@ -189,13 +237,13 @@ public class Inventary : MonoBehaviour
         for (int i = 0; i < allInventorySlot.Count; i++)
         {
             Slot curSlot = allInventorySlot[i];
-            if(curSlot.Havered && curSlot.hasItem())
+            if (curSlot.Havered && curSlot.hasItem())
             {
                 currentDragSlotIndex = i;
 
                 currentDraggedItem = curSlot.getItem();
                 dragInconImage.sprite = currentDraggedItem.icone;
-                dragInconImage.color = new Color(1,1,1,1);
+                dragInconImage.color = new Color(1, 1, 1, 1);
 
                 curSlot.SetItem(null);
             }
@@ -207,12 +255,30 @@ public class Inventary : MonoBehaviour
         for (int i = 0; i < allInventorySlot.Count; i++)
         {
             Slot curSlot = allInventorySlot[i];
-            if(curSlot.Havered && curSlot.hasItem())
+            
+            if (curSlot.Havered && curSlot.hasItem())
             {
-                curSlot.getItem().gameObject.SetActive(true);
-                curSlot.getItem().transform.position = dropLocation.position;
-                curSlot.SetItem(null);
-                break;
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    curSlot.getItem().gameObject.SetActive(true);
+                    curSlot.getItem().transform.position = dropLocation.position;
+                    curSlot.SetItem(null);
+                    break;
+                }
+                else 
+                {              
+                    Item droppedItem = Instantiate(curSlot.getItem().gameObject, dropLocation.position, Quaternion.identity).GetComponent<Item>();
+                    droppedItem.gameObject.SetActive(true);
+                    droppedItem.currentQuantity = 1;
+                    curSlot.getItem().currentQuantity -= 1;
+
+                    curSlot.UpdateData();
+
+                    if (curSlot.getItem().currentQuantity <= 0)
+                        curSlot.SetItem(null);
+
+                    break;
+                }
             }
         }
     }
@@ -230,13 +296,39 @@ public class Inventary : MonoBehaviour
                 {
                     Item itemToSlot = curSlot.getItem();
 
-                    curSlot.SetItem(currentDraggedItem);
+                    if(itemToSlot.ID == currentDraggedItem.ID && itemToSlot.currentQuantity != itemToSlot.MaxQuabttity)
+                    {
+                        int leftoverQuntity = currentDraggedItem.currentQuantity;
+                        int freeSpaceInSlot = itemToSlot.MaxQuabttity = itemToSlot.currentQuantity;
 
-                    allInventorySlot[currentDragSlotIndex].SetItem(itemToSlot);
+                        if (freeSpaceInSlot >= leftoverQuntity)
+                        {
+                            itemToSlot.currentQuantity += leftoverQuntity;
+                            Destroy(currentDraggedItem);
+                            allInventorySlot[currentDragSlotIndex].SetItem(null);
 
-                    resetDragVariables();
-                    return;
-                }
+                            allInventorySlot[i].UpdateData();
+                            return;
+                        }
+                        else
+                        {
+                            itemToSlot.currentQuantity = itemToSlot.MaxQuabttity;
+                            allInventorySlot[i].UpdateData();
+
+                            currentDraggedItem.currentQuantity = currentDraggedItem.currentQuantity -= freeSpaceInSlot;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        curSlot.SetItem(currentDraggedItem);
+
+                        allInventorySlot[currentDragSlotIndex].SetItem(itemToSlot);
+
+                        resetDragVariables();
+                        return;
+                    }
+                }       
                 else
                 {
                     curSlot.SetItem(currentDraggedItem);
@@ -259,7 +351,7 @@ public class Inventary : MonoBehaviour
 
     private void enableHotBarItem(int hotbarItex)
     {
-        foreach (GameObject a in eqippableItems) 
+        foreach (GameObject a in eqippableItems)
         {
             a.SetActive(false);
         }
@@ -277,12 +369,12 @@ public class Inventary : MonoBehaviour
     }
     private void saveInventory()
     {
-        InvantoryData data =  new InvantoryData();
+        InvantoryData data = new InvantoryData();
 
         foreach (Slot slot in allInventorySlot)
         {
             Item item = slot.getItem();
-            if(item != null)
+            if (item != null)
             {
                 ItemData itemdata = new ItemData(item.ID, item.currentQuantity, allInventorySlot.IndexOf(slot), item.Name);
                 data.slotData.Add(itemdata);
@@ -307,19 +399,19 @@ public class Inventary : MonoBehaviour
             {
                 GameObject itemPrefab = allItemPrefabs.Find(prefab => prefab.GetComponent<Item>().ID == itemData.ItemID);
 
-                if(itemPrefab != null)
+                if (itemPrefab != null)
                 {
-                    GameObject createdItem = Instantiate(itemPrefab, dropLocation.position,Quaternion.identity);
+                    GameObject createdItem = Instantiate(itemPrefab, dropLocation.position, Quaternion.identity);
                     Item item = createdItem.GetComponent<Item>();
 
                     item.currentQuantity = itemData.quantity;
 
-                    addItemInventory(item,itemData.slotIndex);
+                    addItemInventory(item, itemData.slotIndex);
                 }
             }
         }
 
-        foreach (Slot slot in allInventorySlot) 
+        foreach (Slot slot in allInventorySlot)
         {
             slot.UpdateData();
         }
@@ -327,9 +419,28 @@ public class Inventary : MonoBehaviour
 
     private void cleamInventory()
     {
-        foreach(Slot slot in allInventorySlot)
+        foreach (Slot slot in allInventorySlot)
         {
             slot.SetItem(null);
+        }
+    }
+
+    private void attenptTouseItem()
+    {
+        if (curHotbarIndex == -1) return;
+
+        Item curItem = hotbarSlots[curHotbarIndex].getItem();
+
+        if (curItem)
+        {
+            curItem.UseItem();
+
+            if (curItem.currentQuantity != 0)
+                hotbarSlots[curHotbarIndex].UpdateData();
+            else
+                hotbarSlots[curHotbarIndex].SetItem(null);
+
+            enableHotBarItem(curHotbarIndex);
         }
     }
 }
@@ -355,4 +466,3 @@ public class InvantoryData
 {
     public List<ItemData> slotData = new List<ItemData>();
 }
-
