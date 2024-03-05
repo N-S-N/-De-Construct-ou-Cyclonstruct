@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Belt : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class Belt : MonoBehaviour
     [Header("Objetos")]
     public GameObject item;
     [SerializeField] Transform lateralDeSaida;
+    [Header("layer")]
+    [SerializeField]LayerMask layerMask;
 
     [Header("Debug")]
     [SerializeField] private Belt NexBelt;
@@ -36,7 +37,7 @@ public class Belt : MonoBehaviour
 
     private void ray()
     {
-        RaycastHit2D m_HitDetect = Physics2D.Raycast(lateralDeSaida.position, Direction(), 1F);
+        RaycastHit2D m_HitDetect = Physics2D.Raycast(lateralDeSaida.position, Direction(), 0.5F, layerMask);
         if (m_HitDetect)
         {
             NexBelt = m_HitDetect.collider.GetComponent<Belt>();         
