@@ -14,21 +14,42 @@ public class Belt : MonoBehaviour
     [Header("layer")]
     [SerializeField]LayerMask layerMask;
 
+    [Header("Color")]
+    [SerializeField] Color[] tiers;
+
     [Header("Debug")]
+    [SerializeField] bool isSpliter = false;
     [SerializeField] private Belt NexBelt;
     [SerializeField] private bool _isNext;
 
     Collider2D colider;
-
-
+    SpriteRenderer render;
+    Animator animator;
     private void Start()
     {
+        render = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();   
         svspeed = mSpeed / SpeedForSeconds;
         colider = GetComponent<Collider2D>();
+        animator.speed = SpeedForSeconds;
+
+        if (SpeedForSeconds == 2)
+        {
+            render.color = tiers[1];
+        }
+        else if (SpeedForSeconds == 4)
+        {
+            render.color = tiers[2];
+        }
+        else
+        {
+            render.color = tiers[0];
+        }
     }
 
     private void Update()
     {
+        if (isSpliter) return;
         Invoke("ray",0.2f);
         if (_isNext && NexBelt.item == null && item != null)
             StartCoroutine(move());
