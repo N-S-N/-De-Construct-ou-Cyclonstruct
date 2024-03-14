@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using static UnityEditor.Progress;
-using Unity.VisualScripting;
-using UnityEngine.UIElements;
 
 public class Spliter : MonoBehaviour
 {
