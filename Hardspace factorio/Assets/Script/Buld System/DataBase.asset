@@ -16,12 +16,12 @@ MonoBehaviour:
   - <Name>k__BackingField: Estera
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 2423552645174359068, guid: 53a79fe3562153e49aa6415cfc9e6a09, type: 3}
+    <Prefab>k__BackingField: {fileID: 78510554853084526, guid: 4e6f1591fd495a14a86608971a9d21fa, type: 3}
   - <Name>k__BackingField: Costrutor
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 9159979411758346719, guid: 02f89ac81707f0d4982e8f604e6531b3, type: 3}
-  - <Name>k__BackingField: refinadora
+  - <Name>k__BackingField: chest
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 5180066455302040954, guid: f4ea4a60e065469449c9efd6dcb026c0, type: 3}
+    <Prefab>k__BackingField: {fileID: 6159699000852907594, guid: 00701a5240cd1db49885b24c4cf59c94, type: 3}

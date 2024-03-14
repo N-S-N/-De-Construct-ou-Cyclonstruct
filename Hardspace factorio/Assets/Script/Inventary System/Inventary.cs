@@ -41,6 +41,8 @@ public class Inventary : MonoBehaviour
     PlayerControler playerControler;
     public void Start()
     {
+
+
         playerControler = GetComponent<PlayerControler>();
         toggleInventory(false);
 

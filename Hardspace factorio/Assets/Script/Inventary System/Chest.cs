@@ -9,11 +9,14 @@ public class Chest : MonoBehaviour
     [HideInInspector] public List<Slot> allChestSlot = new List<Slot>();
     [HideInInspector] public GameObject chestInstantiatedParent;
 
-    // Lost table
+    GameObject chestSlot;
+    // Lost table 
 
     private void Start()
     {
-        GameObject chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
+        chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
+
+        chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
 
         foreach(Transform childSlot in chestSlot.transform.GetChild(1))
         {
@@ -25,5 +28,10 @@ public class Chest : MonoBehaviour
 
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(chestSlot);
     }
 }
