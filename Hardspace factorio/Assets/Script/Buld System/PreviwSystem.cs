@@ -42,6 +42,9 @@ public class PreviwSystem : MonoBehaviour
 
     private void PreparePreaview(GameObject previewObjects)
     {
+        Collider2D collider = previewObjects.GetComponentInChildren<Collider2D>();
+        collider.enabled = false;
+
         SpriteRenderer renderers = previewObjects.GetComponentInChildren<SpriteRenderer>();
         Color c = Color.white;
         c.a = 0.2f;

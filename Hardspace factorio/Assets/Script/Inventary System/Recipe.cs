@@ -4,9 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewRecipe",menuName ="Inventory/Recipe")]
 public class Recipe : ScriptableObject
 {
-    public GameObject createdItemPrefab;
-    public int quantityProduced = 1;
-    public float timeProducedForseconds = 1;
+    public GameObject[] createdItemPrefab;
+    public int[] quantityProduced;
+    public float timeProducedForSeconds = 1;
 
     public List<requiredIngredients> requiredIngredients = new List<requiredIngredients>();
     
