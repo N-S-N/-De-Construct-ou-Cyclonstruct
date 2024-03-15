@@ -140,7 +140,7 @@ public class PlayerControler : MonoBehaviour
                 _rigidbody.velocity = moveButton() * velocidade;
 
                 
-                if (moveButton().x > 0 && !_renderer.flipX || moveButton().x < 0 && _renderer.flipX)
+                if (moveButton().x > 0 && _renderer.flipX || moveButton().x < 0 && !_renderer.flipX)
                     _renderer.flipX = !_renderer.flipX;
 
                 break;
@@ -171,45 +171,26 @@ public class PlayerControler : MonoBehaviour
     {
         if (velocity.x != 0 || velocity.y != 0)
         {
-            if (velocity.x! > 0 && velocity.y == 0)
+            if (velocity.x != 0 && velocity.y == 0)
             {
                 _animator.SetInteger("direction", 2);
                 return;
             }
-            if (velocity.y! > 0 && velocity.x == 0)
+            if (velocity.y != 0 && velocity.x == 0)
             {
                 if (velocity.y > 0)
                 {
-                    _animator.SetInteger("direction", 1);
+                    _animator.SetInteger("direction", 0);
                     return;
                 }
                 else
                 {
-                    _animator.SetInteger("direction", 0);
+                    _animator.SetInteger("direction", 1);
                     return;
                 }
             }
 
             if (velocity.x > 0 && velocity.y > 0)
-            {
-                if (velocity.x > velocity.y)
-                {
-                    _animator.SetInteger("direction", 2);
-                    return;
-                }
-                else if (velocity.x < velocity.y)
-                {
-                    _animator.SetInteger("direction", 1);
-                    return;
-                }
-                else
-                {
-                    if (_animator.GetInteger("direction") != 0) return;
-                    _animator.SetInteger("direction", Random.Range(1, 2));
-                    return;
-                }
-            }
-            else if (velocity.x < 0 && velocity.y < 0)
             {
                 if (velocity.x > velocity.y)
                 {
@@ -227,6 +208,67 @@ public class PlayerControler : MonoBehaviour
                     int ram = Random.Range(0, 1);
                     if (ram == 1) ram = 2;
                     _animator.SetInteger("direction", ram);
+                    return;
+                }
+            }
+            else if (velocity.x < 0 && velocity.y < 0)
+            {
+                if (velocity.x > velocity.y)
+                {
+                    _animator.SetInteger("direction", 2);
+                    return;
+                }
+                else if (velocity.x < velocity.y)
+                {
+                    _animator.SetInteger("direction", 1);
+                    return;
+                }
+                else
+                {
+                    if (_animator.GetInteger("direction") != 0) return;
+                    
+                    _animator.SetInteger("direction", Random.Range(1, 2));
+                    return;
+                }
+            }
+            else if (velocity.x < 0 && velocity.y > 0)
+            {
+                if (velocity.x *-1 > velocity.y)
+                {
+                    _animator.SetInteger("direction", 2);
+                    return;
+                }
+                else if (velocity.x *-1 < velocity.y)
+                {
+                    _animator.SetInteger("direction", 0);
+                    return;
+                }
+                else
+                {
+                    if (_animator.GetInteger("direction") != 0) return;
+                    int ram = Random.Range(0, 1);
+                    if (ram == 1) ram = 2;
+                    _animator.SetInteger("direction", ram);
+                    return;
+                }
+            }
+            else if (velocity.x > 0 && velocity.y < 0)
+            {
+
+                if (velocity.x *-1> velocity.y)
+                {
+                    _animator.SetInteger("direction", 2);
+                    return;
+                }
+                else if (velocity.x * -1 < velocity.y)
+                {
+                    _animator.SetInteger("direction", 1);
+                    return;
+                }
+                else
+                {
+                    if (_animator.GetInteger("direction") != 0) return;
+                    _animator.SetInteger("direction", Random.Range(1, 2));
                     return;
                 }
             }

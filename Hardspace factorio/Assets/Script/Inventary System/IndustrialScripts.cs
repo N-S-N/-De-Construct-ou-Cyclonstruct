@@ -21,7 +21,6 @@ public class IndustrialScripts : MonoBehaviour
 
     private GameObject chestSlot;
 
-    ListInventoryMachine listin;
     // Lost table 
     private void Start()
     {
