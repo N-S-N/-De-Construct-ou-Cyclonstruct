@@ -11,6 +11,7 @@ public class PlayerControler : MonoBehaviour
 
     private SpriteRenderer _renderer;
     private Rigidbody2D _rigidbody;
+    Animator _animator;
 
     [Header("Tempo")]
     [SerializeField] float _timeInteraction;
@@ -23,11 +24,7 @@ public class PlayerControler : MonoBehaviour
    
     float stateTIme; //tempo
 
-    private void Update()
-    {
-        float delta = Time.deltaTime;
-        homdleenemyFSM(delta);
-    }
+   
     
     #endregion
 
@@ -46,8 +43,16 @@ public class PlayerControler : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
+    private void Update()
+    {
+        float delta = Time.deltaTime;
+        homdleenemyFSM(delta);
+        _animator.SetInteger("State", (int)PlayerState);
 
+        direction(moveButton());
+    }
     #endregion
 
     #region FSM
@@ -133,6 +138,8 @@ public class PlayerControler : MonoBehaviour
                 break;
             case State.anadando:
                 _rigidbody.velocity = moveButton() * velocidade;
+
+                
                 if (moveButton().x > 0 && !_renderer.flipX || moveButton().x < 0 && _renderer.flipX)
                     _renderer.flipX = !_renderer.flipX;
 
@@ -159,6 +166,71 @@ public class PlayerControler : MonoBehaviour
                 currant ++;
         }
         return currant > 0 ? true : false;
+    }
+    void direction(Vector2 velocity)
+    {
+        if (velocity.x != 0 || velocity.y != 0)
+        {
+            if (velocity.x! > 0 && velocity.y == 0)
+            {
+                _animator.SetInteger("direction", 2);
+                return;
+            }
+            if (velocity.y! > 0 && velocity.x == 0)
+            {
+                if (velocity.y > 0)
+                {
+                    _animator.SetInteger("direction", 1);
+                    return;
+                }
+                else
+                {
+                    _animator.SetInteger("direction", 0);
+                    return;
+                }
+            }
+
+            if (velocity.x > 0 && velocity.y > 0)
+            {
+                if (velocity.x > velocity.y)
+                {
+                    _animator.SetInteger("direction", 2);
+                    return;
+                }
+                else if (velocity.x < velocity.y)
+                {
+                    _animator.SetInteger("direction", 1);
+                    return;
+                }
+                else
+                {
+                    if (_animator.GetInteger("direction") != 0) return;
+                    _animator.SetInteger("direction", Random.Range(1, 2));
+                    return;
+                }
+            }
+            else if (velocity.x < 0 && velocity.y < 0)
+            {
+                if (velocity.x > velocity.y)
+                {
+                    _animator.SetInteger("direction", 2);
+                    return;
+                }
+                else if (velocity.x < velocity.y)
+                {
+                    _animator.SetInteger("direction", 0);
+                    return;
+                }
+                else
+                {
+                    if (_animator.GetInteger("direction") != 1) return;
+                    int ram = Random.Range(0, 1);
+                    if (ram == 1) ram = 2;
+                    _animator.SetInteger("direction", ram);
+                    return;
+                }
+            }
+        }
     }
 
     #endregion
