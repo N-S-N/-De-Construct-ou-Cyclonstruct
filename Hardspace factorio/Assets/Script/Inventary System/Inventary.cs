@@ -35,8 +35,13 @@ public class Inventary : MonoBehaviour
     public List<GameObject> allItemPrefabs = new List<GameObject>();
     private string saveFileName = "inventorySava.json";
 
+    //chest
     private List<Slot> chestSlot = new List<Slot>();
     private GameObject chestSlotParant;
+    //industrial
+    private GameObject industrialprefab;
+    private List<Slot> inputindustril = new List<Slot>();
+    private List<Slot> outputindustril = new List<Slot>();
 
     PlayerControler playerControler;
     public void Start()
@@ -134,9 +139,13 @@ public class Inventary : MonoBehaviour
         }
         else if (hasCliced && m_HitDetectinChest)
         {
-            if (m_HitDetectinChest.collider.CompareTag("Chest") && chestSlotParant == null)
+            if (m_HitDetectinChest.collider.CompareTag("Chest") && chestSlotParant == null && industrialprefab == null)
             {
                 openChest(m_HitDetectinChest.collider.GetComponent<Chest>());
+            }
+            else if (m_HitDetectinChest.collider.CompareTag("industrial") && chestSlotParant == null && industrialprefab == null)
+            {
+                openindustril(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>());
             }
             else
             {
@@ -158,6 +167,16 @@ public class Inventary : MonoBehaviour
 
         allInventorySlot.AddRange(chest.allChestSlot);
         chestSlot = chest.allChestSlot;
+    }
+    private void openindustril(IndustrialScripts industril)
+    {
+        toggleInventory(true);
+
+        industril.chestInstantiatedParent.SetActive(true);
+        industrialprefab = industril.chestInstantiatedParent;
+
+        inputindustril = industril.inputintrustriSlot;
+        outputindustril = industril.outputtrustriSlot;
     }
 
     private void addItemInventory(Item itemToAdd, int overideIndex = -1)
@@ -213,21 +232,26 @@ public class Inventary : MonoBehaviour
         }
     }
     private void toggleInventory(bool enable)
-    {
-        if (!enable && chestSlotParant != null)
-        {
-            foreach(Slot chestSlot in chestSlot) 
-            {
-                allInventorySlot.Remove(chestSlot);
-            }
-
+    {           
+        if (!enable && chestSlotParant != null)            
+        {                
+            foreach (Slot chestSlot in chestSlot)                
+            {             
+                allInventorySlot.Remove(chestSlot);               
+            }            
             chestSlotParant.SetActive(false);
-
-            chestSlotParant = null;
-            chestSlot = null;
+                
+            chestSlotParant = null;               
+            chestSlot = null;            
         }
+        else if (!enable && industrialprefab != null)
+        {
+            industrialprefab.SetActive(false);
 
-
+            industrialprefab = null;
+            inputindustril = null;
+            outputindustril = null;
+        }
         Inventory.SetActive(enable);
         if (!enable)
             foreach (Slot curSlot in allInventorySlot)
