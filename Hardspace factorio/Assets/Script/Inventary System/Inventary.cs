@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using Unity.VisualScripting;
 
 public class Inventary : MonoBehaviour
 {
@@ -107,7 +106,6 @@ public class Inventary : MonoBehaviour
 
     }
 
-
     private void itemRaycast(bool hasCliced = false)
     {
         ItemHoverText.text = "";
@@ -157,7 +155,6 @@ public class Inventary : MonoBehaviour
             playerControler.interection = false;
         }
     }
-
     private void openChest(Chest chest) 
     {
         toggleInventory(true);
@@ -178,7 +175,6 @@ public class Inventary : MonoBehaviour
         inputindustril = industril.inputintrustriSlot;
         outputindustril = industril.outputtrustriSlot;
     }
-
     private void addItemInventory(Item itemToAdd, int overideIndex = -1)
     {
         if (overideIndex != -1)
@@ -257,7 +253,6 @@ public class Inventary : MonoBehaviour
             foreach (Slot curSlot in allInventorySlot)
                 curSlot.Havered = false;
     }
-
     private void dragInventoryIcon()
     {
         for (int i = 0; i < allInventorySlot.Count; i++)
@@ -275,7 +270,6 @@ public class Inventary : MonoBehaviour
             }
         }
     }
-
     private void dropItem()
     {
         for (int i = 0; i < allInventorySlot.Count; i++)
@@ -368,13 +362,11 @@ public class Inventary : MonoBehaviour
         resetDragVariables();
 
     }
-
     private void resetDragVariables()
     {
         currentDraggedItem = null;
         currentDragSlotIndex = -1;
     }
-
     private void enableHotBarItem(int hotbarItex)
     {
         foreach (GameObject a in eqippableItems)
@@ -410,7 +402,6 @@ public class Inventary : MonoBehaviour
 
         File.WriteAllText(saveFileName, jsonData);
     }
-
     private void loadInventory()
     {
         if (File.Exists(saveFileName))
@@ -442,7 +433,6 @@ public class Inventary : MonoBehaviour
             slot.UpdateData();
         }
     }
-
     private void cleamInventory()
     {
         foreach (Slot slot in allInventorySlot)
@@ -450,7 +440,6 @@ public class Inventary : MonoBehaviour
             slot.SetItem(null);
         }
     }
-
     private void attenptTouseItem()
     {
         if (curHotbarIndex == -1) return;
