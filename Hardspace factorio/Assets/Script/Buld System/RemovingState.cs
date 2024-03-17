@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RemovingState : IBuildingState
@@ -32,7 +29,7 @@ public class RemovingState : IBuildingState
         previousSystem.StopShowPreaview();
     }
 
-    public void OnAction(Vector3Int gridPosition)
+    public void OnAction(Vector3Int gridPosition, float rotation)
     {
         GridData selectedData = null;
         if (!furnitureData.CanPlaceObejctAt(gridPosition,Vector2Int.one))
@@ -58,7 +55,7 @@ public class RemovingState : IBuildingState
             objectPlacer.RemoveObjectAt(GameObjectIndex);
         }
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
-        previousSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));
+        previousSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition), rotation, Vector2.one);
     }
 
     private bool CheckIfSelectionIsValid(Vector3Int gridPosition)
@@ -67,9 +64,9 @@ public class RemovingState : IBuildingState
             floorData.CanPlaceObejctAt(gridPosition, Vector2Int.one));
     }
 
-    public void UpdateState(Vector3Int gridPosition)
+    public void UpdateState(Vector3Int gridPosition, float rotation)
     {
         bool validity = CheckIfSelectionIsValid(gridPosition);
-        previousSystem.UpdatePosition(grid.CellToWorld(gridPosition), validity);
+        previousSystem.UpdatePosition(grid.CellToWorld(gridPosition), validity, rotation, Vector2.one);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class PlacementState : IBuildingState
 {
@@ -46,14 +47,16 @@ public class PlacementState : IBuildingState
         previousSystem.StopShowPreaview();
     }
 
-    public void OnAction(Vector3Int gridPosition)
+    public void OnAction(Vector3Int gridPosition, float rotation)
     {
         bool placementValidity = checkplacementValidity(gridPosition, selectedObjectIndex);
         if (!placementValidity)
             return;
 
+        Vector3 eulerRotation = new Vector3(0, 0, rotation);
+
         int index = objectPlacer.PlaceObject(dataBase.objectsData[selectedObjectIndex].Prefab,
-            grid.CellToWorld(gridPosition));
+            grid.CellToWorld(gridPosition), eulerRotation, dataBase.objectsData[selectedObjectIndex].Size);
 
         GridData selectedData = dataBase.objectsData[selectedObjectIndex].ID == 0 ?
             floorData :
@@ -63,8 +66,8 @@ public class PlacementState : IBuildingState
             dataBase.objectsData[selectedObjectIndex].ID,
             index);
 
-        previousSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
-    }
+        previousSystem.UpdatePosition(grid.CellToWorld(gridPosition), false, rotation, dataBase.objectsData[selectedObjectIndex].Size);
+    } 
 
     private bool checkplacementValidity(Vector3Int gridPossision, int _selectedObjectIndex)
     {
@@ -75,10 +78,10 @@ public class PlacementState : IBuildingState
         return selectedData.CanPlaceObejctAt(gridPossision, dataBase.objectsData[_selectedObjectIndex].Size);
     }
 
-    public void UpdateState(Vector3Int gridPosition)
+    public void UpdateState(Vector3Int gridPosition, float rotation)
     {
         bool placementValidity = checkplacementValidity(gridPosition, selectedObjectIndex);
 
-        previousSystem.UpdatePosition(grid.WorldToCell(gridPosition), placementValidity);
+        previousSystem.UpdatePosition(grid.WorldToCell(gridPosition), placementValidity, rotation, dataBase.objectsData[selectedObjectIndex].Size);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlacementSysteam : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class PlacementSysteam : MonoBehaviour
 
     IBuildingState buldingState;
 
+    private float currentRotation;
+
+    [SerializeField] UnityEvent direita, esquerda;
+
+    private int Id = -1;
+
     private void Start()
     {
         StopPlacement();
@@ -32,6 +39,7 @@ public class PlacementSysteam : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
+        
         StopPlacement();
         _gridVisualization.SetActive(true);
 
@@ -44,6 +52,8 @@ public class PlacementSysteam : MonoBehaviour
                                           objectPlacer);
         _inputManager.Onclicked += PlaceStructure;
         _inputManager.OnExit += StopPlacement;
+        currentRotation = 0;
+        Id = ID;
     }
 
     public void StartRemoving()
@@ -65,8 +75,39 @@ public class PlacementSysteam : MonoBehaviour
         Vector3 mousePosision = _inputManager.GetSelectedMapPosition();
         Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
 
-        buldingState.OnAction(GridPossision);
+        buldingState.OnAction(GridPossision, currentRotation);
 
+    }
+
+    public void Rotate(bool dereita)
+    {
+        Debug.Log(Id);
+        //todos que pode muydar de rotação
+        if (Id == 1)
+        {
+            if (dereita) {
+                currentRotation += 90;
+                if (currentRotation >= 360)
+                {
+                    currentRotation = 0;
+                }
+            }
+            else
+            {                
+                if (currentRotation <= 0)
+                {
+                    currentRotation = 360;
+                }
+                currentRotation -= 90;
+            }
+        }
+        else
+        {
+            currentRotation = 0;
+        }
+        Vector3 mousePosision = _inputManager.GetSelectedMapPosition();
+        Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
+        buldingState.UpdateState(GridPossision, currentRotation);
     }
 
     //private bool checkplacementValidity(Vector3Int gridPossision, int _selectedObjectIndex)
@@ -79,24 +120,31 @@ public class PlacementSysteam : MonoBehaviour
     //}
 
     private void StopPlacement()
-    {
-        if (buldingState == null) return;
+    {    
+        if (buldingState == null) return;        
         _gridVisualization.SetActive(false);
         buldingState.EndState();
         _inputManager.Onclicked -= PlaceStructure;
         _inputManager.OnExit -= StopPlacement;
         lastDectedPosition = Vector3Int.zero;
         buldingState = null;
+        Id = -1;
     }
 
     private void Update()
     {
         if (buldingState == null ) return;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            direita.Invoke();
+        if (Input.GetKeyDown(KeyCode.R))
+            esquerda.Invoke();
+
         Vector3 mousePosision = _inputManager.GetSelectedMapPosition();
         Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
         if (lastDectedPosition != GridPossision)
         {
-            buldingState.UpdateState(GridPossision);
+            buldingState.UpdateState(GridPossision, currentRotation);
             lastDectedPosition = GridPossision;
         }
         

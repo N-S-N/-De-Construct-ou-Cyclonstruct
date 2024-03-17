@@ -58,11 +58,11 @@ public class PreviwSystem : MonoBehaviour
             Destroy(previewObjects);
     }
 
-    public void UpdatePosition(Vector3 position, bool validity)
+    public void UpdatePosition(Vector3 position, bool validity, float rotation, Vector2 size)
     {
         if(previewObjects != null)
         {
-            MovoPreview(position);
+            MovoPreview(position, rotation, size);
             ApplyfeedbackToPreview(validity);
         }
        
@@ -89,9 +89,20 @@ public class PreviwSystem : MonoBehaviour
         cellIndicator.transform.position = position;
     }
 
-    private void MovoPreview(Vector3 position)
+    private void MovoPreview(Vector3 position, float rotation, Vector2 size)
     {
-        previewObjects.transform.position = new Vector3(position.x, position.y + previwYOffset,0);
+        if (rotation > 0 && rotation <= 180)
+        {
+            position.x += size.x;
+        }
+        if (rotation >= 180)
+        {
+            position.y += size.y;
+        }
+
+        previewObjects.transform.position = new Vector3(position.x, position.y + previwYOffset, 0);
+
+        previewObjects.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotation));
     }
 
     internal void StartShowingRemovePreview()
