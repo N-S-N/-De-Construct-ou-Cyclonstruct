@@ -100,14 +100,14 @@ public class PlacementSysteam : MonoBehaviour
                 }
                 currentRotation -= 90;
             }
+            Vector3 mousePosision = _inputManager.GetSelectedMapPosition();
+            Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
+            buldingState.UpdateState(GridPossision, currentRotation);
         }
         else
         {
             currentRotation = 0;
-        }
-        Vector3 mousePosision = _inputManager.GetSelectedMapPosition();
-        Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
-        buldingState.UpdateState(GridPossision, currentRotation);
+        }     
     }
 
     //private bool checkplacementValidity(Vector3Int gridPossision, int _selectedObjectIndex)
