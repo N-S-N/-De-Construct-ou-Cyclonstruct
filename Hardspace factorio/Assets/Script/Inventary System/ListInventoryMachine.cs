@@ -85,6 +85,7 @@ public class ListInventoryMachine : MonoBehaviour
         allintrustriSlot.AddRange(outputtrustriSlot);
 
         Industril.UpdateLists(inputintrustriSlot, outputtrustriSlot, TimeProduction, quantityProduced, requiredQuantity);
+        Industril.uodatedataradio();
     }
 
     private void addItemInventoryoutput(Item itemToAdd,int i ,int overideIndex = 0)
@@ -92,9 +93,11 @@ public class ListInventoryMachine : MonoBehaviour
         int leftoverQuantity = overideIndex;
 
         Slot openSholt = outputtrustriSlot[i];
-
-        openSholt.SetItem(itemToAdd);
-        itemToAdd.currentQuantity = 0;      
+        Item insta = Instantiate(itemToAdd);
+        openSholt.SetItem(insta);
+        insta.gameObject.SetActive(false);
+        insta.currentQuantity = 0;
+        outputtrustriSlot[i].UpdateData();
 
     }
     private void addItemInventoryinput(Item itemToAdd,int i ,int overideIndex = 0)
@@ -105,7 +108,7 @@ public class ListInventoryMachine : MonoBehaviour
 
         openSholt.SetItem(itemToAdd);
         itemToAdd.currentQuantity = 0;
-
+        inputintrustriSlot[i].UpdateData();
     }
 
     void addItemInput(int Id, int i)

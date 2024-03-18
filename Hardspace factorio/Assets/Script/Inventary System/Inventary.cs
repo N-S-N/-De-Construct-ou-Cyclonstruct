@@ -179,6 +179,8 @@ public class Inventary : MonoBehaviour
     {
         if (overideIndex != -1)
         {
+            
+            if (overideIndex > allInventorySlot.Count) return;
             allInventorySlot[overideIndex].SetItem(itemToAdd);
             itemToAdd.gameObject.SetActive(false);
             allInventorySlot[overideIndex].UpdateData();

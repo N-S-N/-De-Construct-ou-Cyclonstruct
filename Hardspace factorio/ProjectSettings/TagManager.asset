@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Chest
   - industrial
+  - garra
+  - spliter
+  - belt
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class Spliter : MonoBehaviour
 {
@@ -29,7 +30,61 @@ public class Spliter : MonoBehaviour
         svspeed = mSpeed / SpeedForSeconds;
         Belt = GetComponent<Belt>();
         colider = GetComponent<Collider2D>();
+        updatelocal();
+        OnDestroy();
+    }
 
+    public void updatelocal()
+    {
+        for (int i = 0; i < NexBelt.Length; i++)
+        {
+            ray(i);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F);
+        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F);
+        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F);
+        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F);
+
+        if (down.collider)
+        {
+            if (down.collider.CompareTag("garra"))
+                down.collider.GetComponent<garaScript>().updatelocal();
+            if (down.collider.CompareTag("belt"))
+                down.collider.GetComponent<Belt>().updatelocal();
+            if (down.collider.CompareTag("spliter"))
+                down.collider.GetComponent<Spliter>().updatelocal();
+        }
+        if (lesft.collider)
+        {
+            if (lesft.collider.CompareTag("garra"))
+                lesft.collider.GetComponent<garaScript>().updatelocal();
+            if (lesft.collider.CompareTag("belt"))
+                lesft.collider.GetComponent<Belt>().updatelocal();
+            if (lesft.collider.CompareTag("spliter"))
+                lesft.collider.GetComponent<Spliter>().updatelocal();
+        }
+        if (up.collider)
+        {
+            if (up.collider.CompareTag("garra"))
+                up.collider.GetComponent<garaScript>().updatelocal();
+            if (up.collider.CompareTag("belt"))
+                up.collider.GetComponent<Belt>().updatelocal();
+            if (up.collider.CompareTag("spliter"))
+                up.collider.GetComponent<Spliter>().updatelocal();
+        }
+        if (right.collider)
+        {
+            if (right.collider.CompareTag("garra"))
+                right.collider.GetComponent<garaScript>().updatelocal();
+            if (right.collider.CompareTag("belt"))
+                right.collider.GetComponent<Belt>().updatelocal();
+            if (right.collider.CompareTag("spliter"))
+                right.collider.GetComponent<Spliter>().updatelocal();
+        }
     }
 
     private void Update()
@@ -39,8 +94,6 @@ public class Spliter : MonoBehaviour
             item = Belt.item;
             
         }
-
-        Invoke("TImeDelay", 0.5f);
 
         if (_isNext[_nextbeltordem] && NexBelt[_nextbeltordem].item == null && item != null)
         {
@@ -56,14 +109,6 @@ public class Spliter : MonoBehaviour
         {
             _nextbeltordem++;
             if (_nextbeltordem >= lateralDeSaida.Length) _nextbeltordem = 0;
-        }
-    }
-
-    void TImeDelay()
-    {
-        for (int i = 0; i < NexBelt.Length; i++)
-        {
-            ray(i);
         }
     }
 
