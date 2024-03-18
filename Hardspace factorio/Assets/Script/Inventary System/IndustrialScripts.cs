@@ -7,9 +7,9 @@ public class IndustrialScripts : MonoBehaviour
     [HideInInspector] private Transform chestUIparent;
 
     [Header("Inventory Lists")]
-    [HideInInspector] public List<Slot> allintrustriSlot = new List<Slot>();
-    [HideInInspector] public List<Slot> inputintrustriSlot = new List<Slot>();
-    [HideInInspector] public List<Slot> outputtrustriSlot = new List<Slot>();
+    public List<Slot> allintrustriSlot = new List<Slot>();
+    public List<Slot> inputintrustriSlot = new List<Slot>();
+    public List<Slot> outputtrustriSlot = new List<Slot>();
 
     [Header("Time and Production")]
     [HideInInspector] public float TimeProduction;
@@ -40,7 +40,8 @@ public class IndustrialScripts : MonoBehaviour
         {
             if (inputintrustriSlot[i].getItem() == null) break;
             Item holdItem = inputintrustriSlot[i].getItem();
-            if (requiredQuantity[i] < holdItem.currentQuantity)return;
+            Debug.Log(holdItem.currentQuantity);
+            if (requiredQuantity[i] > holdItem.currentQuantity)return;
         }
 
         //verificar se tem espaso para produção
@@ -68,7 +69,8 @@ public class IndustrialScripts : MonoBehaviour
                 holdItem.currentQuantity += quantityProduced[i];
             }
             _internofloatTime = TimeProduction;
-        }      
+        }
+
     }
 
     //update de informação

@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1676823853fb1db4f8ce855c2f479d72, type: 3}
-  m_Name: NewRecipe
+  m_Name: Fio de copre
   m_EditorClassIdentifier: 
-  createdItemPrefab: []
-  quantityProduced: 
+  createdItemPrefab:
+  - {fileID: 4908552242043748998, guid: 5d919487473397840b8f9a9bc03b5a96, type: 3}
+  quantityProduced: 01000000
   timeProducedForSeconds: 1
-  requiredIngredients: []
+  requiredIngredients:
+  - IdItem: 2
+    requiredQuantity: 1
+  - IdItem: 3
+    requiredQuantity: 1

@@ -25,8 +25,10 @@ public class ListInventoryMachine : MonoBehaviour
 
     private void Start()
     {
+        allintrustriSlot.Clear();
         allintrustriSlot.AddRange(inputintrustriSlot);
         allintrustriSlot.AddRange(outputtrustriSlot);
+
         for (int i = 0; i < allintrustriSlot.Count; i++)
         {
             allintrustriSlot[i].inistialiseSlot();
@@ -44,39 +46,39 @@ public class ListInventoryMachine : MonoBehaviour
 
         //quantidade e tempo
         quantityProduced = recipe.quantityProduced;
-        TimeProduction = recipe.timeProducedForSeconds;    
+        TimeProduction = recipe.timeProducedForSeconds;
 
+        int output = 0;
         //output
-        for (int i = 0; i < outputtrustriSlot.Count; i++)
+        for (int i = 0; i < recipe.createdItemPrefab.Length; i++)
         {
-            if (recipe.createdItemPrefab[i] != null)
-            {
-                addItemInventoryoutput(recipe.createdItemPrefab[i].GetComponent<Item>());
-                outputtrustriSlot[i].gameObject.SetActive(true);
-                backgrandOutput[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                outputtrustriSlot[i].SetItem(null);
-                outputtrustriSlot[i].gameObject.SetActive(false);
-                backgrandOutput[i].gameObject.SetActive(false);
-            }
+            outputtrustriSlot[i].gameObject.SetActive(true);
+            backgrandOutput[i].gameObject.SetActive(true);
+            addItemInventoryoutput(recipe.createdItemPrefab[i].GetComponent<Item>(),i);
+            
+            output = i;
+        }
+        for (int i = output+1; i < outputtrustriSlot.Count; i++)
+        {
+            outputtrustriSlot[i].SetItem(null);
+            outputtrustriSlot[i].gameObject.SetActive(false);
+            backgrandOutput[i].gameObject.SetActive(false);
         }
         //input
-        for (int i = 0; i < inputintrustriSlot.Count; i++)
+        int input = 0;
+        for (int i = 0; i < recipe.requiredIngredients.Count; i++)
         {
-            if (recipe.requiredIngredients[i] != null)
-            {
-                addItemInput(recipe.requiredIngredients[i].IdItem);
-                requiredQuantity.Add(recipe.requiredIngredients[i].IdItem);
-                inputintrustriSlot[i].gameObject.SetActive(true);
-                backgrandInput[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                inputintrustriSlot[i].gameObject.SetActive(false);
-                backgrandInput[i].gameObject.SetActive(false);
-            }
+            requiredQuantity.Add(recipe.requiredIngredients[i].requiredQuantity);
+            inputintrustriSlot[i].gameObject.SetActive(true);
+            backgrandInput[i].gameObject.SetActive(true);
+            addItemInput(recipe.requiredIngredients[i].IdItem,i);     
+            input = i;
+        }
+
+        for (int i = input + 1; i < inputintrustriSlot.Count; i++)
+        {
+            inputintrustriSlot[i].gameObject.SetActive(false);
+            backgrandInput[i].gameObject.SetActive(false);
         }
 
         allintrustriSlot.AddRange(inputintrustriSlot);
@@ -85,68 +87,28 @@ public class ListInventoryMachine : MonoBehaviour
         Industril.UpdateLists(inputintrustriSlot, outputtrustriSlot, TimeProduction, quantityProduced, requiredQuantity);
     }
 
-    private void addItemInventoryoutput(Item itemToAdd, int overideIndex = 0)
+    private void addItemInventoryoutput(Item itemToAdd,int i ,int overideIndex = 0)
     {
         int leftoverQuantity = overideIndex;
 
-        Slot openSholt = null;
+        Slot openSholt = outputtrustriSlot[i];
 
-        for (int i = 0; i < outputtrustriSlot.Count; i++)
-        {
-            Item heldItem = outputtrustriSlot[i].getItem();
+        openSholt.SetItem(itemToAdd);
+        itemToAdd.currentQuantity = 0;      
 
-            if (heldItem != null)
-            {
-                return;
-            }
-            else if (heldItem == null)
-            {
-                if (!openSholt)
-                    openSholt = outputtrustriSlot[i];
-            }
-
-            outputtrustriSlot[i].UpdateData();
-        }
-
-        if (openSholt)
-        {
-            openSholt.SetItem(itemToAdd);
-            itemToAdd.currentQuantity = leftoverQuantity;
-        }
     }
-    private void addItemInventoryinput(Item itemToAdd, int overideIndex = 0)
+    private void addItemInventoryinput(Item itemToAdd,int i ,int overideIndex = 0)
     {
         int leftoverQuantity = overideIndex;
 
-        Slot openSholt = null;
+        Slot openSholt = inputintrustriSlot[i];
 
-        for (int i = 0; i < inputintrustriSlot.Count; i++)
-        {
-            Item heldItem = inputintrustriSlot[i].getItem();
+        openSholt.SetItem(itemToAdd);
+        itemToAdd.currentQuantity = 0;
 
-            if (heldItem != null)
-            {
-                return;
-            }
-            else if (heldItem == null)
-            {
-                if (!openSholt)
-                    openSholt = inputintrustriSlot[i];
-            }
-
-            inputintrustriSlot[i].UpdateData();
-        }
-
-        if (openSholt)
-        {
-            openSholt.SetItem(itemToAdd);        
-            itemToAdd.currentQuantity = leftoverQuantity;
-            itemToAdd.gameObject.SetActive(false);
-        }
-        
     }
 
-    void addItemInput(int Id)
+    void addItemInput(int Id, int i)
     {
         GameObject itemPrefab = allItemPrefabs.Find(prefab => prefab.GetComponent<Item>().ID == Id);
 
@@ -156,8 +118,7 @@ public class ListInventoryMachine : MonoBehaviour
             Item item = createdItem.GetComponent<Item>();
 
             item.currentQuantity = 0;
-
-            addItemInventoryinput(item);
+            addItemInventoryinput(item,i);
         }
     }
 }
