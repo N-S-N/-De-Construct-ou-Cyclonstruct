@@ -142,6 +142,9 @@ MonoBehaviour:
   update:
     serializedVersion: 2
     m_Bits: 1792
+  Iteam:
+    serializedVersion: 2
+    m_Bits: 64
   tiers:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.7075472, g: 0.6949882, b: 0.24363652, a: 1}
