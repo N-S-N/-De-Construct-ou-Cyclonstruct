@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IndustrialScripts : MonoBehaviour
@@ -20,17 +21,21 @@ public class IndustrialScripts : MonoBehaviour
     private float _internofloatTime;
 
     private GameObject chestSlot;
+    [Header("Layer")]
+    [SerializeField] LayerMask anyon;
 
+    Collider2D coll;
     // Lost table 
     private void Start()
     {
+        coll = GetComponent<Collider2D>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
         chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
         chestSlot.GetComponentInChildren<ListInventoryMachine>().Industril = this;
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
-        uodatedataradio();
+        Invoke("uodatedataradio",0.2f);
     }
 
     private void Update()
@@ -99,23 +104,41 @@ public class IndustrialScripts : MonoBehaviour
     }
     public void uodatedataradio()
     {
-        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -1.5f), Vector2.down, 0.5F);
-        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-1.5f, 0), Vector2.left, 0.5F);
-        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 1.5f), Vector2.up, 0.5F);
-        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(1.5f, 0), Vector2.right, 0.5F);
+        RaycastHit2D up1 = Physics2D.Raycast(new Vector2(coll.bounds.max.x, coll.bounds.max.y), Vector2.up, 0.5F, anyon);
+        RaycastHit2D right1 = Physics2D.Raycast(new Vector2(coll.bounds.max.x, coll.bounds.max.y), Vector2.right, 0.5F, anyon);
+        RaycastHit2D down1 = Physics2D.Raycast(new Vector2(coll.bounds.max.x, coll.bounds.min.y), Vector2.down, 0.5F, anyon);
+        RaycastHit2D right2 = Physics2D.Raycast(new Vector2(coll.bounds.max.x, coll.bounds.min.y), Vector2.right, 0.5F, anyon);
+        RaycastHit2D down2 = Physics2D.Raycast(new Vector2(coll.bounds.min.x, coll.bounds.min.y), Vector2.down, 0.5F, anyon);
+        RaycastHit2D left1 = Physics2D.Raycast(new Vector2(coll.bounds.min.x, coll.bounds.min.y), Vector2.left, 0.5F, anyon);
+        RaycastHit2D up2 = Physics2D.Raycast(new Vector2(coll.bounds.min.x, coll.bounds.max.y), Vector2.up, 0.5F, anyon);
+        RaycastHit2D left2 = Physics2D.Raycast(new Vector2(coll.bounds.min.x, coll.bounds.max.y), Vector2.left, 0.5F, anyon);
 
-        if(down.collider)
-            if (down.collider.CompareTag("garra"))
-                down.collider.GetComponent<garaScript>().updatelocal();
-        if(lesft.collider)
-            if (lesft.collider.CompareTag("garra"))
-                lesft.collider.GetComponent<garaScript>().updatelocal();
-        if(up.collider)
-            if (up.collider.CompareTag("garra"))
-                up.collider.GetComponent<garaScript>().updatelocal();
-        if(right.collider)
-            if (right.collider.CompareTag("garra"))
-                right.collider.GetComponent<garaScript>().updatelocal();
+
+        if (down1.collider)
+            if (down1.collider.CompareTag("garra"))
+                down1.collider.GetComponent<garaScript>().updatelocal();
+        if (left1.collider)
+            if (left1.collider.CompareTag("garra"))
+                left1.collider.GetComponent<garaScript>().updatelocal();
+        if (up1.collider)
+            if (up1.collider.CompareTag("garra"))
+                up1.collider.GetComponent<garaScript>().updatelocal();
+        if (right1.collider)
+            if (right1.collider.CompareTag("garra"))
+                right1.collider.GetComponent<garaScript>().updatelocal();
+        if (down2.collider)
+            if (down2.collider.CompareTag("garra"))
+                down2.collider.GetComponent<garaScript>().updatelocal();
+        if(left2.collider)
+            if (left2.collider.CompareTag("garra"))
+                left2.collider.GetComponent<garaScript>().updatelocal();
+        if(up2.collider)
+            if (up2.collider.CompareTag("garra"))
+                up2.collider.GetComponent<garaScript>().updatelocal();
+        if(right2.collider)
+            if (right2.collider.CompareTag("garra"))
+                right2.collider.GetComponent<garaScript>().updatelocal();
+
     }
 
 }

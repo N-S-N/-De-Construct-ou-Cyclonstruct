@@ -9,15 +9,18 @@ public class Chest : MonoBehaviour
     [HideInInspector] public List<Slot> allChestSlot = new List<Slot>();
     [HideInInspector] public GameObject chestInstantiatedParent;
 
+    [Header("Layer")]
+    [SerializeField] LayerMask anyon;
+
     GameObject chestSlot;
     // Lost table 
 
     void updatedata()
     {
-        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F);
-        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F);
-        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F);
-        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F);
+        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, anyon);
+        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F,anyon);
+        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, anyon);
+        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, anyon);
 
         if (down.collider)
             if (down.collider.CompareTag("garra"))
@@ -35,7 +38,7 @@ public class Chest : MonoBehaviour
 
     private void Start()
     {
-        updatedata();
+        
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
         chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
@@ -50,6 +53,7 @@ public class Chest : MonoBehaviour
 
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
+        updatedata();
     }
 
     private void OnDestroy()

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.Arm;
 
 public class Belt : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Belt : MonoBehaviour
     [SerializeField] Transform lateralDeSaida;
     [Header("layer")]
     [SerializeField]LayerMask layerMask;
+    [SerializeField] LayerMask update;
 
     [Header("Color")]
     [SerializeField] Color[] tiers;
@@ -51,14 +53,14 @@ public class Belt : MonoBehaviour
     }
     public void updatelocal()
     {        
-        ray();
+        Invoke("ray",0.3f);
     }
     private void OnDestroy()
     {
-        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F);
-        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F);
-        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F);
-        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F);
+        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);
+        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
+        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
+        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
 
         if (down.collider)
         {
@@ -111,6 +113,11 @@ public class Belt : MonoBehaviour
         RaycastHit2D m_HitDetect = Physics2D.Raycast(lateralDeSaida.position, Direction(), 0.5F, layerMask);
         if (m_HitDetect)
         {
+            if (!m_HitDetect.collider.GetComponent<Collider2D>().enabled)
+            {
+                ray();
+                return;
+            }
             NexBelt = m_HitDetect.collider.GetComponent<Belt>();         
 
             if (NexBelt != null)
@@ -118,6 +125,7 @@ public class Belt : MonoBehaviour
                 if(NexBelt.gameObject == gameObject)
                 {
                     _isNext = false;
+                    NexBelt = null;
                     return;
                 }
 
@@ -125,7 +133,9 @@ public class Belt : MonoBehaviour
                 return;
             }
         }
+        NexBelt = null;
         _isNext = false;
+
     }
 
     private Vector2 Direction()

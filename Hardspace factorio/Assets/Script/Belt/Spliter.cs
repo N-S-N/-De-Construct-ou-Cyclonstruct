@@ -15,6 +15,7 @@ public class Spliter : MonoBehaviour
 
     [Header("layer")]
     [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask update;
 
     [Header("Debug")]
     [SerializeField] private Belt[] NexBelt;
@@ -40,14 +41,18 @@ public class Spliter : MonoBehaviour
         {
             ray(i);
         }
+        for (int i = 0; i < NexBelt.Length; i++)
+        {
+            ray(i);
+        }
     }
 
     private void OnDestroy()
     {
-        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F);
-        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F);
-        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F);
-        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F);
+        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);
+        RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
+        RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
+        RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
 
         if (down.collider)
         {

@@ -102,6 +102,9 @@ MonoBehaviour:
   chestUIparent: {fileID: 0}
   allChestSlot: []
   chestInstantiatedParent: {fileID: 0}
+  anyon:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!61 &4100942919300393582
 BoxCollider2D:
   m_ObjectHideFlags: 0

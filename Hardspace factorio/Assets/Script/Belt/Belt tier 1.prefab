@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6080444238268995363}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Belt tier 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6014970821548179482}
   - component: {fileID: 727002287164755452}
   - component: {fileID: 6768832490125309452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image
   m_TagString: belt
   m_Icon: {fileID: 0}
@@ -138,7 +138,10 @@ MonoBehaviour:
   lateralDeSaida: {fileID: 7060698523048376267}
   layerMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 512
+  update:
+    serializedVersion: 2
+    m_Bits: 1792
   tiers:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.7075472, g: 0.6949882, b: 0.24363652, a: 1}
@@ -221,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5088862387837533008}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Colider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7060698523048376267}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tranform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
