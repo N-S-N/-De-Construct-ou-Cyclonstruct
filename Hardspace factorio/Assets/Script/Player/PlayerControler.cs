@@ -144,6 +144,9 @@ public class PlayerControler : MonoBehaviour
                     _renderer.flipX = !_renderer.flipX;
 
                 break;
+            case State.parado:
+                _rigidbody.velocity = Vector2.zero;
+                break;
             default:
                 break;
         }

@@ -8,27 +8,32 @@ public class Spliter : MonoBehaviour
     [SerializeField] float SpeedForSeconds = 1f;
     private float mSpeed = 1f;
     private float svspeed;
+    [HideInInspector] public float time;
 
     [Header("Objetos")]
     public GameObject item;
     [SerializeField] Transform[] lateralDeSaida;
 
+
     [Header("layer")]
     [SerializeField] LayerMask layerMask;
     [SerializeField] LayerMask update;
+    [SerializeField] LayerMask Iteam;
 
     [Header("Debug")]
     [SerializeField] private Belt[] NexBelt;
     [SerializeField] private bool[] _isNext;
     [SerializeField] private int _nextbeltordem;
+    [HideInInspector] public bool colidio;
+    [HideInInspector] public bool selecionado = false;
 
-    private bool _isran = false;
-
+    Collider2D Iteamcolider;
     Collider2D colider;
     Belt Belt;
     private void Start()
     {
         svspeed = mSpeed / SpeedForSeconds;
+        time = svspeed;
         Belt = GetComponent<Belt>();
         colider = GetComponent<Collider2D>();
         updatelocal();
@@ -37,10 +42,10 @@ public class Spliter : MonoBehaviour
 
     public void updatelocal()
     {
-        for (int i = 0; i < NexBelt.Length; i++)
-        {
-            ray(i);
-        }
+        Invoke("delayupdate", 0.2f);
+    }
+    void delayupdate()
+    {
         for (int i = 0; i < NexBelt.Length; i++)
         {
             ray(i);
@@ -100,9 +105,15 @@ public class Spliter : MonoBehaviour
             
         }
 
-        if (_isNext[_nextbeltordem] && NexBelt[_nextbeltordem].item == null && item != null)
+        if (item != null && Iteamcolider == null)
+            Iteamcolider = item.GetComponent<Collider2D>();
+
+        if (item == null && Iteamcolider != null)
+            Iteamcolider = null;
+
+        if (_isNext[_nextbeltordem] && item != null && NexBelt[_nextbeltordem].item == null)
         {
-            StartCoroutine(move());
+            move(_nextbeltordem);
         }
 
         else if (NexBelt[_nextbeltordem] == null)
@@ -110,18 +121,18 @@ public class Spliter : MonoBehaviour
             _nextbeltordem++;
             if (_nextbeltordem >= lateralDeSaida.Length) _nextbeltordem = 0;
         }
-        else if (NexBelt[_nextbeltordem].item != null && !_isran)
+        else if (NexBelt[_nextbeltordem].item != null)
         {
             _nextbeltordem++;
             if (_nextbeltordem >= lateralDeSaida.Length) _nextbeltordem = 0;
         }
+        
     }
 
     private void ray(int i)
     {
-            RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), 0.5F, layerMask);
-            Debug.DrawRay(lateralDeSaida[i].position, Direction(i) ,Color.red, 0.5F);
-
+        RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), 0.5F, layerMask);
+        Debug.DrawRay(lateralDeSaida[i].position, Direction(i) ,Color.red, 0.5F);
             if (m_itDetect)
             {
                 NexBelt[i] = m_itDetect.collider.GetComponent<Belt>();
@@ -148,29 +159,60 @@ public class Spliter : MonoBehaviour
 
     }
 
-    private IEnumerator move()
+    private void move(int i)
     {
-        int next = _nextbeltordem;
-        _isran = true;
-        var distanceDelt = SpeedForSeconds * Time.deltaTime;
-        item.transform.position = Vector3.MoveTowards(item.transform.position, NexBelt[_nextbeltordem].transform.position, distanceDelt);
-        yield return new WaitForSeconds(svspeed);
-        _isran = false;
-        if (item != null)
-            NexBelt[_nextbeltordem].item = item;
-        if (NexBelt[_nextbeltordem].item != null)
-        {
-            item = null;
-            Belt.item = null;
-        }
+        if (Iteamcolider == null) return;
 
-        if (next == _nextbeltordem)
+        RaycastHit2D m_HitDetect1 = Physics2D.BoxCast(new Vector2(item.transform.position.x, item.transform.position.y) + (Direction(i) * (Iteamcolider.bounds.size.x))
+            , Iteamcolider.bounds.size / 2, 0f, Direction(i), 0, Iteam);
+
+        if (!m_HitDetect1 || selecionado)
         {
-            _nextbeltordem = next + 1;
-            if (_nextbeltordem >= lateralDeSaida.Length) _nextbeltordem = 0;
             
+            colidio = false;
+            /*if (svspeed / 2 >= time)
+            {
+                if (NexBelt.item != null) return;
+            }*/
+
+            time -= Time.deltaTime;
+            var distanceDelt = SpeedForSeconds * Time.deltaTime;
+            item.transform.position = Vector3.MoveTowards(item.transform.position, NexBelt[i].transform.position, distanceDelt);
+
+            if (time <= 0)
+            {
+                _nextbeltordem++;
+                if (_nextbeltordem >= lateralDeSaida.Length) _nextbeltordem = 0;
+                if (NexBelt[i].item != null) return;
+                NexBelt[i].item = item;
+                item = null;
+                Belt.item = null;
+                Iteamcolider = null;
+                time = svspeed;
+                selecionado = false;
+            }
+        }
+        else
+        {
+
+            if (NexBelt[i].item != null) return;
+
+            Belt outro = m_HitDetect1.collider.GetComponent<Belt>();
+
+            colidio = true;
+            if (NexBelt[i].item == null && outro.colidio && !outro.selecionado)
+            {
+                if (time < outro.time)
+                {
+                    selecionado = true;
+                }
+                else
+                {
+                    selecionado = false;
+                }
+
+            }
         }
     }
-
 
 }

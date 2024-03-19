@@ -69,6 +69,8 @@ public class Belt : MonoBehaviour
         RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
         RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
 
+
+        
         if (down.collider)
         {
             if (down.collider.CompareTag("garra"))
@@ -114,13 +116,13 @@ public class Belt : MonoBehaviour
             Iteamcolider = item.GetComponent<Collider2D>();
         if(item == null && Iteamcolider != null)        
             Iteamcolider = null;
-
+        if(!_isNext && item != null)
+            animator.speed = 0;
         if (_isNext && item != null)
             moveIteam();
         else if (_isNext)
             animator.speed = SpeedForSeconds;
-        else 
-            animator.speed = 0;
+        
     }
 
     private void ray()
@@ -197,6 +199,7 @@ public class Belt : MonoBehaviour
             Belt outro = m_HitDetect1.collider.GetComponent<Belt>();
             
             colidio = true;
+            if (outro == null) return;
             if (NexBelt.item == null && outro.colidio && !outro.selecionado)
             {
                 if (time < outro.time)
