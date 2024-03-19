@@ -114,11 +114,13 @@ public class Belt : MonoBehaviour
             Iteamcolider = item.GetComponent<Collider2D>();
         if(item == null && Iteamcolider != null)        
             Iteamcolider = null;
-        
-        if (_isNext && item !=null)
 
+        if (_isNext && item != null)
             moveIteam();
-
+        else if (_isNext)
+            animator.speed = SpeedForSeconds;
+        else 
+            animator.speed = 0;
     }
 
     private void ray()
@@ -166,6 +168,7 @@ public class Belt : MonoBehaviour
 
         if (!m_HitDetect1 || selecionado)
         {
+            animator.speed = SpeedForSeconds;
             colidio = false;
             /*if (svspeed / 2 >= time)
             {
@@ -188,8 +191,11 @@ public class Belt : MonoBehaviour
         }
         else
         {
+            animator.speed = 0;
             if (NexBelt.item != null) return;
+
             Belt outro = m_HitDetect1.collider.GetComponent<Belt>();
+            
             colidio = true;
             if (NexBelt.item == null && outro.colidio && !outro.selecionado)
             {
