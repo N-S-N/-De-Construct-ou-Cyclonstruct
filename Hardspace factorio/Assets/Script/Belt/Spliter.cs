@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Rendering;
 
 public class Spliter : MonoBehaviour
 {
@@ -39,7 +37,6 @@ public class Spliter : MonoBehaviour
         updatelocal();
         OnDestroy();
     }
-
     public void updatelocal()
     {
         Invoke("delayupdate", 0.2f);
@@ -51,7 +48,6 @@ public class Spliter : MonoBehaviour
             ray(i);
         }
     }
-
     private void OnDestroy()
     {
         RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);
@@ -67,6 +63,8 @@ public class Spliter : MonoBehaviour
                 down.collider.GetComponent<Belt>().updatelocal();
             if (down.collider.CompareTag("spliter"))
                 down.collider.GetComponent<Spliter>().updatelocal();
+            if (down.collider.CompareTag("Tunio"))
+                down.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (lesft.collider)
         {
@@ -76,6 +74,8 @@ public class Spliter : MonoBehaviour
                 lesft.collider.GetComponent<Belt>().updatelocal();
             if (lesft.collider.CompareTag("spliter"))
                 lesft.collider.GetComponent<Spliter>().updatelocal();
+            if (lesft.collider.CompareTag("Tunio"))
+                lesft.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (up.collider)
         {
@@ -85,6 +85,8 @@ public class Spliter : MonoBehaviour
                 up.collider.GetComponent<Belt>().updatelocal();
             if (up.collider.CompareTag("spliter"))
                 up.collider.GetComponent<Spliter>().updatelocal();
+            if (up.collider.CompareTag("Tunio"))
+                up.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (right.collider)
         {
@@ -94,9 +96,10 @@ public class Spliter : MonoBehaviour
                 right.collider.GetComponent<Belt>().updatelocal();
             if (right.collider.CompareTag("spliter"))
                 right.collider.GetComponent<Spliter>().updatelocal();
+            if (right.collider.CompareTag("Tunio"))
+                right.collider.GetComponent<tunioScript>().updatelocal();
         }
     }
-
     private void Update()
     {
         if (Belt.item != null && item == null)
@@ -128,7 +131,6 @@ public class Spliter : MonoBehaviour
         }
         
     }
-
     private void ray(int i)
     {
         RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), 0.5F, layerMask);
@@ -152,13 +154,11 @@ public class Spliter : MonoBehaviour
             _isNext[i] = false;
         
     }
-
     private Vector2 Direction(int i)
     {
         return (lateralDeSaida[i].position - colider.bounds.center).normalized;
 
     }
-
     private void move(int i)
     {
         if (Iteamcolider == null) return;

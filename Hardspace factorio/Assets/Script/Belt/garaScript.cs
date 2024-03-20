@@ -46,7 +46,7 @@ public class garaScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0,-0.5f), Vector2.down, 0.5F, update);
+        RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);
         RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
         RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
         RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
@@ -58,6 +58,8 @@ public class garaScript : MonoBehaviour
                 down.collider.GetComponent<Belt>().updatelocal();
             if (down.collider.CompareTag("spliter"))
                 down.collider.GetComponent<Spliter>().updatelocal();
+            if (down.collider.CompareTag("Tunio"))
+                down.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (lesft.collider)
         {
@@ -67,6 +69,8 @@ public class garaScript : MonoBehaviour
                 lesft.collider.GetComponent<Belt>().updatelocal();
             if (lesft.collider.CompareTag("spliter"))
                 lesft.collider.GetComponent<Spliter>().updatelocal();
+            if (lesft.collider.CompareTag("Tunio"))
+                lesft.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (up.collider)
         {
@@ -76,6 +80,8 @@ public class garaScript : MonoBehaviour
                 up.collider.GetComponent<Belt>().updatelocal();
             if (up.collider.CompareTag("spliter"))
                 up.collider.GetComponent<Spliter>().updatelocal();
+            if (up.collider.CompareTag("Tunio"))
+                up.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (right.collider)
         {
@@ -85,6 +91,8 @@ public class garaScript : MonoBehaviour
                 right.collider.GetComponent<Belt>().updatelocal();
             if (right.collider.CompareTag("spliter"))
                 right.collider.GetComponent<Spliter>().updatelocal();
+            if (right.collider.CompareTag("Tunio"))
+                right.collider.GetComponent<tunioScript>().updatelocal();
         }
     }
     public void updatelocal()

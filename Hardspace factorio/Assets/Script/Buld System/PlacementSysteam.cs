@@ -81,7 +81,6 @@ public class PlacementSysteam : MonoBehaviour
 
     public void Rotate(bool dereita)
     {
-        Debug.Log(Id);
         //todos que pode muydar de rotação
         if (Id == 1)
         {
