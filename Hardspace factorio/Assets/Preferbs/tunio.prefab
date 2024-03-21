@@ -49,12 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Iteam: []
   lateralDeSaida:
-  - {fileID: 8471592162602422923}
   - {fileID: 6397037830916656977}
+  - {fileID: 8471592162602422923}
   beltobj: {fileID: 3059672077235456379}
   sistancyMaxOftunio: 3.5
   SpeedForSeconds: 1
   Directionmove: 0
+  directionmoveprefab: 0
   time: []
   update:
     serializedVersion: 2
@@ -69,6 +70,7 @@ MonoBehaviour:
   objtunioup: {fileID: 0}
   belt: {fileID: 0}
   tunioextewrnoher: {fileID: 0}
+  nullgame: []
 --- !u!61 &4715203254856116603
 BoxCollider2D:
   m_ObjectHideFlags: 0

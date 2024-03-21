@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class tunioScript : MonoBehaviour
@@ -14,10 +15,10 @@ public class tunioScript : MonoBehaviour
     [Header("este sistema e o tamanha maximo do tunion \n elmbrese de coloca .5F no final para não dar erro")]
     [SerializeField] float sistancyMaxOftunio = 4.5f;
     [SerializeField] public float SpeedForSeconds = 1f;
-    [HideInInspector] public float Directionmove = 0;//significa se ta positivo e a entrada e negativo a saida e 0 se nçao tiver neste estado
+    /*[HideInInspector]*/ public float Directionmove = 0;//significa se ta positivo e a entrada e negativo a saida e 0 se nçao tiver neste estado
     private float mSpeed = 1f;
     private float svspeed;
-    private float directionmoveprefab;
+    [SerializeField]private float directionmoveprefab;
     [SerializeField]List<float> time = new List<float>();
 
     [Header("Layers")]
@@ -149,10 +150,13 @@ public class tunioScript : MonoBehaviour
                 nextunio.tunioextewrnoher = gameObject;
                 nextunio.objtunioup = this;
                 nextunio.updateesteira();
+               
             }
             else if (i == 1)
             {
                 belt.isSpliter = false;
+                if (objtunioup.nextunio == null)
+                    objtunioup.nextunio = this;
                 objtunioup.updatedistanci();
                 int negativo = -1;
                 Directionmove = negativo;
@@ -172,7 +176,6 @@ public class tunioScript : MonoBehaviour
     }
     public void updatedistanci()
     {
-        
         if (nextunio.sicronizado != gameObject)
         {
             Iteam.Clear();
@@ -180,7 +183,6 @@ public class tunioScript : MonoBehaviour
             sicronizado = null;
             belt.isSpliter = true;
             nextunio = null;
-            Debug.Log("cccc");
             Directionmove = 0;
         }
         else
@@ -208,20 +210,16 @@ public class tunioScript : MonoBehaviour
         {
             distanci = distanciomapa.y;
         }
-        directionmoveprefab = distanci;
-        if (distanci < 0) distanci *=  -1;
 
+        if (distanci < 0) distanci *=  -1;
+        //
 
         for (int i = 0; i < distanci; i++) 
         {
             Iteam.Add(null);
             time.Add(svspeed);
-        }
-
-        if (directionmoveprefab > 0)        
-            nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[1];                  
-        else
-            nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[0];
+        }   
+        nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[0];                  
 
         nextunio.belt.updatelocal();
 
@@ -232,15 +230,16 @@ public class tunioScript : MonoBehaviour
         return (lateralDeSaida[i].position - transform.position).normalized;
 
     }
+    [SerializeField]List<GameObject> nullgame = new List<GameObject>();
     private void Update()
     {
-
         if (nextunio == null && Directionmove == 0) return;
 
         if (nextunio.tunioextewrnoher != gameObject) return;
 
         if (nextunio.nextunio != this) return;
 
+        if (nullgame.Count == Iteam.Count) return;
         if (Iteam[0] == null && belt.item != null)
         {
             Iteam[0] = belt.item;
