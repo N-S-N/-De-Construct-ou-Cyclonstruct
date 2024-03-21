@@ -11,7 +11,8 @@ public class Belt : MonoBehaviour
 
     [Header("Objetos")]
     public GameObject item;
-    [SerializeField] Transform lateralDeSaida;
+    [SerializeField]public Transform lateralDeSaida;
+
     [Header("layer")]
     [SerializeField]LayerMask layerMask;
     [SerializeField] LayerMask update;
@@ -21,7 +22,7 @@ public class Belt : MonoBehaviour
     [SerializeField] Color[] tiers;
 
     [Header("Debug")]
-    [SerializeField] bool isSpliter = false;
+    [SerializeField] public bool isSpliter = false;
     [SerializeField] private Belt NexBelt;
     [SerializeField] private bool _isNext;
     [HideInInspector] public bool colidio;
@@ -70,7 +71,6 @@ public class Belt : MonoBehaviour
         RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
 
 
-        
         if (down.collider)
         {
             if (down.collider.CompareTag("garra"))
@@ -79,6 +79,8 @@ public class Belt : MonoBehaviour
                 down.collider.GetComponent<Belt>().updatelocal();
             if (down.collider.CompareTag("spliter"))
                 down.collider.GetComponent<Spliter>().updatelocal();
+            if(down.collider.CompareTag("Tunio"))
+                down.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (lesft.collider)
         {
@@ -88,6 +90,8 @@ public class Belt : MonoBehaviour
                 lesft.collider.GetComponent<Belt>().updatelocal();
             if (lesft.collider.CompareTag("spliter"))
                 lesft.collider.GetComponent<Spliter>().updatelocal();
+            if (lesft.collider.CompareTag("Tunio"))
+                lesft.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (up.collider)
         {
@@ -97,6 +101,8 @@ public class Belt : MonoBehaviour
                 up.collider.GetComponent<Belt>().updatelocal();
             if (up.collider.CompareTag("spliter"))
                 up.collider.GetComponent<Spliter>().updatelocal();
+            if (up.collider.CompareTag("Tunio"))
+                up.collider.GetComponent<tunioScript>().updatelocal();
         }
         if (right.collider)
         {
@@ -106,17 +112,20 @@ public class Belt : MonoBehaviour
                 right.collider.GetComponent<Belt>().updatelocal();
             if (right.collider.CompareTag("spliter"))
                 right.collider.GetComponent<Spliter>().updatelocal();
+            if (right.collider.CompareTag("Tunio"))
+                right.collider.GetComponent<tunioScript>().updatelocal();
         }
     }
-
     private void Update()
     {
         if (isSpliter) return;
         if (item != null && Iteamcolider == null)
             Iteamcolider = item.GetComponent<Collider2D>();
-        if(item == null && Iteamcolider != null)        
+            if(item != null)
+                item.GetComponent<menuBelt>().Belt = this;
+        if (item == null && Iteamcolider != null)        
             Iteamcolider = null;
-        if(!_isNext && item != null)
+        if (!_isNext && item != null)
             animator.speed = 0;
         if (_isNext && item != null)
             moveIteam();
@@ -124,7 +133,6 @@ public class Belt : MonoBehaviour
             animator.speed = SpeedForSeconds;
         
     }
-
     private void ray()
     {
         RaycastHit2D m_HitDetect = Physics2D.Raycast(lateralDeSaida.position, Direction(), 0.5F, layerMask);
@@ -154,12 +162,10 @@ public class Belt : MonoBehaviour
         _isNext = false;
 
     }
-
     private Vector2 Direction()
     {
         return (lateralDeSaida.position - colider.bounds.center).normalized;
     }
-
     void moveIteam()
     {
         //RaycastHit2D m_HitDetect = Physics2D.Raycast(item.transform.position, Direction(), 0.5F, Iteam);
@@ -184,6 +190,7 @@ public class Belt : MonoBehaviour
             if (time <= 0)
             {
                 if (NexBelt.item != null) return;
+                item.GetComponent<menuBelt>().Belt = null;
                 NexBelt.item = item;
                 item = null;
                 Iteamcolider = null;
@@ -196,7 +203,7 @@ public class Belt : MonoBehaviour
             animator.speed = 0;
             if (NexBelt.item != null) return;
 
-            Belt outro = m_HitDetect1.collider.GetComponent<Belt>();
+            Belt outro = m_HitDetect1.collider.GetComponent<menuBelt>().Belt;
             
             colidio = true;
             if (outro == null) return;
@@ -206,7 +213,7 @@ public class Belt : MonoBehaviour
                 {
                     selecionado = true;
                 }
-                else
+                else 
                 {
                     selecionado = false;
                 }

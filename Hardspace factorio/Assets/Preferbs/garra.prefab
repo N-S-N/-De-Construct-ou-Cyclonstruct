@@ -168,10 +168,15 @@ MonoBehaviour:
   trais: {fileID: 5138642791307839671}
   isRuning: {fileID: 0}
   SpeedForSeconds: 2
+  time: 0
+  discanso: 0
   inputintrustriSlot: []
   outputtrustriSlot: []
   allChestSlotinput: []
   allChestSlotoutput: []
+  update:
+    serializedVersion: 2
+    m_Bits: 3840
 --- !u!61 &8050684619251314729
 BoxCollider2D:
   m_ObjectHideFlags: 0

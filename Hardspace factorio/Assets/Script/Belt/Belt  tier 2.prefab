@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedForSeconds: 2
+  time: 0
   item: {fileID: 0}
   lateralDeSaida: {fileID: 7060698523048376267}
   layerMask:
@@ -141,7 +142,7 @@ MonoBehaviour:
     m_Bits: 512
   update:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 3840
   Iteam:
     serializedVersion: 2
     m_Bits: 64
@@ -152,6 +153,9 @@ MonoBehaviour:
   isSpliter: 0
   NexBelt: {fileID: 0}
   _isNext: 0
+  colidio: 0
+  selecionado: 0
+  Iteamcolider: {fileID: 0}
 --- !u!61 &727002287164755452
 BoxCollider2D:
   m_ObjectHideFlags: 0
