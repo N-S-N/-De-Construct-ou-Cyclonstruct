@@ -52,7 +52,7 @@ public class PlacementSysteam : MonoBehaviour
                                           objectPlacer);
         _inputManager.Onclicked += PlaceStructure;
         _inputManager.OnExit += StopPlacement;
-        currentRotation = 0;
+       // currentRotation = 0;
         Id = ID;
     }
 
@@ -82,7 +82,7 @@ public class PlacementSysteam : MonoBehaviour
     public void Rotate(bool dereita)
     {
         //todos que pode muydar de rotação
-        if (Id == 1)
+        if (Id == 1 || Id == 4)
         {
             if (dereita) {
                 currentRotation += 90;

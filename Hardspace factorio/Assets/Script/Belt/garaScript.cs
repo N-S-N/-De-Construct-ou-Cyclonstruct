@@ -21,7 +21,7 @@ public class garaScript : MonoBehaviour
      public List<Slot> outputtrustriSlot = new List<Slot>();
      public List<Slot> allChestSlotinput = new List<Slot>();
      public List<Slot> allChestSlotoutput = new List<Slot>();
-
+    public List<Slot> allInventorySlot = new List<Slot>();
     [Header("layer")]
     [SerializeField] LayerMask update;
 
@@ -152,6 +152,15 @@ public class garaScript : MonoBehaviour
         if (IndustrialScripts[0] == null) inputintrustriSlot.Clear();
         if (chest[1] == null) allChestSlotoutput.Clear();
         if (chest[0] == null) allChestSlotinput.Clear();
+        if (chest[0] != null)
+        {
+            allInventorySlot.AddRange(chest[0].allChestSlot);
+        }
+        else
+        {
+            allInventorySlot.Clear();
+        }
+
     }
     private Vector2 Direction(Transform lateralDeSaida)
     {
@@ -297,15 +306,16 @@ public class garaScript : MonoBehaviour
                                     {
                                         holdItem.currentQuantity--;
                                         allChestSlotoutput[i].UpdateData();
+                                        if (holdItem.currentQuantity == 0)
+                                        {
+                                            allChestSlotoutput[i].SetItem(null);
+                                        }
+
                                         isRuning = Instantiate(holdItem.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItem.gameObject.transform.rotation);
                                         isRuning.GetComponent<Item>().currentQuantity = 1;
                                         isRuning.SetActive(true);
-                                        allChestSlotoutput[o - 1].UpdateData();
-                                        if (holdItem.currentQuantity <= 0)
-                                        {
-                                            allChestSlotoutput[o - 1].SetItem(null);
-                                        }
-                                        allChestSlotoutput[o-1].UpdateData();
+                                        allChestSlotoutput[i].UpdateData();                                        
+                                        allChestSlotoutput[i].UpdateData();
                                         break;
                                     }
                                 }
@@ -490,34 +500,21 @@ public class garaScript : MonoBehaviour
                 }
                 else if (chest[0] != null)
                 {
-                    for (int i = 0; i < allChestSlotinput.Count; i++)
+                    if (isRuning != null)
                     {
-                        Item holdItem = allChestSlotinput[i].getItem();
-                        if (holdItem != null && isRuning.GetComponent<Item>().ID == holdItem.ID)
+                        if (chest[0].chestInstantiatedParent.activeSelf == false) 
                         {
-                            
-                            holdItem.currentQuantity++;
-                            allChestSlotinput[i].UpdateData();
-                            Destroy(isRuning);
-                            isRuning = null;
-                            time = svspeed;
-                            return;
+                            chest[0].chestInstantiatedParent.SetActive(true);
+                            addItemInventory(isRuning.GetComponent<Item>());
+                            chest[0].chestInstantiatedParent.SetActive(false);
+                        }
+                        else
+                        {
+                            addItemInventory(isRuning.GetComponent<Item>());
                         }
                     }
-                    for (int i = 0; i < allChestSlotinput.Count; i++)
-                    {
-                        Item holdItem = allChestSlotinput[i].getItem();
-                        if (holdItem == null)
-                        {
-                            allChestSlotinput[i].SetItem(isRuning.GetComponent<Item>());
-                            allChestSlotinput[i].UpdateData();
-                            Debug.Log(holdItem.currentQuantity);
-                            Destroy(isRuning);
-                            isRuning = null;
-                            time = svspeed;
-                            return;
-                        }
-                    }//
+                    time = svspeed;
+                    isRuning = null;
                 }
                 else if (belt[0] != null)
                 {
@@ -546,5 +543,62 @@ public class garaScript : MonoBehaviour
             }
         }
     }
+
+    private void addItemInventory(Item itemToAdd, int overideIndex = -1)
+    {
+        if (overideIndex != -1)
+        {
+
+            if (overideIndex > allInventorySlot.Count) return;
+            allInventorySlot[overideIndex].SetItem(itemToAdd);
+            itemToAdd.gameObject.SetActive(false);
+            allInventorySlot[overideIndex].UpdateData();
+            return;
+        }
+
+        int leftoverQuantity = itemToAdd.currentQuantity;
+        Slot openSholt = null;
+        for (int i = 0; i < allInventorySlot.Count; i++)
+        {
+            Item heldItem = allInventorySlot[i].getItem();
+
+            if (heldItem != null && itemToAdd.ID == heldItem.ID)
+            {
+                int freeSpaceInSlot = heldItem.MaxQuabttity - heldItem.currentQuantity;
+                if (freeSpaceInSlot >= leftoverQuantity)
+                {
+                    heldItem.currentQuantity += leftoverQuantity;
+                    Destroy(itemToAdd.gameObject);
+                    allInventorySlot[i].UpdateData();
+                    return;
+                }
+                else// DD as much as we can to the currest Slot
+                {
+                    heldItem.currentQuantity = heldItem.MaxQuabttity;
+                    leftoverQuantity -= freeSpaceInSlot;
+                }
+            }
+            else if (heldItem == null)
+            {
+                if (!openSholt)
+                    openSholt = allInventorySlot[i];
+            }
+
+            allInventorySlot[i].UpdateData();
+        }
+
+        if (leftoverQuantity > 0 && openSholt)
+        {
+            openSholt.SetItem(itemToAdd);
+            itemToAdd.currentQuantity = leftoverQuantity;
+            itemToAdd.gameObject.SetActive(false);
+        }
+        else
+        {
+            itemToAdd.currentQuantity = leftoverQuantity;
+        }
+    }
+
+
 }
 
