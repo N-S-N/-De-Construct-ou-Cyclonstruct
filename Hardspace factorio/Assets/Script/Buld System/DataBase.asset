@@ -25,3 +25,7 @@ MonoBehaviour:
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 6159699000852907594, guid: 00701a5240cd1db49885b24c4cf59c94, type: 3}
+  - <Name>k__BackingField: Garra
+    <ID>k__BackingField: 4
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 619879171462924467, guid: 393da15db3901824eba5b19cd5ac29bc, type: 3}
