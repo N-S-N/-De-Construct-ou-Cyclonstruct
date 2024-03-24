@@ -102,7 +102,7 @@ public class PreviwSystem : MonoBehaviour
     private void ApplyfeedbackToCursor(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
-        c.a = 0.5f;
+        c.a = 0.1f;
         cellIndicatorRender.color = c;
         //previewMatarialInstance.color = c;
     }

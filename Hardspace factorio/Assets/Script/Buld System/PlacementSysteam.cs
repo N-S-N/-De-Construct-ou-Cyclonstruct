@@ -14,6 +14,8 @@ public class PlacementSysteam : MonoBehaviour
 
     [SerializeField] private GameObject _gridVisualization;
 
+    [SerializeField] private GameObject ButomSelect;
+
     private GridData floorData, furnitureData; 
 
     [SerializeField] private PreviwSystem previw;
@@ -27,6 +29,8 @@ public class PlacementSysteam : MonoBehaviour
     private float currentRotation;
 
     [SerializeField] UnityEvent direita, esquerda;
+
+    [SerializeField] List<int> IdRotesionValid = new List<int>();
 
     private int Id = -1;
 
@@ -52,8 +56,10 @@ public class PlacementSysteam : MonoBehaviour
                                           objectPlacer);
         _inputManager.Onclicked += PlaceStructure;
         _inputManager.OnExit += StopPlacement;
-       // currentRotation = 0;
+                   
         Id = ID;
+        if (-1 == IdRotesionValid.IndexOf(Id))
+            currentRotation = 0;
     }
 
     public void StartRemoving()
@@ -82,7 +88,7 @@ public class PlacementSysteam : MonoBehaviour
     public void Rotate(bool dereita)
     {
         //todos que pode muydar de rotação
-        if (Id == 1 || Id == 4)
+        if (-1 != IdRotesionValid.IndexOf(Id))
         {
             if (dereita) {
                 currentRotation += 90;
@@ -128,6 +134,7 @@ public class PlacementSysteam : MonoBehaviour
         lastDectedPosition = Vector3Int.zero;
         buldingState = null;
         Id = -1;
+        ButomSelect.SetActive(false);
     }
 
     private void Update()

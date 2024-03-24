@@ -364,7 +364,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.31007594, g: 0.29810432, b: 0.7264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -528,21 +528,7 @@ MonoBehaviour:
   isPrevayAtivet:
   - {fileID: 6887852738357317769}
   - {fileID: 4584206462475271256}
-  EventIsPrevay:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8562531472600036227}
-        m_TargetAssemblyTypeName: tunioScript, Assembly-CSharp
-        m_MethodName: isEventPrevio
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  EventIsPrevay: []
 --- !u!1 &4584206462475271256
 GameObject:
   m_ObjectHideFlags: 0
