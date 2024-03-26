@@ -51,9 +51,13 @@ public class tunioScript : MonoBehaviour
     #region previo
     public void isEventPrevio()
     {
-        raiprevio(0);
+        Invoke("dalayevent", 0.2f);
+        //raiprevio(1);
     }
-
+    void dalayevent()
+    {
+        raiprevio(1);
+    }
     void raiprevio(int i)
     {
         RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), sistancyMaxOftunio, tunio);
@@ -65,7 +69,7 @@ public class tunioScript : MonoBehaviour
             if (SpeedForSeconds != nextunioprevio.SpeedForSeconds)
             {
                 nextunioprevio = null;
-                isEventPrevio();
+                Invoke("dalayevent", 0.2f);
                 return;
             }
             nextunioprevio.objtunioupprevio = this;
@@ -79,7 +83,7 @@ public class tunioScript : MonoBehaviour
             dawnPrevioinplacement();
 
         }
-        isEventPrevio();
+        Invoke("dalayevent", 0.2f);
     }
 
     public void previoreyconter(int i)
@@ -89,7 +93,6 @@ public class tunioScript : MonoBehaviour
         if (m_itDetect)
         {
             nextunioprevio = m_itDetect.collider.GetComponent<tunioScript>();
-
             if (SpeedForSeconds != nextunioprevio.SpeedForSeconds)
             {
                 nextunioprevio = null;
@@ -98,12 +101,11 @@ public class tunioScript : MonoBehaviour
             }
             if (m_itDetect.collider.gameObject != sicronizadoupprevio)
             {
-
                 objtunioupprevio.nextunioprevio = null;
                 objtunioupprevio.dawnPrevioinplacement();
                 return;
             }
-                nextunioprevio.dawnPrevioinplacement();
+            nextunioprevio.dawnPrevioinplacement();
 
         }
         else
@@ -133,7 +135,7 @@ public class tunioScript : MonoBehaviour
     #region sistema de atualisação e detecção
     void Start()
     {
-        linerenderer = new LineRenderer();
+        linerenderer = GetComponent<LineRenderer>();
         colider = GetComponent<Collider2D>();
         svspeed = mSpeed / SpeedForSeconds;
         belt = beltobj.GetComponent<Belt>();
@@ -152,6 +154,14 @@ public class tunioScript : MonoBehaviour
         RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
         RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
         RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
+
+        RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[1].position, Direction(1), sistancyMaxOftunio, tunio);
+
+        if(m_itDetect)
+        {        
+            m_itDetect.collider.GetComponent<tunioScript>().updatelocal();
+        }
+           
 
         if (down.collider)
         {

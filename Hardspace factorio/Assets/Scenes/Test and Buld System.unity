@@ -4007,7 +4007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 619879171462924467, guid: 393da15db3901824eba5b19cd5ac29bc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 636654431308797786, guid: 393da15db3901824eba5b19cd5ac29bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6482,6 +6482,10 @@ PrefabInstance:
     - target: {fileID: 3275966563149763212, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
       propertyPath: m_Name
       value: tunio (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275966563149763212, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10103,6 +10107,10 @@ PrefabInstance:
     - target: {fileID: 1021307873524988890, guid: 5c4b55e0467742744b95785586ccecd2, type: 3}
       propertyPath: m_Name
       value: Spliter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021307873524988890, guid: 5c4b55e0467742744b95785586ccecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1021307873524988890, guid: 5c4b55e0467742744b95785586ccecd2, type: 3}
       propertyPath: m_TagString
@@ -14457,6 +14465,10 @@ PrefabInstance:
     - target: {fileID: 3275966563149763212, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
       propertyPath: m_Name
       value: tunio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275966563149763212, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4022880905902699698, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
       propertyPath: item
