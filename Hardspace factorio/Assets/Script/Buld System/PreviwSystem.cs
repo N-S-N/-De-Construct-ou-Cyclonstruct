@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -42,8 +43,29 @@ public class PreviwSystem : MonoBehaviour
 
     private void PreparePreaview(GameObject previewObjects)
     {
-        Collider2D collider = previewObjects.GetComponentInChildren<Collider2D>();
-        collider.enabled = false;
+        objColliderPrevay colliderDataBase = previewObjects.GetComponent<objColliderPrevay>();
+        List<GameObject> a = new List<GameObject>(0);
+        if(colliderDataBase.ColaderDesativete.Count != a.Count)
+        {
+            for(int i = 0; i < colliderDataBase.ColaderDesativete.Count; i++)
+            {
+                colliderDataBase.ColaderDesativete[i].enabled = false;
+            }
+        }
+        if (colliderDataBase.isPrevayAtivet.Count != a.Count)
+        {
+            for (int i = 0; i < colliderDataBase.isPrevayAtivet.Count; i++)
+            {
+                colliderDataBase.isPrevayAtivet[i].SetActive(true);
+            }
+        }
+        if (colliderDataBase.EventIsPrevay.Count != a.Count)
+        {
+            for (int i = 0; i < colliderDataBase.EventIsPrevay.Count; i++)
+            {
+                colliderDataBase.EventIsPrevay[i].Invoke();
+            }
+        }
 
         SpriteRenderer renderers = previewObjects.GetComponentInChildren<SpriteRenderer>();
         Color c = Color.white;
@@ -80,7 +102,7 @@ public class PreviwSystem : MonoBehaviour
     private void ApplyfeedbackToCursor(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
-        c.a = 0.5f;
+        c.a = 0.1f;
         cellIndicatorRender.color = c;
         //previewMatarialInstance.color = c;
     }

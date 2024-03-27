@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6942448234076212809}
+  - component: {fileID: 5367138550632544170}
   m_Layer: 9
   m_Name: Spliter
   m_TagString: Untagged
@@ -33,6 +34,23 @@ Transform:
   - {fileID: 3513182430680994027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5367138550632544170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021307873524988890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f66350f100a974284153db863bc7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColaderDesativete:
+  - {fileID: 5825633922044286496}
+  - {fileID: 5718375506177585828}
+  isPrevayAtivet: []
+  EventIsPrevay: []
 --- !u!1 &3153537754143285786
 GameObject:
   m_ObjectHideFlags: 0

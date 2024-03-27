@@ -3,22 +3,24 @@ using UnityEngine;
 
 public class tunioScript : MonoBehaviour
 {
+    #region variaves
     [Header("Objetos")]
     public List<GameObject> Iteam = new List<GameObject>();
     [Header("lateralDeSaida[0] representa o ponto trazeito\n" +
         "lateralDeSaida[1] representa o ponto dianteiro")]
-    [SerializeField] Transform[] lateralDeSaida  = new Transform[2];
+    [SerializeField] Transform[] lateralDeSaida = new Transform[2];
     [SerializeField] GameObject beltobj;
 
     [Header("Gerenciamento")]
     [Header("este sistema e o tamanha maximo do tunion \n elmbrese de coloca .5F no final para não dar erro")]
     [SerializeField] float sistancyMaxOftunio = 4.5f;
     [SerializeField] public float SpeedForSeconds = 1f;
-    [HideInInspector] public float Directionmove = 0;//significa se ta positivo e a entrada e negativo a saida e 0 se nçao tiver neste estado
+    /*[HideInInspector]*/
+    public float Directionmove = 0;//significa se ta positivo e a entrada e negativo a saida e 0 se nçao tiver neste estado
     private float mSpeed = 1f;
     private float svspeed;
-    private float directionmoveprefab;
-    [SerializeField]List<float> time = new List<float>();
+    [SerializeField] private float directionmoveprefab;
+    [SerializeField] List<float> time = new List<float>();
 
     [Header("Layers")]
     [SerializeField] LayerMask update;
@@ -28,15 +30,112 @@ public class tunioScript : MonoBehaviour
     [HideInInspector] public bool colidio;
     [HideInInspector] public bool selecionado = false;
     [SerializeField] private tunioScript nextunio;
-    [HideInInspector]public GameObject sicronizado = null;
+    [HideInInspector] public GameObject sicronizado = null;
     [HideInInspector] public tunioScript objtunioup;
 
+    //previo
+    [HideInInspector] GameObject sicronizadoupprevio;
+    [HideInInspector] public tunioScript objtunioupprevio;
+    [HideInInspector]public tunioScript nextunioprevio;
+    LineRenderer linerenderer;
+
     Collider2D colider;
+    //
+
     [HideInInspector] public Belt belt;
-    
+
     [HideInInspector] public GameObject tunioextewrnoher;
+
+    #endregion
+
+    #region previo
+    public void isEventPrevio()
+    {
+        Invoke("dalayevent", 0.2f);
+        //raiprevio(1);
+    }
+    void dalayevent()
+    {
+        raiprevio(1);
+    }
+    void raiprevio(int i)
+    {
+        RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), sistancyMaxOftunio, tunio);
+        Debug.DrawRay(lateralDeSaida[i].position, Direction(i), Color.red, sistancyMaxOftunio);
+        if (m_itDetect)
+        {
+            nextunioprevio = m_itDetect.collider.GetComponent<tunioScript>();
+
+            if (SpeedForSeconds != nextunioprevio.SpeedForSeconds)
+            {
+                nextunioprevio = null;
+                Invoke("dalayevent", 0.2f);
+                return;
+            }
+            nextunioprevio.objtunioupprevio = this;
+            nextunioprevio.sicronizadoupprevio = gameObject;
+            nextunioprevio.previoreyconter(0);
+
+        }
+        else
+        {
+            nextunioprevio = null;
+            dawnPrevioinplacement();
+
+        }
+        Invoke("dalayevent", 0.2f);
+    }
+
+    public void previoreyconter(int i)
+    {
+        RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[i].position, Direction(i), sistancyMaxOftunio, tunio);
+        Debug.DrawRay(lateralDeSaida[i].position, Direction(i), Color.red, sistancyMaxOftunio);
+        if (m_itDetect)
+        {
+            nextunioprevio = m_itDetect.collider.GetComponent<tunioScript>();
+            if (SpeedForSeconds != nextunioprevio.SpeedForSeconds)
+            {
+                nextunioprevio = null;
+                isEventPrevio();
+                return;
+            }
+            if (m_itDetect.collider.gameObject != sicronizadoupprevio)
+            {
+                objtunioupprevio.nextunioprevio = null;
+                objtunioupprevio.dawnPrevioinplacement();
+                return;
+            }
+            nextunioprevio.dawnPrevioinplacement();
+
+        }
+        else
+        {
+            objtunioupprevio.nextunioprevio = null;
+            objtunioupprevio.dawnPrevioinplacement();
+        }
+    }
+
+    public void dawnPrevioinplacement()
+    {     
+        if (nextunioprevio != null)
+        {
+            linerenderer.enabled = true;
+            linerenderer.SetPosition(0, gameObject.transform.position);
+            linerenderer.SetPosition(1, nextunioprevio.gameObject.transform.position);
+        }
+        else
+        {
+            linerenderer.enabled = false;
+
+        }
+    }
+
+    #endregion
+
+    #region sistema de atualisação e detecção
     void Start()
     {
+        linerenderer = GetComponent<LineRenderer>();
         colider = GetComponent<Collider2D>();
         svspeed = mSpeed / SpeedForSeconds;
         belt = beltobj.GetComponent<Belt>();
@@ -55,6 +154,14 @@ public class tunioScript : MonoBehaviour
         RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
         RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
         RaycastHit2D right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), Vector2.right, 0.5F, update);
+
+        RaycastHit2D m_itDetect = Physics2D.Raycast(lateralDeSaida[1].position, Direction(1), sistancyMaxOftunio, tunio);
+
+        if(m_itDetect)
+        {        
+            m_itDetect.collider.GetComponent<tunioScript>().updatelocal();
+        }
+           
 
         if (down.collider)
         {
@@ -149,10 +256,13 @@ public class tunioScript : MonoBehaviour
                 nextunio.tunioextewrnoher = gameObject;
                 nextunio.objtunioup = this;
                 nextunio.updateesteira();
+               
             }
             else if (i == 1)
             {
                 belt.isSpliter = false;
+                if (objtunioup.nextunio == null)
+                    objtunioup.nextunio = this;
                 objtunioup.updatedistanci();
                 int negativo = -1;
                 Directionmove = negativo;
@@ -172,7 +282,6 @@ public class tunioScript : MonoBehaviour
     }
     public void updatedistanci()
     {
-        
         if (nextunio.sicronizado != gameObject)
         {
             Iteam.Clear();
@@ -180,7 +289,6 @@ public class tunioScript : MonoBehaviour
             sicronizado = null;
             belt.isSpliter = true;
             nextunio = null;
-            Debug.Log("cccc");
             Directionmove = 0;
         }
         else
@@ -193,6 +301,9 @@ public class tunioScript : MonoBehaviour
             belt.isSpliter = true;
         }
     }
+    #endregion
+
+    #region sistema de eslot e direção/ tamanho 
     public void distanciAndItemSlot()
     {
         
@@ -208,20 +319,16 @@ public class tunioScript : MonoBehaviour
         {
             distanci = distanciomapa.y;
         }
-        directionmoveprefab = distanci;
-        if (distanci < 0) distanci *=  -1;
 
+        if (distanci < 0) distanci *=  -1;
+        //
 
         for (int i = 0; i < distanci; i++) 
         {
             Iteam.Add(null);
             time.Add(svspeed);
-        }
-
-        if (directionmoveprefab > 0)        
-            nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[1];                  
-        else
-            nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[0];
+        }   
+        nextunio.belt.lateralDeSaida = nextunio.lateralDeSaida[0];                  
 
         nextunio.belt.updatelocal();
 
@@ -232,15 +339,19 @@ public class tunioScript : MonoBehaviour
         return (lateralDeSaida[i].position - transform.position).normalized;
 
     }
+    [SerializeField]List<GameObject> nullgame = new List<GameObject>();
+    #endregion
+
+    #region Updates
     private void Update()
     {
-
         if (nextunio == null && Directionmove == 0) return;
 
         if (nextunio.tunioextewrnoher != gameObject) return;
 
         if (nextunio.nextunio != this) return;
 
+        if (nullgame.Count == Iteam.Count) return;
         if (Iteam[0] == null && belt.item != null)
         {
             Iteam[0] = belt.item;
@@ -285,4 +396,5 @@ public class tunioScript : MonoBehaviour
         
         time[i-1] = svspeed;
     }
+    #endregion
 }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class IndustrialScripts : MonoBehaviour
@@ -74,7 +73,6 @@ public class IndustrialScripts : MonoBehaviour
                 if (outputtrustriSlot[i].getItem() == null) break;
                 Item holdItem = outputtrustriSlot[i].getItem();
                 holdItem.currentQuantity += quantityProduced[i];
-                Debug.Log(holdItem.currentQuantity);
                 outputtrustriSlot[i].UpdateData();
             }
             _internofloatTime = TimeProduction;

@@ -26,7 +26,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void SetItem(Item item)
     {
         heldItem = item;
-
         if(item != null)
         {
             thisSlotImage.sprite = heldItem.icone;
