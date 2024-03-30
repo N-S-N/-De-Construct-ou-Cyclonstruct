@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class missaoScripter : MonoBehaviour
 {
     #region variaves
 
     [Header("tipo de missao")]
+    [SerializeField] bool _isMisaonOfTier;
     public List<missaoDataList> missao = new List<missaoDataList>();
 
     [Header("Debug")]
     [SerializeField] private missaoDataList missaoSelect = null;
     [SerializeField] private List<InveltoryMissaoSloySave> SaveSlot = new List<InveltoryMissaoSloySave>();
-    [HideInInspector] public UnityEvent UiEVENTS;
-
+    [HideInInspector] public Button butom;
     [SerializeField] private GameObject chestUIPrefab;
     [HideInInspector] private Transform chestUIparent;
 
@@ -33,6 +34,7 @@ public class missaoScripter : MonoBehaviour
     #region start and update Data
     private void Start()
     {
+        
         upadateEventSysteam();
         for (int i = 0; i < missao.Count; i++)
         {
@@ -40,15 +42,15 @@ public class missaoScripter : MonoBehaviour
         }
 
         coll = GetComponent<Collider2D>();
+        Debug.Log(new Vector2(coll.bounds.max.x - coll.bounds.min.x, coll.bounds.max.y - coll.bounds.min.y));
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
         chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
-        //chestSlot.GetComponentInChildren<ListInventoryMachine>().Industril = this;
+        chestSlot.GetComponentInChildren<ListmissonUI>().mission = this;
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
         Invoke("uodatedataradio", 0.2f);
-
-
+       
     }
     private void OnDestroy()
     {
@@ -57,7 +59,7 @@ public class missaoScripter : MonoBehaviour
     }
     public void uodatedataradio()
     {
-        Vector2 size = coll.bounds.size;
+        Vector2 size = new Vector2(coll.bounds.max.x - coll.bounds.min.x, coll.bounds.max.y - coll.bounds.min.y);
 
         for (int i = 0; i < size.x; i++)
         {
@@ -91,7 +93,7 @@ public class missaoScripter : MonoBehaviour
 
     #region Update missao
 
-    public void updateDatainFucion(int i, List<Slot> input)
+    public void updateDatainFucion(int i, List<Slot> input, List<GameObject>BlackImage)
     {
         if (missao[i] != missaoSelect)
         {
@@ -123,11 +125,13 @@ public class missaoScripter : MonoBehaviour
         for (int u = 0; u < inputintrustriSlot.Count; u++)
         {
             inputintrustriSlot[u].enabled = false;
+            BlackImage[u].SetActive(false);
         }
 
         for (int u = 0; u < input.Count; u++)
         {
             inputintrustriSlot[u].enabled = true;
+            BlackImage[u].SetActive(true);
         }
 
     } 
@@ -146,10 +150,21 @@ public class missaoScripter : MonoBehaviour
 
     void upadateEventSysteam()
     {
-        EventData EventData = FindAnyObjectByType<EventData>();
-        for (int i = 0; i < missao.Count; i++) 
+        if (!_isMisaonOfTier)
         {
-            missao[i].Eventos = EventData.EvenosMissao[i];
+            EventData EventData = FindAnyObjectByType<EventData>();
+            for (int i = 0; i < missao.Count; i++)
+            {
+                missao[i].Eventos = EventData.EvenosMissao[i];
+            }
+        }
+        else
+        {
+            EventData EventData = FindAnyObjectByType<EventData>();
+            for (int i = 0; i < missao.Count; i++)
+            {
+                missao[i].Eventos = EventData.EvenosMissaoTier[i];
+            }
         }
     }
 
@@ -159,6 +174,7 @@ public class missaoScripter : MonoBehaviour
     private void Update()
     {
         if (missaoSelect == null) return;
+        if (butom == null) return;
         for (int i = 0; i < missaoSelect.renquedrentes.Count; i++) 
         {
             Item holdItem = inputintrustriSlot[i].getItem();
@@ -166,8 +182,8 @@ public class missaoScripter : MonoBehaviour
                 return;
         }
 
+        butom.interactable = false;
         missaoSelect.Eventos.Invoke();
-        UiEVENTS.Invoke();
         missaoSelect = null;
     }
     #endregion

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -22,6 +21,7 @@ public class garaScript : MonoBehaviour
      public List<Slot> allChestSlotinput = new List<Slot>();
      public List<Slot> allChestSlotoutput = new List<Slot>();
     public List<Slot> allInventorySlot = new List<Slot>();
+
     [Header("layer")]
     [SerializeField] LayerMask update;
 
@@ -29,6 +29,7 @@ public class garaScript : MonoBehaviour
     [SerializeField]IndustrialScripts[] IndustrialScripts = new IndustrialScripts[2];
     [SerializeField] Chest[] chest = new Chest[2];
     [SerializeField] Belt[] belt = new Belt[2];
+    [SerializeField] missaoScripter missao;
 
     //componetes
     Animator animator;
@@ -107,7 +108,7 @@ public class garaScript : MonoBehaviour
         IndustrialScripts[0] = null;
         chest[0] = null;
         belt[0] = null;
-
+        missao = null;
         RaycastHit2D m_HitDetect = Physics2D.Raycast(frente.position, Direction(frente), 0.5F);
         if (m_HitDetect)
         {
@@ -115,6 +116,7 @@ public class garaScript : MonoBehaviour
             IndustrialScripts[0] = m_HitDetect.collider.GetComponent<IndustrialScripts>();
             chest[0] = m_HitDetect.collider.GetComponent<Chest>();
             belt[0] = m_HitDetect.collider.GetComponent<Belt>();
+            missao = m_HitDetect.collider.GetComponent<missaoScripter>();
 
             if (IndustrialScripts[0] != null)
                 inputintrustriSlot = IndustrialScripts[0].inputintrustriSlot;
@@ -124,7 +126,10 @@ public class garaScript : MonoBehaviour
                 allChestSlotinput = chest[0].allChestSlot;
             else
                 allChestSlotinput.Clear();
-
+            if(missao!= null)
+                inputintrustriSlot = missao.inputintrustriSlot;
+            else 
+                inputintrustriSlot.Clear();
         }
         RaycastHit2D segund = Physics2D.Raycast(trais.position, Direction(trais), 0.5F);
         if (segund)
@@ -148,6 +153,7 @@ public class garaScript : MonoBehaviour
     }
     void updatelater()
     {
+        if (missao == null) inputintrustriSlot.Clear();
         if (IndustrialScripts[1] == null) outputtrustriSlot.Clear();
         if (IndustrialScripts[0] == null) inputintrustriSlot.Clear();
         if (chest[1] == null) allChestSlotoutput.Clear();
@@ -411,7 +417,89 @@ public class garaScript : MonoBehaviour
                         }
                     }
                 }
+                else if(missao != null)
+                {
+                    if (belt[1] != null)
+                    {
+                        if (isRuning == null)
+                        {
+                            for (int i = 0; i < inputintrustriSlot.Count; i++)
+                            {
+                                Item holdItem = inputintrustriSlot[i].getItem();
+                                if (belt[1].item != null)
+                                {
+                                    if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID)
+                                    {
+                                        isRuning = belt[1].item;
+                                        belt[1].item = null;
+                                        break;
+                                    }
+                                }
+                            }
+                        }//
+                    }
+                    else if (chest[1] != null)
+                    {
+                        if (isRuning == null)
+                        {
+                            for (int i = 0; i < inputintrustriSlot.Count; i++)
+                            {
+                                if (isRuning != null) break;
 
+                                Item holdItem = inputintrustriSlot[i].getItem();
+
+                                for (int o = allChestSlotoutput.Count; o > 0; o--)
+                                {
+                                    Item holdItemout = allChestSlotoutput[o - 1].getItem();
+
+                                    if (holdItemout != null && inputintrustriSlot != null && holdItemout.ID == holdItem.ID)
+                                    {
+                                        holdItemout.currentQuantity--;
+                                        isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
+                                        isRuning.SetActive(true);
+
+
+                                        allChestSlotoutput[o - 1].UpdateData();
+
+                                        isRuning.GetComponent<Item>().currentQuantity = 1;
+                                        if (holdItemout.currentQuantity <= 0)
+                                        {
+                                            allChestSlotoutput[o - 1].SetItem(null);
+                                            allChestSlotoutput[o - 1].UpdateData();
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (IndustrialScripts[1])
+                    {
+                        if (isRuning == null)
+                        {
+                            for (int i = 0; i < inputintrustriSlot.Count; i++)
+                            {
+                                if (isRuning != null) break;
+
+                                Item holdItem = inputintrustriSlot[i].getItem();
+
+                                for (int o = 0; o < outputtrustriSlot.Count; o++)
+                                {
+                                    Item holdItemout = outputtrustriSlot[o].getItem();
+                                    if (holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0)
+                                    {
+                                        holdItemout.currentQuantity--;
+                                        isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
+                                        isRuning.GetComponent<Item>().currentQuantity = 1;
+                                        isRuning.SetActive(true);
+                                        outputtrustriSlot[o - 1].UpdateData();
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 
                 if (isRuning == null) return;
             }
@@ -523,6 +611,22 @@ public class garaScript : MonoBehaviour
                     time = svspeed;
                     return;
                 }
+                else if(missao != null)
+                {
+                    for (int i = 0; i < inputintrustriSlot.Count; i++)
+                    {
+                        Item holdItem = inputintrustriSlot[i].getItem();
+                        if (isRuning.GetComponent<Item>().ID == holdItem.ID)
+                        {
+                            holdItem.currentQuantity++;
+                            inputintrustriSlot[i].UpdateData();
+                            Destroy(isRuning);
+                            isRuning = null;
+                            time = svspeed;
+                            return;
+                        }
+                    }
+                }
             }
             else
             {
@@ -598,7 +702,6 @@ public class garaScript : MonoBehaviour
             itemToAdd.currentQuantity = leftoverQuantity;
         }
     }
-
 
 }
 
