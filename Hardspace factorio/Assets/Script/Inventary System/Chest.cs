@@ -43,7 +43,7 @@ public class Chest : MonoBehaviour
 
         chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
 
-        foreach(Transform childSlot in chestSlot.transform.GetChild(1))
+        foreach(Transform childSlot in chestSlot.transform.GetChild(2))
         {
             Slot childSlotScript = childSlot.GetComponent<Slot>();
             allChestSlot.Add(childSlotScript);

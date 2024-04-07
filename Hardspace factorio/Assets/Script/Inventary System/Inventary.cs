@@ -10,6 +10,7 @@ public class Inventary : MonoBehaviour
     [SerializeField] GameObject Inventory;
     private List<Slot> allInventorySlot = new List<Slot>();
     public List<Slot> inventorySlot = new List<Slot>();
+    [SerializeField] GameObject chestUi;
     public List<Slot> hotbarSlots = new List<Slot>();
 
     [SerializeField] TMP_Text ItemHoverText;
@@ -51,7 +52,7 @@ public class Inventary : MonoBehaviour
         toggleInventory(false);
 
         allInventorySlot.AddRange(inventorySlot);
-        allInventorySlot.AddRange(hotbarSlots);
+        //allInventorySlot.AddRange(hotbarSlots);
 
         foreach (Slot uislot in allInventorySlot)
         {
@@ -87,7 +88,7 @@ public class Inventary : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             dropItem();
 
-        for (int i = 1; i < hotbarSlots.Count + 1; i++)
+        /*for (int i = 1; i < hotbarSlots.Count + 1; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
             {
@@ -95,7 +96,7 @@ public class Inventary : MonoBehaviour
 
                 curHotbarIndex = i - 1;
             }
-        }
+        }*/
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -140,10 +141,12 @@ public class Inventary : MonoBehaviour
             if (m_HitDetectinChest.collider.CompareTag("Chest") && chestSlotParant == null && industrialprefab == null)
             {
                 openChest(m_HitDetectinChest.collider.GetComponent<Chest>());
+                chestUi.SetActive(true);
             }
             else if (m_HitDetectinChest.collider.CompareTag("industrial") && chestSlotParant == null && industrialprefab == null)
             {
                 openindustril(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>());
+                chestUi.SetActive(true);
             }
             else
             {
@@ -158,7 +161,6 @@ public class Inventary : MonoBehaviour
     private void openChest(Chest chest) 
     {
         toggleInventory(true);
-
         chest.chestInstantiatedParent.SetActive(true);
         chestSlotParant = chest.chestInstantiatedParent;
 
@@ -168,7 +170,6 @@ public class Inventary : MonoBehaviour
     private void openindustril(IndustrialScripts industril)
     {
         toggleInventory(true);
-
         industril.chestInstantiatedParent.SetActive(true);
         industrialprefab = industril.chestInstantiatedParent;
 
@@ -236,20 +237,21 @@ public class Inventary : MonoBehaviour
             foreach (Slot chestSlot in chestSlot)                
             {             
                 allInventorySlot.Remove(chestSlot);               
-            }            
+            }
             chestSlotParant.SetActive(false);
-                
+            chestUi.SetActive(false);
             chestSlotParant = null;               
             chestSlot = null;            
         }
         else if (!enable && industrialprefab != null)
         {
             industrialprefab.SetActive(false);
-
+            chestUi.SetActive(false);
             industrialprefab = null;
             inputindustril = null;
             outputindustril = null;
         }
+        
         Inventory.SetActive(enable);
         if (!enable)
             foreach (Slot curSlot in allInventorySlot)

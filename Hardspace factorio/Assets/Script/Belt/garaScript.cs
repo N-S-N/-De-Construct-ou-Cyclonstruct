@@ -39,6 +39,7 @@ public class garaScript : MonoBehaviour
     {
         
         animator = GetComponent<Animator>();
+        animator.speed = 0;
         svspeed = mSpeed / SpeedForSeconds;
         time = svspeed;
         updatelocal();

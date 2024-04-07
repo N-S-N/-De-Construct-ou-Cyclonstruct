@@ -7,7 +7,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool Havered;
     public Item heldItem;
-
+    
     private Color apaque = new Color(1, 1, 1, 1);
     private Color transparent = new Color(1, 1, 1, 0);
 
