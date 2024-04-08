@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5725691609279732913}
   - component: {fileID: 5058463763873985786}
+  - component: {fileID: 9001063324922818076}
   m_Layer: 0
   m_Name: Missao
   m_TagString: Untagged
@@ -46,9 +47,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f66350f100a974284153db863bc7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColaderDesativete: []
+  ColaderDesativete:
+  - {fileID: 4838627645214409191}
   isPrevayAtivet: []
   EventIsPrevay: []
+--- !u!114 &9001063324922818076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897434859050640096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c33fb814da1044ba088949f8ddd320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tranformobj: {fileID: 0}
 --- !u!1 &5530970858135712887
 GameObject:
   m_ObjectHideFlags: 0

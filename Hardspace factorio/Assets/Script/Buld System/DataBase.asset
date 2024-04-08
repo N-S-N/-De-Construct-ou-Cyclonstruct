@@ -37,3 +37,11 @@ MonoBehaviour:
     <ID>k__BackingField: 6
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 3275966563149763212, guid: 29fee04293d015449b9a87bd5a39aed5, type: 3}
+  - <Name>k__BackingField: 'mission '
+    <ID>k__BackingField: 7
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 2897434859050640096, guid: d6a8313688d97144493f8358eef6fa49, type: 3}
+  - <Name>k__BackingField: mission tier
+    <ID>k__BackingField: 8
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 2897434859050640096, guid: 26c65f3b493a83c4b808cb873910d03e, type: 3}

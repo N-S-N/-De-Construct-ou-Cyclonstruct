@@ -145,7 +145,10 @@ public class Inventary : MonoBehaviour
             }
             else if (m_HitDetectinChest.collider.CompareTag("industrial") && chestSlotParant == null && industrialprefab == null)
             {
-                openindustril(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>());
+                if(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>())
+                    openindustril(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>());
+                else
+                    openmission(m_HitDetectinChest.collider.GetComponent<missaoScripter>());
                 chestUi.SetActive(true);
             }
             else
@@ -176,6 +179,16 @@ public class Inventary : MonoBehaviour
         inputindustril = industril.inputintrustriSlot;
         outputindustril = industril.outputtrustriSlot;
     }
+    private void openmission(missaoScripter industril)
+    {
+        toggleInventory(true);
+        industril.chestInstantiatedParent.SetActive(true);
+        industrialprefab = industril.chestInstantiatedParent;
+
+        inputindustril = industril.inputintrustriSlot;
+
+    }
+
     private void addItemInventory(Item itemToAdd, int overideIndex = -1)
     {
         if (overideIndex != -1)
