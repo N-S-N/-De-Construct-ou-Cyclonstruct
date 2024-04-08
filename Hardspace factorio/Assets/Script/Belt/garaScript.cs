@@ -103,6 +103,7 @@ public class garaScript : MonoBehaviour
     }
     void updateData()
     {
+
         IndustrialScripts[1] = null;
         chest[1] = null;
         belt[1] = null;
@@ -110,6 +111,7 @@ public class garaScript : MonoBehaviour
         chest[0] = null;
         belt[0] = null;
         missao = null;
+        
         RaycastHit2D m_HitDetect = Physics2D.Raycast(frente.position, Direction(frente), 0.5F);
         if (m_HitDetect)
         {
@@ -121,22 +123,17 @@ public class garaScript : MonoBehaviour
 
             if (IndustrialScripts[0] != null)
                 inputintrustriSlot = IndustrialScripts[0].inputintrustriSlot;
-            else
-                inputintrustriSlot.Clear();
-            if (chest[0] != null)
+            if (chest[0] != null) {
                 allChestSlotinput = chest[0].allChestSlot;
-            else
-                allChestSlotinput.Clear();
+                allInventorySlot.AddRange(allChestSlotinput);
+            }
             if(missao!= null)
                 inputintrustriSlot = missao.inputintrustriSlot;
-            else 
-                inputintrustriSlot.Clear();
+
         }
         RaycastHit2D segund = Physics2D.Raycast(trais.position, Direction(trais), 0.5F);
         if (segund)
         {
-
-
             IndustrialScripts[1] = segund.collider.GetComponent<IndustrialScripts>();
             chest[1] = segund.collider.GetComponent<Chest>();
             belt[1] = segund.collider.GetComponent<Belt>();
@@ -145,15 +142,16 @@ public class garaScript : MonoBehaviour
                 outputtrustriSlot = IndustrialScripts[1].outputtrustriSlot;
             else
                 outputtrustriSlot.Clear();
-            if (chest[1] != null)
-                allChestSlotoutput = chest[1].allChestSlot;
+            if (chest[1] != null)  
+                allChestSlotoutput = chest[1].allChestSlot;          
             else
                 allChestSlotoutput.Clear();
         }
-        Invoke("updatelater", 0.2f);
+        //Invoke("updatelater", 0.2f);
     }
     void updatelater()
     {
+        //seção de limpamento
         if (missao == null) inputintrustriSlot.Clear();
         if (IndustrialScripts[1] == null) outputtrustriSlot.Clear();
         if (IndustrialScripts[0] == null) inputintrustriSlot.Clear();
@@ -178,10 +176,8 @@ public class garaScript : MonoBehaviour
     {
         if (IndustrialScripts[0] != null || chest[0] != null || belt[0] != null &&
             IndustrialScripts[1] != null || chest[1] != null || belt[1] != null)
-        {
+        {          
             timeandtetection();
-            if(discanso && animator.speed > 0 || !discanso && animator.speed < 0)
-                animator.speed *= -1;
         }
 
     }
@@ -227,7 +223,7 @@ public class garaScript : MonoBehaviour
                                 {
                                     Item holdItemout = allChestSlotoutput[o-1].getItem();
                                     
-                                    if (holdItemout != null && inputintrustriSlot != null && holdItemout.ID == holdItem.ID)
+                                    if (holdItemout != null && holdItem != null && holdItemout.ID == holdItem.ID)
                                     {
                                         holdItemout.currentQuantity--;
                                         isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
@@ -375,9 +371,7 @@ public class garaScript : MonoBehaviour
                         if (isRuning == null)
                         {
                             for (int i = allChestSlotoutput.Count; i > 0; i--)
-                            {
-                                
-                                
+                            { 
                                 Item holdItem = allChestSlotoutput[i - 1].getItem();
                                 if (holdItem != null)
                                 {
@@ -565,8 +559,7 @@ public class garaScript : MonoBehaviour
 
             }
             time -= Time.deltaTime;
-            animator.speed = 1;
-
+            animator.speed = 1;         
             //tem um bag
             if (time <= 0)
             {
@@ -653,7 +646,6 @@ public class garaScript : MonoBehaviour
     {
         if (overideIndex != -1)
         {
-
             if (overideIndex > allInventorySlot.Count) return;
             allInventorySlot[overideIndex].SetItem(itemToAdd);
             itemToAdd.gameObject.SetActive(false);
@@ -663,10 +655,10 @@ public class garaScript : MonoBehaviour
 
         int leftoverQuantity = itemToAdd.currentQuantity;
         Slot openSholt = null;
+
         for (int i = 0; i < allInventorySlot.Count; i++)
         {
             Item heldItem = allInventorySlot[i].getItem();
-
             if (heldItem != null && itemToAdd.ID == heldItem.ID)
             {
                 int freeSpaceInSlot = heldItem.MaxQuabttity - heldItem.currentQuantity;

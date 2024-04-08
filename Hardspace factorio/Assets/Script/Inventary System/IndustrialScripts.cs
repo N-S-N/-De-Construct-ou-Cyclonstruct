@@ -14,10 +14,10 @@ public class IndustrialScripts : MonoBehaviour
     [Header("Time and Production")]
     [HideInInspector] public float TimeProduction;
     [HideInInspector] public int[] quantityProduced;
-    [HideInInspector] public List<int> requiredQuantity = new List<int>();
+    public List<int> requiredQuantity = new List<int>();
 
     [HideInInspector]public GameObject chestInstantiatedParent;
-    private float _internofloatTime;
+    [SerializeField] private float _internofloatTime;
 
     private GameObject chestSlot;
     [Header("Layer")]
@@ -39,15 +39,14 @@ public class IndustrialScripts : MonoBehaviour
 
     private void Update()
     {
+        if (inputintrustriSlot.Count == 0) return;
         //veriricação de contidade
         for (int i = 0; i < inputintrustriSlot.Count; i++)
         {
             if (inputintrustriSlot[i].getItem() == null) break;
             Item holdItem = inputintrustriSlot[i].getItem();
-
-            if (requiredQuantity[i] > holdItem.currentQuantity)return;
+            if (requiredQuantity[i] > holdItem.currentQuantity) return;                 
         }
-
         //verificar se tem espaso para produção
         for (int i = 0; i < outputtrustriSlot.Count; i++)
         {
@@ -55,7 +54,6 @@ public class IndustrialScripts : MonoBehaviour
             Item holdItem = outputtrustriSlot[i].getItem();
             if (holdItem.currentQuantity + quantityProduced[i] == holdItem.MaxQuabttity) return;
         }
-
         // tempo de produção
         _internofloatTime -= Time.deltaTime;
 

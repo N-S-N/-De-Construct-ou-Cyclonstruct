@@ -83,7 +83,7 @@ public class ListInventoryMachine : MonoBehaviour
 
         allintrustriSlot.AddRange(inputintrustriSlot);
         allintrustriSlot.AddRange(outputtrustriSlot);
-
+        //Debug.Log(inputintrustriSlot.Count);
         Industril.UpdateLists(inputintrustriSlot, outputtrustriSlot, TimeProduction, quantityProduced, requiredQuantity);
         Industril.uodatedataradio();
     }
