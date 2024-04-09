@@ -103,7 +103,6 @@ public class garaScript : MonoBehaviour
     }
     void updateData()
     {
-
         IndustrialScripts[1] = null;
         chest[1] = null;
         belt[1] = null;
@@ -127,8 +126,10 @@ public class garaScript : MonoBehaviour
                 allChestSlotinput = chest[0].allChestSlot;
                 allInventorySlot.AddRange(allChestSlotinput);
             }
-            if(missao!= null)
+            if (missao != null)
+            {
                 inputintrustriSlot = missao.inputintrustriSlot;
+            }
 
         }
         RaycastHit2D segund = Physics2D.Raycast(trais.position, Direction(trais), 0.5F);
@@ -191,6 +192,12 @@ public class garaScript : MonoBehaviour
                 animator.speed = 0;
                 if (IndustrialScripts[0] != null)
                 {
+                    for (int i = 0; i < inputintrustriSlot.Count; i++)
+                    {
+                        Item holdItem = inputintrustriSlot[i].getItem();
+                        if (holdItem.MaxQuabttity > holdItem.currentQuantity) break;
+                        if (i + 1 == inputintrustriSlot.Count) return;
+                    }
                     if (belt[1] != null)
                     {
                         if (isRuning == null)
@@ -199,7 +206,7 @@ public class garaScript : MonoBehaviour
                             {
                                 Item holdItem = inputintrustriSlot[i].getItem();
                                 if (belt[1].item != null) {
-                                    if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID)
+                                    if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         isRuning = belt[1].item;
                                         belt[1].item = null;
@@ -223,7 +230,7 @@ public class garaScript : MonoBehaviour
                                 {
                                     Item holdItemout = allChestSlotoutput[o-1].getItem();
                                     
-                                    if (holdItemout != null && holdItem != null && holdItemout.ID == holdItem.ID)
+                                    if (holdItemout != null && holdItem != null && holdItemout.ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         holdItemout.currentQuantity--;
                                         isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
@@ -257,7 +264,7 @@ public class garaScript : MonoBehaviour
                                 for (int o = 0; o < outputtrustriSlot.Count; o++)
                                 {
                                     Item holdItemout = outputtrustriSlot[o].getItem();
-                                    if (holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0)
+                                    if (holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0 && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         holdItemout.currentQuantity--;
                                         isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
@@ -274,6 +281,13 @@ public class garaScript : MonoBehaviour
                 }
                 else if (chest[0] != null)
                 {
+                    for (int i = 0; i < allChestSlotinput.Count; i++)
+                    {
+                        Item holdItem = allChestSlotinput[i].getItem();
+                        if (holdItem == null) break;
+                        if (holdItem.MaxQuabttity > holdItem.currentQuantity) break;
+                        if (i + 1 == allChestSlotinput.Count) return;
+                    }
                     if (belt[1] != null)
                     {
                         if (isRuning == null)
@@ -281,7 +295,7 @@ public class garaScript : MonoBehaviour
                             for (int i = 0; i < allChestSlotinput.Count; i++)
                             {
                                 Item holdItem = allChestSlotinput[i].getItem();
-                                if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID)
+                                if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                 {
                                     isRuning = belt[1].item;
                                     belt[1].item = null;
@@ -305,7 +319,7 @@ public class garaScript : MonoBehaviour
 
                                     Item holdItemout = allChestSlotinput[o - 1].getItem();
 
-                                    if (holdItem != null && holdItemout == null || holdItem != null && holdItemout.ID == holdItem.ID )
+                                    if (holdItem != null && holdItemout == null || holdItem != null && holdItemout.ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         holdItem.currentQuantity--;
                                         allChestSlotoutput[i].UpdateData();
@@ -337,7 +351,7 @@ public class garaScript : MonoBehaviour
                                 for (int o = 0; o < outputtrustriSlot.Count; o++)
                                 {
                                     Item holdItemout = outputtrustriSlot[o].getItem();
-                                    if (holdItem == null && holdItemout != null && holdItemout.currentQuantity > 0 || holdItemout != null && holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0)
+                                    if (holdItem == null && holdItemout != null && holdItemout.currentQuantity > 0 || holdItemout != null && holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0 && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         
                                         holdItemout.currentQuantity--;
@@ -414,6 +428,13 @@ public class garaScript : MonoBehaviour
                 }
                 else if(missao != null)
                 {
+                    for (int i = 0; i < inputintrustriSlot.Count; i++)
+                    {
+                        Item holdItem = inputintrustriSlot[i].getItem();
+                        if (holdItem == null) return;
+                        if (holdItem.MaxQuabttity > holdItem.currentQuantity) break;
+                        if (i + 1 == inputintrustriSlot.Count) return;
+                    }
                     if (belt[1] != null)
                     {
                         if (isRuning == null)
@@ -423,7 +444,7 @@ public class garaScript : MonoBehaviour
                                 Item holdItem = inputintrustriSlot[i].getItem();
                                 if (belt[1].item != null)
                                 {
-                                    if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID)
+                                    if (holdItem == null || belt[1].item.GetComponent<Item>().ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         isRuning = belt[1].item;
                                         belt[1].item = null;
@@ -447,12 +468,11 @@ public class garaScript : MonoBehaviour
                                 {
                                     Item holdItemout = allChestSlotoutput[o - 1].getItem();
 
-                                    if (holdItemout != null && inputintrustriSlot != null && holdItemout.ID == holdItem.ID)
+                                    if (holdItemout != null && holdItem != null && holdItemout.ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         holdItemout.currentQuantity--;
                                         isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
                                         isRuning.SetActive(true);
-
 
                                         allChestSlotoutput[o - 1].UpdateData();
 
@@ -481,7 +501,7 @@ public class garaScript : MonoBehaviour
                                 for (int o = 0; o < outputtrustriSlot.Count; o++)
                                 {
                                     Item holdItemout = outputtrustriSlot[o].getItem();
-                                    if (holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0)
+                                    if (holdItemout.ID == holdItem.ID && holdItemout.currentQuantity > 0 && holdItem.MaxQuabttity > holdItem.currentQuantity)
                                     {
                                         holdItemout.currentQuantity--;
                                         isRuning = Instantiate(holdItemout.gameObject, trais.position + (new Vector3(Direction(trais).x, Direction(trais).y, 0) * 0.5f), holdItemout.gameObject.transform.rotation);
@@ -569,7 +589,7 @@ public class garaScript : MonoBehaviour
                     for (int i = 0; i < inputintrustriSlot.Count; i++)
                     {
                         Item holdItem = inputintrustriSlot[i].getItem();
-                        if (isRuning.GetComponent<Item>().ID == holdItem.ID)
+                        if (isRuning.GetComponent<Item>().ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                         {
                             holdItem.currentQuantity++;
                             inputintrustriSlot[i].UpdateData();
@@ -610,7 +630,7 @@ public class garaScript : MonoBehaviour
                     for (int i = 0; i < inputintrustriSlot.Count; i++)
                     {
                         Item holdItem = inputintrustriSlot[i].getItem();
-                        if (isRuning.GetComponent<Item>().ID == holdItem.ID)
+                        if (isRuning.GetComponent<Item>().ID == holdItem.ID && holdItem.MaxQuabttity > holdItem.currentQuantity)
                         {
                             holdItem.currentQuantity++;
                             inputintrustriSlot[i].UpdateData();

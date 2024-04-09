@@ -293,7 +293,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMisaonOfTier: 1
-  missao: []
+  missao:
+  - Eventos:
+      m_PersistentCalls:
+        m_Calls: []
+    renquedrentes:
+    - IdItem: {fileID: 3987064323678162985, guid: 452ac280b5ae082499301683a5c8e503, type: 3}
+      requiredQuantity: 5
+  - Eventos:
+      m_PersistentCalls:
+        m_Calls: []
+    renquedrentes:
+    - IdItem: {fileID: 3987064323678162985, guid: 452ac280b5ae082499301683a5c8e503, type: 3}
+      requiredQuantity: 50
+    - IdItem: {fileID: 3987064323678162985, guid: 9f42eb87dbafc424d9dc2ab546a97149, type: 3}
+      requiredQuantity: 25
+  - Eventos:
+      m_PersistentCalls:
+        m_Calls: []
+    renquedrentes:
+    - IdItem: {fileID: 3987064323678162985, guid: 452ac280b5ae082499301683a5c8e503, type: 3}
+      requiredQuantity: 150
+    - IdItem: {fileID: 3987064323678162985, guid: 9f42eb87dbafc424d9dc2ab546a97149, type: 3}
+      requiredQuantity: 100
+    - IdItem: {fileID: 3987064323678162985, guid: 58147352991986041b81bc4e45ae0484, type: 3}
+      requiredQuantity: 50
   missaoSelect:
     Eventos:
       m_PersistentCalls:

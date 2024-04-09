@@ -1399,6 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3618525495103643689}
+  - component: {fileID: 7603897957874036973}
   m_Layer: 5
   m_Name: mission UI Prefab
   m_TagString: Untagged
@@ -1429,6 +1430,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 78.31, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7603897957874036973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479593768855546252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0c9bc4182f1cf4b80acd33a19d497c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2532646727764551575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,17 +4111,19 @@ MonoBehaviour:
   butom:
     tier:
     - Butom:
-      - {fileID: 8848705707053142104}
-      - {fileID: 3194096528642130564}
-      - {fileID: 7107746599932643367}
-      - {fileID: 6417019283322603992}
-      - {fileID: 3104757425386485078}
+      - {fileID: 7505668577797659785}
+      - {fileID: 3678093990494889472}
+      - {fileID: 2565466418579851910}
+      - {fileID: 8879279493646719046}
+      - {fileID: 7998359765474798017}
     - Butom:
-      - {fileID: 720046496721986773}
-      - {fileID: 5711503599437711121}
-      - {fileID: 6240910436363990649}
-      - {fileID: 6905320399575070752}
-      - {fileID: 7173750972259094995}
+      - {fileID: 243463047571717271}
+      - {fileID: 3818563767302051181}
+      - {fileID: 6249539169171296188}
+      - {fileID: 7068967229108650903}
+      - {fileID: 1787993524274780795}
+  item: {fileID: 8262670523622680166}
+  SelectionMenu: {fileID: 6061647195046839162}
   _tierAtual: 0
   allintrustriSlot: []
   inputintrustriSlot:

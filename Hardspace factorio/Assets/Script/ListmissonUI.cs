@@ -9,7 +9,8 @@ public class ListmissonUI : MonoBehaviour
 
     [Header("Maneger")]
     [SerializeField] tierButon butom;
-
+    [SerializeField] GameObject item;
+    [SerializeField] GameObject SelectionMenu;
     [Header("Debug")]
     [SerializeField] int _tierAtual = 0;
     private int _tier;
@@ -22,7 +23,7 @@ public class ListmissonUI : MonoBehaviour
 
 
     private void Start()
-    {
+    {       
         _tier = _tierAtual;
         allintrustriSlot.Clear();
         allintrustriSlot.AddRange(inputintrustriSlot);
@@ -33,18 +34,17 @@ public class ListmissonUI : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public void Update()
     {
         _tierAtual = PlayerPrefs.GetInt("tier");
         if (_tierAtual != _tier)
             tierUpdate();
     }
-
     void tierUpdate()
     {
-
         for (int i = 0; i < butom.tier[_tierAtual].Butom.Count; i++)
         {
+            Debug.Log("mudando tier");
             butom.tier[_tierAtual].Butom[i].gameObject.SetActive(true);
         }
 
@@ -58,7 +58,9 @@ public class ListmissonUI : MonoBehaviour
 
     public void UpdateDataMission(Button thisButom)
     {
-        mission.butom = thisButom;
+        mission.butom = thisButom; //item
+        mission.ItemMenu = item;
+        mission.selectionMenu = SelectionMenu;
     }
 
 }
