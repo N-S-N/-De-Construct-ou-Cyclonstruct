@@ -325,7 +325,9 @@ MonoBehaviour:
     renquedrentes: []
   SaveSlot: []
   butom: {fileID: 0}
-  chestUIPrefab: {fileID: 2479593768855546252, guid: 8f34197079047264a916a957b34a4c9d, type: 3}
+  ItemMenu: {fileID: 0}
+  selectionMenu: {fileID: 0}
+  chestUIPrefab: {fileID: 2479593768855546252, guid: 6c8bd1a5de1ccc841b14bda7b1bf1705, type: 3}
   allintrustriSlot: []
   inputintrustriSlot: []
   chestInstantiatedParent: {fileID: 0}
