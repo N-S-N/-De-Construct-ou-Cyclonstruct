@@ -13,8 +13,10 @@ public class Chest : MonoBehaviour
     [SerializeField] LayerMask anyon;
 
     GameObject chestSlot;
-    // Lost table 
 
+    Animator animator;
+    // Lost table 
+    //opem
     void updatedata()
     {
         RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, anyon);
@@ -38,7 +40,7 @@ public class Chest : MonoBehaviour
 
     private void Start()
     {
-        
+        animator = GetComponent<Animator>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
         chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
@@ -60,5 +62,17 @@ public class Chest : MonoBehaviour
     {
         updatedata();
         Destroy(chestSlot);
+    }
+
+    private void Update()
+    {
+        if (chestInstantiatedParent.activeSelf)
+        {
+            animator.SetBool("opem", true);
+        }
+        else
+        {
+            animator.SetBool("opem", false);
+        }
     }
 }

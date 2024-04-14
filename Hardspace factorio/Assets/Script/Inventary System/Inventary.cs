@@ -110,8 +110,8 @@ public class Inventary : MonoBehaviour
     private void itemRaycast(bool hasCliced = false)
     {
         ItemHoverText.text = "";
-        RaycastHit2D m_HitDetect = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.zero, 0, itemLayer);
-        RaycastHit2D m_HitDetectinChest = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.zero, 0, everOne);
+        RaycastHit2D m_HitDetect = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.down, 1, itemLayer);
+        RaycastHit2D m_HitDetectinChest = Physics2D.CircleCast(transform.position, RayCastDistance, Vector2.down, 1, everOne);
 
         if (m_HitDetect)
         {
@@ -142,6 +142,7 @@ public class Inventary : MonoBehaviour
             {
                 openChest(m_HitDetectinChest.collider.GetComponent<Chest>());
                 chestUi.SetActive(true);
+                Invoke("opemdelay", 0.5f);
             }
             else if (m_HitDetectinChest.collider.CompareTag("industrial") && chestSlotParant == null && industrialprefab == null)
             {
@@ -161,9 +162,12 @@ public class Inventary : MonoBehaviour
             playerControler.interection = false;
         }
     }
-    private void openChest(Chest chest) 
+    void opemdelay()
     {
         toggleInventory(true);
+    }
+    private void openChest(Chest chest) 
+    {  
         chest.chestInstantiatedParent.SetActive(true);
         chestSlotParant = chest.chestInstantiatedParent;
 
