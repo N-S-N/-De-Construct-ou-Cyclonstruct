@@ -38,7 +38,7 @@ public class Chest : MonoBehaviour
                 right.collider.GetComponent<garaScript>().updatelocal();
     }
 
-    private void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;

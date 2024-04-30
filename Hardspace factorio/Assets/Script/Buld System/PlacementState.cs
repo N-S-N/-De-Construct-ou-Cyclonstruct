@@ -55,7 +55,7 @@ public class PlacementState : IBuildingState
         Vector3 eulerRotation = new Vector3(0, 0, rotation);
 
         int index = objectPlacer.PlaceObject(dataBase.objectsData[selectedObjectIndex].Prefab,
-            grid.CellToWorld(gridPosition), eulerRotation, dataBase.objectsData[selectedObjectIndex].Size);
+            grid.CellToWorld(gridPosition), eulerRotation, dataBase.objectsData[selectedObjectIndex].Size, ID);
 
         GridData selectedData = dataBase.objectsData[selectedObjectIndex].ID == 0 ?
             floorData :

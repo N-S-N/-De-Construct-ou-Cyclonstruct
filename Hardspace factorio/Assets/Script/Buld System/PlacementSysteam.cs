@@ -85,6 +85,12 @@ public class PlacementSysteam : MonoBehaviour
 
     }
 
+    //para o load
+    public void PlaceStructureLoad(Vector3Int GridPossision, float currentRotationLoad)
+    {
+        buldingState.OnAction(GridPossision, currentRotationLoad);
+    }
+
     public void Rotate(bool dereita)
     {
         //todos que pode muydar de rotação

@@ -12,9 +12,9 @@ public class missaoScripter : MonoBehaviour
     public List<missaoDataList> missao = new List<missaoDataList>();
 
     [Header("Debug")]
-    [SerializeField] private missaoDataList missaoSelect = null;
+    [SerializeField] public missaoDataList missaoSelect = null;
     private missaoDataList missaoSelectdesativete = null;
-    [SerializeField] private List<InveltoryMissaoSloySave> SaveSlot = new List<InveltoryMissaoSloySave>();
+    [SerializeField] public List<InveltoryMissaoSloySave> SaveSlot = new List<InveltoryMissaoSloySave>();
     [HideInInspector] public Button butom;
     [HideInInspector] public GameObject ItemMenu;
     [HideInInspector] public GameObject selectionMenu;
@@ -36,7 +36,7 @@ public class missaoScripter : MonoBehaviour
     #endregion
 
     #region start and update Data
-    private void Start()
+    public void Start()
     {
 
         upadateEventSysteam();

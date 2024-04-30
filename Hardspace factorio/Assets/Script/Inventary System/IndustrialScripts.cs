@@ -25,7 +25,7 @@ public class IndustrialScripts : MonoBehaviour
 
     Collider2D coll;
     // Lost table 
-    private void Start()
+    public void Start()
     {
         coll = GetComponent<Collider2D>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
