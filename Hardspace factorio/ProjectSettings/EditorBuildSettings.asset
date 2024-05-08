@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/belt.unity
     guid: c9c78be786bf64f4f9866e514a2fd8e3
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 32d0f5dce11e880468ce5c5e9471ef00
   m_configObjects: {}
