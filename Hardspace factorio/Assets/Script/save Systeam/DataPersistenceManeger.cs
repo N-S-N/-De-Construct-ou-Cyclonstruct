@@ -117,7 +117,7 @@ public class DataPersistenceManeger : MonoBehaviour
         //converter em tojson
         string jsonData = JsonUtility.ToJson( SaveGameVariavel,true);
 
-        File.WriteAllText(saveFileName + saveSlot, jsonData);
+        File.WriteAllText(saveFileName + saveSlot + ".Json", jsonData);
     }
     
     public void NewGame()
