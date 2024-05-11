@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test and Buld System.unity
-    guid: 7d56c8e0be672904bb979efd1244cd8c
-  - enabled: 0
-    path: Assets/Scenes/belt.unity
-    guid: c9c78be786bf64f4f9866e514a2fd8e3
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 32d0f5dce11e880468ce5c5e9471ef00
+  - enabled: 1
+    path: Assets/Scenes/FogueteTutorial.unity
+    guid: cc3e17ad89ec8824f8fc22d288ce0a08
+  - enabled: 1
+    path: Assets/Scenes/Test and Buld System.unity
+    guid: 7d56c8e0be672904bb979efd1244cd8c
   m_configObjects: {}
