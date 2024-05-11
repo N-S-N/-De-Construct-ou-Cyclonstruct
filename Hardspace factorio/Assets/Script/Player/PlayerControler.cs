@@ -19,11 +19,15 @@ public class PlayerControler : MonoBehaviour
     [Header("se esta interagindo")]
     public bool interection;
 
+    [Header("audios")]
+    private AudioSource audioSource;
+    [SerializeField] AudioClip[] clips;
+
     [Header("Debug")]
     [SerializeField] private State PlayerState; 
    
     float stateTIme; //tempo
-
+    private bool menu;
    
     
     #endregion
@@ -44,13 +48,26 @@ public class PlayerControler : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
         _animator.SetInteger("State", (int)PlayerState);
-
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (menu)
+            {
+                menu = false;
+                Intaface[1].SetActive(false);
+            }
+            else
+            {
+                menu = true;
+                Intaface[1].SetActive(true);
+            }
+        }
         direction(moveButton());
     }
     #endregion
@@ -87,18 +104,18 @@ public class PlayerControler : MonoBehaviour
             case State.anadando:
                 //tentando ir para o parado
                 if (moveButton() == Vector2.zero)
-                {
+                {                  
                     return State.parado;
                 }
                 //tentando ir para a interação
-                if (interection || isInterface())
+                if (interection || isInterface() || menu)
                 {
                     return State.interecao;
                 }
                 break;
             case State.interecao:
                 //tentando ir para parado
-                if (time >= _timeInteraction && !isInterface())
+                if (!menu && !isInterface() || time >= _timeInteraction && !isInterface())
                 {
                     return State.parado;
                 }
@@ -109,7 +126,7 @@ public class PlayerControler : MonoBehaviour
                     return State.anadando;
                 }
                 //tentando ir para a interação
-                if (interection || isInterface())
+                if (interection || isInterface() || menu)
                 {
                     return State.interecao;
                 }
@@ -137,9 +154,12 @@ public class PlayerControler : MonoBehaviour
                 _rigidbody.velocity = Vector2.zero;
                 break;
             case State.anadando:
-                _rigidbody.velocity = moveButton() * velocidade;
 
-                
+                if (!audioSource.isPlaying)
+                    audioSource.PlayOneShot(clips[0]);
+
+                _rigidbody.velocity = moveButton() * velocidade;
+       
                 if (moveButton().x > 0 && _renderer.flipX || moveButton().x < 0 && !_renderer.flipX)
                     _renderer.flipX = !_renderer.flipX;
 

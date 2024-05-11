@@ -137,6 +137,8 @@ MonoBehaviour:
   velocidade: 2
   _timeInteraction: 0.2
   interection: 0
+  clips:
+  - {fileID: 8300000, guid: be05c5bb44a6d4047b0435f1c7f7b012, type: 3}
   PlayerState: 0
 --- !u!114 &770632958592560407
 MonoBehaviour:
@@ -196,6 +198,9 @@ MonoBehaviour:
   - {fileID: 3987064323678162985, guid: 9f42eb87dbafc424d9dc2ab546a97149, type: 3}
   - {fileID: 3987064323678162985, guid: 32be178d37008e14ba57de49e2ce2c70, type: 3}
   - {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 09294ef49d1848d4dba9f7e35270d1e8, type: 3}
+  - {fileID: 8300000, guid: eee99313949e0df4bb21701765fb3e3f, type: 3}
 --- !u!70 &7935466337733936364
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +266,7 @@ AudioSource:
   m_GameObject: {fileID: 355019079312720818}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3336539055746327817, guid: 128fa161e42a08d47a15519ca153948b, type: 2}
   m_audioClip: {fileID: 8300000, guid: fe5758b4cd0d48d49bd45bf59cf2c32a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1

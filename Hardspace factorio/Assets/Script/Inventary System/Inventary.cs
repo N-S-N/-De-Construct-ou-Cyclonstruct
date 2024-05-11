@@ -44,9 +44,14 @@ public class Inventary : MonoBehaviour
     private List<Slot> outputindustril = new List<Slot>();
 
     PlayerControler playerControler;
+
+    [Header("audios")]
+    private AudioSource audioSource;
+    [SerializeField] AudioClip[] clips;
+
     public void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
 
         playerControler = GetComponent<PlayerControler>();
         toggleInventory(false);
@@ -140,13 +145,15 @@ public class Inventary : MonoBehaviour
         {
             if (m_HitDetectinChest.collider.CompareTag("Chest") && chestSlotParant == null && industrialprefab == null)
             {
+                audioSource.PlayOneShot(clips[0]);
                 openChest(m_HitDetectinChest.collider.GetComponent<Chest>());
                 chestUi.SetActive(true);
                 Invoke("opemdelay", 0.5f);
             }
             else if (m_HitDetectinChest.collider.CompareTag("industrial") && chestSlotParant == null && industrialprefab == null)
             {
-                if(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>())
+                audioSource.PlayOneShot(clips[0]);
+                if (m_HitDetectinChest.collider.GetComponent<IndustrialScripts>())
                     openindustril(m_HitDetectinChest.collider.GetComponent<IndustrialScripts>());
                 else
                     openmission(m_HitDetectinChest.collider.GetComponent<missaoScripter>());
@@ -250,7 +257,8 @@ public class Inventary : MonoBehaviour
     private void toggleInventory(bool enable)
     {           
         if (!enable && chestSlotParant != null)            
-        {                
+        {
+            audioSource.PlayOneShot(clips[1]);
             foreach (Slot chestSlot in chestSlot)                
             {             
                 allInventorySlot.Remove(chestSlot);               
@@ -262,6 +270,7 @@ public class Inventary : MonoBehaviour
         }
         else if (!enable && industrialprefab != null)
         {
+            audioSource.PlayOneShot(clips[1]);
             industrialprefab.SetActive(false);
             chestUi.SetActive(false);
             industrialprefab = null;

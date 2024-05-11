@@ -6,11 +6,13 @@ using UnityEngine.Video;
 
 public class Control : MonoBehaviour
 {
+    [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] VideoPlayer vidio;
     private int sala = -1;
     public void CenaTestAndBuildSystem(int salaLOad)
     {
         //SceneManager.LoadScene("Test and Buld System");
+        m_AudioSource.Pause();
         if (salaLOad+1 == 2)
         {
             SceneManager.LoadSceneAsync(salaLOad);
