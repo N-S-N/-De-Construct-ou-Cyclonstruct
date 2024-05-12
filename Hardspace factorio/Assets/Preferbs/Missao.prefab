@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tranformobj: {fileID: 0}
+  tranformobjMission: {fileID: 0}
 --- !u!1 &5530970858135712887
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +302,10 @@ MonoBehaviour:
     renquedrentes: []
   SaveSlot: []
   butom: {fileID: 0}
+  ItemMenu: {fileID: 0}
+  selectionMenu: {fileID: 0}
   chestUIPrefab: {fileID: 2479593768855546252, guid: 452149605a86be54483be91cb90d78e9, type: 3}
+  missiopnUIPrefab: {fileID: 7491198336748446606, guid: e1aef3e0156f67144add7a19624f0361, type: 3}
   allintrustriSlot: []
   inputintrustriSlot: []
   chestInstantiatedParent: {fileID: 0}

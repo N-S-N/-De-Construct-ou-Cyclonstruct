@@ -20,7 +20,9 @@ public class missaoScripter : MonoBehaviour
     [HideInInspector] public GameObject selectionMenu;
     private List<GameObject> bleckgrand = new List<GameObject>();
     [SerializeField] private GameObject chestUIPrefab;
+    [SerializeField] private GameObject missiopnUIPrefab;
     [HideInInspector] private Transform chestUIparent;
+    [HideInInspector] private Transform chestUIparentMission;
 
     [Header("Inventory Lists")]
     public List<Slot> allintrustriSlot = new List<Slot>();
@@ -30,9 +32,11 @@ public class missaoScripter : MonoBehaviour
     Collider2D coll;
 
     private GameObject chestSlot;
+    [SerializeField]private GameObject missiontSlot;
     [Header("Layer")]
     [SerializeField] LayerMask anyon;
 
+    private Uimission UI;
     #endregion
 
     #region start and update Data
@@ -45,11 +49,14 @@ public class missaoScripter : MonoBehaviour
             SaveSlot.Add(null);
         }
 
-        coll = GetComponent<Collider2D>();
+        coll = GetComponent<Collider2D>();      
         //Debug.Log(new Vector2(coll.bounds.max.x - coll.bounds.min.x, coll.bounds.max.y - coll.bounds.min.y));
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
+        chestUIparentMission = GetComponentInParent<tranformUIObj>().tranformobjMission;
 
-        chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
+        if (coll == null) return;
+        chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);     
+
         chestSlot.GetComponentInChildren<ListmissonUI>().mission = this;
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
@@ -59,10 +66,12 @@ public class missaoScripter : MonoBehaviour
     private void OnDestroy()
     {
         Destroy(chestSlot);
+        Destroy(missiontSlot);
         uodatedataradio();
     }
     public void uodatedataradio()
     {
+        if(coll == null) Destroy(missiontSlot);
         Vector2 size = new Vector2(coll.bounds.max.x - coll.bounds.min.x, coll.bounds.max.y - coll.bounds.min.y);
 
         for (int i = 0; i < size.x; i++)
@@ -99,6 +108,12 @@ public class missaoScripter : MonoBehaviour
 
     public void updateDatainFucion(int i, List<Slot> input, List<GameObject> BlackImage)
     {
+        if (missiontSlot == null)
+        {
+            missiontSlot = Instantiate(missiopnUIPrefab, chestUIparentMission.position, chestUIparentMission.rotation, chestUIparentMission);
+
+            UI = missiontSlot.GetComponent<Uimission>();
+        }
         Invoke("uodatedataradio", 0.3f);
         if (missao[i] != missaoSelect)
         {
@@ -132,19 +147,29 @@ public class missaoScripter : MonoBehaviour
 
         for (int u = 0; u < inputintrustriSlot.Count; u++)
         {
+            if(u < UI.SpacoMissaon.Count)
+                UI.SpacoMissaon[u].UIImageIconir.gameObject.SetActive(false);
             inputintrustriSlot[u].gameObject.SetActive(false);
             BlackImage[u].SetActive(false);
         }
-
+        //
         for (int u = 0; u < input.Count; u++)
         {
             if (missaoSelect.renquedrentes.Count > u)
             {
+                if(u <= UI.SpacoMissaon.Count){
+                    UI.SpacoMissaon[u].UIImageIconir.gameObject.SetActive(true);
+                    UI.SpacoMissaon[u].UIImageIconir.color = Color.white;
+                    UI.SpacoMissaon[u].UIImageIconir.sprite = inputintrustriSlot[u].heldItem.icone;
+
+                    UI.SpacoMissaon[u].TextMissionMissao.text = inputintrustriSlot[u].heldItem.currentQuantity + " / " + missaoSelect.renquedrentes[u].requiredQuantity;
+                }
                 inputintrustriSlot[u].gameObject.SetActive(true);
                 BlackImage[u].SetActive(true);
             }
         }
         bleckgrand = BlackImage;
+
         
     }
 
@@ -190,12 +215,14 @@ public class missaoScripter : MonoBehaviour
         if (butom == null) return;
         for (int i = 0; i < missaoSelect.renquedrentes.Count; i++)
         {
+            UI.SpacoMissaon[i].TextMissionMissao.text = inputintrustriSlot[i].heldItem.currentQuantity + " / " + missaoSelect.renquedrentes[i].requiredQuantity;
             Item holdItem = inputintrustriSlot[i].getItem();
             if (missaoSelect.renquedrentes[i].requiredQuantity > holdItem.currentQuantity)
                 return;
+            UI.SpacoMissaon[i].UIImageIconir.color = Color.green;
         }
 
-
+       
         butom.interactable = false;
 
         missaoSelect.Eventos.Invoke();
