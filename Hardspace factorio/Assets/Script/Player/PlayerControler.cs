@@ -139,12 +139,18 @@ public class PlayerControler : MonoBehaviour
 
     void OnStateExit(State State)
     {
-
+        switch (State)
+        {
+            case State.anadando:
+                audioSource.Stop();
+                break;
+            default:
+                break;
+        }
     }
-
     void OnStateEnter(State State)
     {
-     
+        
     }
     void OnStateUpdete(State State, float deltaTIme)
     {

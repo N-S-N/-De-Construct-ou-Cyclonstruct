@@ -13,7 +13,7 @@ public class Control : MonoBehaviour
     {
         //SceneManager.LoadScene("Test and Buld System");
         m_AudioSource.Pause();
-        if (salaLOad+1 == 2)
+        if (salaLOad == 2)
         {
             SceneManager.LoadSceneAsync(salaLOad);
             return;
