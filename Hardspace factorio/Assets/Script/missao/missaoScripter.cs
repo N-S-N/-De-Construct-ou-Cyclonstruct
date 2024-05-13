@@ -42,6 +42,12 @@ public class missaoScripter : MonoBehaviour
     #region start and update Data
     public void Start()
     {
+        Invoke("delaystart", 0.5f);
+    }
+
+    void delaystart()
+    {
+        if (GetComponent<Collider2D>().enabled == false) return;
 
         upadateEventSysteam();
         for (int i = 0; i < missao.Count; i++)
@@ -49,24 +55,26 @@ public class missaoScripter : MonoBehaviour
             SaveSlot.Add(null);
         }
 
-        coll = GetComponent<Collider2D>();      
+        coll = GetComponent<Collider2D>();
         //Debug.Log(new Vector2(coll.bounds.max.x - coll.bounds.min.x, coll.bounds.max.y - coll.bounds.min.y));
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
         chestUIparentMission = GetComponentInParent<tranformUIObj>().tranformobjMission;
 
         if (coll == null) return;
-        chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);     
+        chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
 
         chestSlot.GetComponentInChildren<ListmissonUI>().mission = this;
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
         Invoke("uodatedataradio", 0.2f);
-
     }
+
+
     private void OnDestroy()
     {
         Destroy(chestSlot);
         Destroy(missiontSlot);
+        if (GetComponent<Collider2D>().enabled == false) return;
         uodatedataradio();
     }
     public void uodatedataradio()

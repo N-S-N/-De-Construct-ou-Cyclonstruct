@@ -27,15 +27,22 @@ public class IndustrialScripts : MonoBehaviour
     // Lost table 
     public void Start()
     {
+        Invoke("delaystart", 0.5f);
+    }
+
+    void delaystart()
+    {
         coll = GetComponent<Collider2D>();
+        if (coll.enabled == false) return;
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
         chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
         chestSlot.GetComponentInChildren<ListInventoryMachine>().Industril = this;
         chestInstantiatedParent = chestSlot;
         chestInstantiatedParent.SetActive(false);
-        Invoke("uodatedataradio",0.2f);
+        Invoke("uodatedataradio", 0.2f);
     }
+
 
     private void Update()
     {

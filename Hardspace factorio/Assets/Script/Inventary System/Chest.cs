@@ -40,12 +40,18 @@ public class Chest : MonoBehaviour
 
     public void Start()
     {
+        Invoke("delaystart",0.5f);
+    }
+    void delaystart()
+    {
+
+        if (GetComponent<Collider2D>().enabled == false) return;
         animator = GetComponent<Animator>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
-        chestSlot = Instantiate(chestUIPrefab,chestUIparent.position,chestUIparent.rotation, chestUIparent);
+        chestSlot = Instantiate(chestUIPrefab, chestUIparent.position, chestUIparent.rotation, chestUIparent);
 
-        foreach(Transform childSlot in chestSlot.transform.GetChild(2))
+        foreach (Transform childSlot in chestSlot.transform.GetChild(2))
         {
             Slot childSlotScript = childSlot.GetComponent<Slot>();
             allChestSlot.Add(childSlotScript);
@@ -66,6 +72,7 @@ public class Chest : MonoBehaviour
 
     private void Update()
     {
+        if (chestInstantiatedParent == null) return;
         if (chestInstantiatedParent.activeSelf)
         {
             animator.SetBool("opem", true);

@@ -1,8 +1,5430 @@
 {
     "positionPlayer": {
-        "x": 0.5009151101112366,
-        "y": -2.0714831352233888,
+        "x": -8.475281715393067,
+        "y": -6.401748180389404,
         "z": 0.0
     },
-    "constucao": []
+    "constucao": [
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        },
+        {
+            "ID": 1,
+            "position": {
+                "x": -19,
+                "y": -6,
+                "z": 0
+            },
+            "rotacion": 0.0,
+            "inventario": {
+                "allintrustriSlot": [],
+                "inputintrustriSlot": [],
+                "outputtrustriSlot": [],
+                "Time": 0.0,
+                "quatity": [],
+                "requiry": [],
+                "SaveSlot": [],
+                "missao": {
+                    "Eventos": {
+                        "m_PersistentCalls": {
+                            "m_Calls": []
+                        }
+                    },
+                    "renquedrentes": []
+                },
+                "Iteam": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ]
+            }
+        }
+    ]
 }
