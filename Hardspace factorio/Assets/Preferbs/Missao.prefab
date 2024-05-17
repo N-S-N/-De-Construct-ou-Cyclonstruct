@@ -294,7 +294,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMisaonOfTier: 0
-  missao: []
+  missao:
+  - Eventos:
+      m_PersistentCalls:
+        m_Calls: []
+    renquedrentes:
+    - IdItem: {fileID: 0}
+      requiredQuantity: 0
   missaoSelect:
     Eventos:
       m_PersistentCalls:
@@ -309,6 +315,7 @@ MonoBehaviour:
   allintrustriSlot: []
   inputintrustriSlot: []
   chestInstantiatedParent: {fileID: 0}
+  missiontSlot: {fileID: 0}
   anyon:
     serializedVersion: 2
     m_Bits: 1024
