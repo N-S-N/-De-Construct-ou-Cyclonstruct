@@ -137,7 +137,7 @@ TextureImporter:
         x: 382
         y: 780
         width: 729
-        height: 332
+        height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,6 +319,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: FundoDesmont1
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 780
+        width: 456
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33159e28c6b8937448a2ba8519491b36
+      internalID: -2140895506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FundoDesmont2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 780
+        width: 273
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36bb63b92f6d9c408ca71292f96a6e6
+      internalID: 1111548120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FundoDesmont3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1018
+        width: 355
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45392dc63e8b434478a5b35495839198
+      internalID: 723216661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -335,6 +398,9 @@ TextureImporter:
       Foguete Dentro6x_7: -353254428
       Foguete Dentro6x_8: -1340387475
       Fundo: 2070050270
+      FundoDesmont1: -2140895506
+      FundoDesmont2: 1111548120
+      FundoDesmont3: 723216661
       Furadeira: 999729884
       Lado: 1251644099
       Parede: -1749551446
