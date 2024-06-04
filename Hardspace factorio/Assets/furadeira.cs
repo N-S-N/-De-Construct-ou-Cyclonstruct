@@ -61,7 +61,10 @@ public class furadeira : MonoBehaviour
         {
             if (m_HitDetectinChest2.collider != null)
             {
-                cirlo.color = Color.red;
+                Color red = Color.red;
+                red.a = 0.5f;
+                cirlo.color = red;
+                
 
                 saveisrayu = m_HitDetectinChest2.collider.gameObject.GetComponent<SpriteRenderer>();
                 if(saveisrayu != null)
@@ -81,7 +84,9 @@ public class furadeira : MonoBehaviour
         }
         else
         {
-            cirlo.color = Color.white;
+            Color whaiter = Color.white;
+            whaiter.a = 0.5f;
+            cirlo.color = whaiter;
             if (saveisrayu != null)
                 saveisrayu.color = Color.white;
         }
