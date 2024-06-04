@@ -1,36 +1,8 @@
 {
     "positionPlayer": {
-        "x": 1.3425713777542115,
-        "y": -0.68091881275177,
+        "x": -0.440000057220459,
+        "y": -2.8964128494262697,
         "z": 0.0
     },
-    "constucao": [
-        {
-            "ID": 9,
-            "position": {
-                "x": 1,
-                "y": -3,
-                "z": 0
-            },
-            "rotacion": 0.0,
-            "inventario": {
-                "allintrustriSlot": [],
-                "inputintrustriSlot": [],
-                "outputtrustriSlot": [],
-                "Time": 0.0,
-                "quatity": [],
-                "requiry": [],
-                "SaveSlot": [],
-                "missao": {
-                    "Eventos": {
-                        "m_PersistentCalls": {
-                            "m_Calls": []
-                        }
-                    },
-                    "renquedrentes": []
-                },
-                "Iteam": []
-            }
-        }
-    ]
+    "constucao": []
 }
