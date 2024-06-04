@@ -45,3 +45,7 @@ MonoBehaviour:
     <ID>k__BackingField: 8
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 2897434859050640096, guid: 26c65f3b493a83c4b808cb873910d03e, type: 3}
+  - <Name>k__BackingField: plataforma foquete
+    <ID>k__BackingField: 9
+    <Size>k__BackingField: {x: 11, y: 7}
+    <Prefab>k__BackingField: {fileID: 4489419538894797002, guid: 04ed56edfecbee442b51da7de26573da, type: 3}
