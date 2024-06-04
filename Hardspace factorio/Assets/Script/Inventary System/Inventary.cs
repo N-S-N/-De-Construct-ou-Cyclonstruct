@@ -49,6 +49,8 @@ public class Inventary : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] AudioClip[] clips;
 
+    public bool enteracaofuradeira;
+
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -74,25 +76,28 @@ public class Inventary : MonoBehaviour
 
     public void Update()
     {
-        itemRaycast(Input.GetKeyDown(KeyCode.E));
-
-        if (Input.GetKeyDown(KeyCode.I))
-            toggleInventory(!Inventory.activeInHierarchy);
-        if (Input.GetKeyDown(KeyCode.Escape))
-            toggleInventory(false);
-
-        if (Inventory.activeInHierarchy && Input.GetMouseButtonDown(0))
+        if (enteracaofuradeira == false) 
         {
-            dragInventoryIcon();
-        }
-        else if (currentDragSlotIndex != -1 && Input.GetMouseButtonUp(0) || currentDragSlotIndex != -1 && !Inventory.activeInHierarchy)
-        {
-            dropInventoryIcon();
-        }
+            itemRaycast(Input.GetKeyDown(KeyCode.E));
 
-        if (Input.GetKeyDown(KeyCode.Q))
-            dropItem();
+            if (Input.GetKeyDown(KeyCode.I))
+                toggleInventory(!Inventory.activeInHierarchy);
+            if (Input.GetKeyDown(KeyCode.Escape))
+                toggleInventory(false);
 
+            if (Inventory.activeInHierarchy && Input.GetMouseButtonDown(0))
+            {
+                dragInventoryIcon();
+            }
+            else if (currentDragSlotIndex != -1 && Input.GetMouseButtonUp(0) || currentDragSlotIndex != -1 && !Inventory.activeInHierarchy)
+            {
+                dropInventoryIcon();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+                dropItem();
+
+        }
         /*for (int i = 1; i < hotbarSlots.Count + 1; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
@@ -200,7 +205,7 @@ public class Inventary : MonoBehaviour
 
     }
 
-    private void addItemInventory(Item itemToAdd, int overideIndex = -1)
+    public void addItemInventory(Item itemToAdd, int overideIndex = -1)
     {
         if (overideIndex != -1)
         {

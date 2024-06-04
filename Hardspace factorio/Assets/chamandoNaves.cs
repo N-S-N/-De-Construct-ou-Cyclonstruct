@@ -39,7 +39,8 @@ public class chamandoNaves : MonoBehaviour
             return;
         }   
         insta.SetActive(true);
-
+        insta.GetComponent<navecontroler>().setactiveteGameobj();
+        
 
     }
 }//

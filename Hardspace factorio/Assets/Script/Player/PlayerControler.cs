@@ -18,6 +18,7 @@ public class PlayerControler : MonoBehaviour
 
     [Header("se esta interagindo")]
     public bool interection;
+    public bool unterageFuredaira;
 
     [Header("audios")]
     private AudioSource audioSource;
@@ -115,9 +116,11 @@ public class PlayerControler : MonoBehaviour
                 break;
             case State.interecao:
                 //tentando ir para parado
-                if (!menu && !isInterface() || time >= _timeInteraction && !isInterface())
-                {
-                    return State.parado;
+                if (unterageFuredaira == false) {
+                    if (!menu && !isInterface() || time >= _timeInteraction && !isInterface() || interection == false && unterageFuredaira == false)
+                    {
+                        return State.parado;
+                    }
                 }
                 break;
             case State.parado:

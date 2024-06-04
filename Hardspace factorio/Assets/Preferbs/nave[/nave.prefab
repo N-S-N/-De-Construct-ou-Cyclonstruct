@@ -651,7 +651,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7714682963052873065}
-  m_Layer: 0
+  - component: {fileID: 5856038754893247968}
+  - component: {fileID: 4920308469470997845}
+  m_Layer: 15
   m_Name: nave
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -678,6 +680,90 @@ Transform:
   - {fileID: 7712268309207604279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5856038754893247968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754854066508984138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cb332f35d5d6e459be54981df17b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componets:
+  - parte: {fileID: 1469371216345267247}
+    inv:
+    - item: {fileID: 3987064323678162985, guid: 32be178d37008e14ba57de49e2ce2c70, type: 3}
+      quantidade: 10
+    "timedemoli\xE7\xE3o": 1
+  - parte: {fileID: 3709691559423719941}
+    inv:
+    - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+      quantidade: 10
+    "timedemoli\xE7\xE3o": 1
+  - parte: {fileID: 5321952068036915188}
+    inv:
+    - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+      quantidade: 10
+    "timedemoli\xE7\xE3o": 1
+  - parte: {fileID: 908520786948918300}
+    inv:
+    - item: {fileID: 4437352081759053756, guid: dd376793b6d938145a654bbaa24c8e9e, type: 3}
+      quantidade: 10
+    "timedemoli\xE7\xE3o": 1
+  - parte: {fileID: 4680021399781464123}
+    inv:
+    - item: {fileID: 8421576115202900731, guid: 82f23f1b60dd9b94f95f8e2e87a56a1e, type: 3}
+      quantidade: 10
+    "timedemoli\xE7\xE3o": 1
+  player: {fileID: 0}
+--- !u!61 &4920308469470997845
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754854066508984138}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.93606186, y: 0.5520358}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.888655, y: 6.6643744}
+  m_EdgeRadius: 0
 --- !u!1 &2870686761983846967
 GameObject:
   m_ObjectHideFlags: 0
