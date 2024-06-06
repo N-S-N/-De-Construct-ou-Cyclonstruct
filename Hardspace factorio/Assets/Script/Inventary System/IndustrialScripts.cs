@@ -110,7 +110,7 @@ public class IndustrialScripts : MonoBehaviour
         Destroy(chestSlot);
         uodatedataradio();
 
-        if(GetComponent<Collider2D>().enabled == true)
+        if(coll == true)
         {
             for(int i = 0; i < material.Count; i++) 
             {

@@ -35,11 +35,12 @@ public class garaScript : MonoBehaviour
 
     //componetes
     Animator animator;
+    Collider2D coll;
 
     //instancia e update
     private void Start()
     {
-        
+        coll = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         animator.speed = 0;
         svspeed = mSpeed / SpeedForSeconds;
@@ -99,7 +100,7 @@ public class garaScript : MonoBehaviour
                 right.collider.GetComponent<tunioScript>().updatelocal();
         }
 
-        if (GetComponent<Collider2D>().enabled == true)
+        if (coll == true)
         {
             for (int i = 0; i < material.Count; i++)
             {

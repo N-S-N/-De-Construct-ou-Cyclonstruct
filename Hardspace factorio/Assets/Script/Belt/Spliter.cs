@@ -104,7 +104,7 @@ public class Spliter : MonoBehaviour
                 right.collider.GetComponent<tunioScript>().updatelocal();
         }
 
-        if (GetComponent<Collider2D>().enabled == true)
+        if (colider == true)
         {
             for (int i = 0; i < material.Count; i++)
             {

@@ -121,7 +121,7 @@ public class Belt : MonoBehaviour
         }
         #endregion
 
-        if (GetComponent<Collider2D>().enabled == true)
+        if (colider == true)
         {
             for (int i = 0; i < material.Count; i++)
             {

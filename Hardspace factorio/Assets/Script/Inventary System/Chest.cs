@@ -15,6 +15,7 @@ public class Chest : MonoBehaviour
     [SerializeField] LayerMask anyon;
 
     GameObject chestSlot;
+    Collider2D coll;
 
     Animator animator;
     // Lost table 
@@ -43,11 +44,12 @@ public class Chest : MonoBehaviour
     public void Start()
     {
         Invoke("delaystart",0.5f);
+        
     }
     void delaystart()
     {
-
-        if (GetComponent<Collider2D>().enabled == false) return;
+        coll = GetComponent<Collider2D>();
+        if (coll == false) return;
         animator = GetComponent<Animator>();
         chestUIparent = GetComponentInParent<tranformUIObj>().tranformobj;
 
@@ -71,7 +73,7 @@ public class Chest : MonoBehaviour
         updatedata();
         Destroy(chestSlot);
 
-        if (GetComponent<Collider2D>().enabled == true)
+        if (coll == true)
         {
             for (int i = 0; i < material.Count; i++)
             {
