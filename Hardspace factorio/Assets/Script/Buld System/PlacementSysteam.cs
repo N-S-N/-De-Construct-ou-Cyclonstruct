@@ -35,7 +35,7 @@ public class PlacementSysteam : MonoBehaviour
 
     [SerializeField] List<int> missionValidesion = new List<int>();
 
-    [SerializeField] UnityEvent tier, mission;
+    [SerializeField] UnityEvent tier, mission,verificacao;
 
     private int Id = -1;
 
@@ -88,7 +88,7 @@ public class PlacementSysteam : MonoBehaviour
 
         buldingState.OnAction(GridPossision, currentRotation);
 
-        if(-1 != missionValidesion.IndexOf(Id))
+        if (-1 != missionValidesion.IndexOf(Id))
         {
             if(Id == 8)
                 tier.Invoke();
@@ -97,6 +97,7 @@ public class PlacementSysteam : MonoBehaviour
 
             //StopPlacement();
         }
+        verificacao.Invoke();
     }
 
     //para o load
@@ -144,7 +145,7 @@ public class PlacementSysteam : MonoBehaviour
     //    return selectedData.CanPlaceObejctAt(gridPossision, database.objectsData[_selectedObjectIndex].Size);
     //}
 
-    private void StopPlacement()
+    public void StopPlacement()
     {    
         if (buldingState == null) return;        
         _gridVisualization.SetActive(false);
