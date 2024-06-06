@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Belt : MonoBehaviour
 {
+    [SerializeField] List<Inventorypart> material = new List<Inventorypart>();
+
     [Header("Gerenciamento")]
     [SerializeField] float SpeedForSeconds = 1f;
     private float mSpeed = 1f;
@@ -65,6 +68,7 @@ public class Belt : MonoBehaviour
     }
     private void OnDestroy()
     {
+        #region update
         RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);
         RaycastHit2D lesft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), Vector2.left, 0.5F, update);
         RaycastHit2D up = Physics2D.Raycast(transform.position + new Vector3(0, 0.5f), Vector2.up, 0.5F, update);
@@ -115,6 +119,22 @@ public class Belt : MonoBehaviour
             if (right.collider.CompareTag("Tunio"))
                 right.collider.GetComponent<tunioScript>().updatelocal();
         }
+        #endregion
+
+        if (GetComponent<Collider2D>().enabled == true)
+        {
+            for (int i = 0; i < material.Count; i++)
+            {
+                GameObject drop = Instantiate(material[i].item.gameObject, transform.position, transform.rotation);
+
+                Item dropItem = drop.GetComponent<Item>();
+
+                dropItem.currentQuantity = material[i].quantidade;
+
+                drop.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
+            }
+        }
+
     }
     private void Update()
     {

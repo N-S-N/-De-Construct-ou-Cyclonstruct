@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class garaScript : MonoBehaviour
 {
+    [SerializeField] List<Inventorypart> material = new List<Inventorypart>();
+
     [Header("gamaobjects")]
     [SerializeField] Transform frente, trais;
     public GameObject isRuning;
@@ -95,6 +97,20 @@ public class garaScript : MonoBehaviour
                 right.collider.GetComponent<Spliter>().updatelocal();
             if (right.collider.CompareTag("Tunio"))
                 right.collider.GetComponent<tunioScript>().updatelocal();
+        }
+
+        if (GetComponent<Collider2D>().enabled == true)
+        {
+            for (int i = 0; i < material.Count; i++)
+            {
+                GameObject drop = Instantiate(material[i].item.gameObject, transform.position, transform.rotation);
+
+                Item dropItem = drop.GetComponent<Item>();
+
+                dropItem.currentQuantity = material[i].quantidade;
+
+                drop.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
+            }
         }
     }
     public void updatelocal()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,6 +32,10 @@ public class PlacementSysteam : MonoBehaviour
     [SerializeField] UnityEvent direita, esquerda;
 
     [SerializeField] List<int> IdRotesionValid = new List<int>();
+
+    [SerializeField] List<int> missionValidesion = new List<int>();
+
+    [SerializeField] UnityEvent tier, mission;
 
     private int Id = -1;
 
@@ -83,6 +88,15 @@ public class PlacementSysteam : MonoBehaviour
 
         buldingState.OnAction(GridPossision, currentRotation);
 
+        if(-1 != missionValidesion.IndexOf(Id))
+        {
+            if(Id == 8)
+                tier.Invoke();
+            if (Id == 7)  
+                mission.Invoke();
+
+            //StopPlacement();
+        }
     }
 
     //para o load

@@ -7,6 +7,8 @@ public class missaoScripter : MonoBehaviour
 {
     #region variaves
 
+    [SerializeField] List<Inventorypart> material = new List<Inventorypart>();
+
     [Header("tipo de missao")]
     [SerializeField] bool _isMisaonOfTier;
     public List<missaoDataList> missao = new List<missaoDataList>();
@@ -43,6 +45,8 @@ public class missaoScripter : MonoBehaviour
     public void Start()
     {
         Invoke("delaystart", 0.5f);
+
+        
     }
 
     void delaystart()
@@ -74,7 +78,28 @@ public class missaoScripter : MonoBehaviour
     {
         Destroy(chestSlot);
         Destroy(missiontSlot);
-        if (GetComponent<Collider2D>().enabled == false) return;
+        if (coll == false) return;
+        if (material.Count > 0) 
+        {
+            for (int i = 0; i < material.Count; i++)
+            {
+                GameObject drop = Instantiate(material[i].item.gameObject, transform.position, transform.rotation);
+
+                Item dropItem = drop.GetComponent<Item>();
+
+                dropItem.currentQuantity = material[i].quantidade;
+
+                drop.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
+            }
+        }
+        if (_isMisaonOfTier)
+        {
+            FindAnyObjectByType<EventData>().destoryTier.Invoke();
+        }
+        else
+        {
+            FindAnyObjectByType<EventData>().destoynormal.Invoke();
+        }
         uodatedataradio();
     }
     public void uodatedataradio()
@@ -196,22 +221,25 @@ public class missaoScripter : MonoBehaviour
 
     void upadateEventSysteam()
     {
+        EventData EventData = FindAnyObjectByType<EventData>();
         if (!_isMisaonOfTier)
         {
-            EventData EventData = FindAnyObjectByType<EventData>();
             for (int i = 0; i < missao.Count; i++)
             {
                 missao[i].Eventos = EventData.EvenosMissao[i];
             }
+
         }
         else
-        {
-            EventData EventData = FindAnyObjectByType<EventData>();
+        {  
             for (int i = 0; i < missao.Count; i++)
             {
                 missao[i].Eventos = EventData.EvenosMissaoTier[i];
             }
+            
         }
+
+
     }
 
     #endregion

@@ -1,14 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spliter : MonoBehaviour
 {
+   
+
     [Header("Gerenciamento")]
     [SerializeField] float SpeedForSeconds = 1f;
     private float mSpeed = 1f;
     private float svspeed;
     [HideInInspector] public float time;
+    [SerializeField] List<Inventorypart> material = new List<Inventorypart>();
 
-    [Header("Objetos")]
+   [Header("Objetos")]
     public GameObject item;
     [SerializeField] Transform[] lateralDeSaida;
 
@@ -99,6 +103,21 @@ public class Spliter : MonoBehaviour
             if (right.collider.CompareTag("Tunio"))
                 right.collider.GetComponent<tunioScript>().updatelocal();
         }
+
+        if (GetComponent<Collider2D>().enabled == true)
+        {
+            for (int i = 0; i < material.Count; i++)
+            {
+                GameObject drop = Instantiate(material[i].item.gameObject, transform.position, transform.rotation);
+
+                Item dropItem = drop.GetComponent<Item>();
+
+                dropItem.currentQuantity = material[i].quantidade;
+
+                drop.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
+            }
+        }
+
     }
     private void Update()
     {

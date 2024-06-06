@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    [SerializeField] List<Inventorypart> material = new List<Inventorypart>();
+
     [SerializeField] private GameObject chestUIPrefab;
     [SerializeField] private Transform chestUIparent;
 
@@ -68,6 +70,21 @@ public class Chest : MonoBehaviour
     {
         updatedata();
         Destroy(chestSlot);
+
+        if (GetComponent<Collider2D>().enabled == true)
+        {
+            for (int i = 0; i < material.Count; i++)
+            {
+                GameObject drop = Instantiate(material[i].item.gameObject, transform.position, transform.rotation);
+
+                Item dropItem = drop.GetComponent<Item>();
+
+                dropItem.currentQuantity = material[i].quantidade;
+
+                drop.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
+            }
+        }
+
     }
 
     private void Update()
