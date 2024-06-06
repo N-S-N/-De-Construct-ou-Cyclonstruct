@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: defccd15d063592469ce9727ceeafff2
+guid: e9dbd85bbeb11eb478e0c4482f112d7e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - 7:12 Serif
+  - Pixel Emulator
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
