@@ -69,4 +69,9 @@ public class RemovingState : IBuildingState
         bool validity = CheckIfSelectionIsValid(gridPosition);
         previousSystem.UpdatePosition(grid.CellToWorld(gridPosition), validity, rotation, Vector2.one);
     }
+
+    public void Idcus(int custo)
+    {
+        throw new System.NotImplementedException();
+    }
 }

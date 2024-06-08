@@ -37,10 +37,15 @@ public class Spliter : MonoBehaviour
         svspeed = mSpeed / SpeedForSeconds;
         time = svspeed;
         Belt = GetComponent<Belt>();
-        colider = GetComponent<Collider2D>();
+        Invoke("delay",0.5f);
         updatelocal();
         OnDestroy();
     }
+    void delay()
+    {
+        colider = GetComponent<Collider2D>();
+    }
+
     public void updatelocal()
     {
         Invoke("delayupdate", 0.2f);

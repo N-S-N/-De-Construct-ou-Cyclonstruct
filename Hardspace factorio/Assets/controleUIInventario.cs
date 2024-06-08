@@ -30,10 +30,10 @@ public class controleUIInventario : MonoBehaviour
                 a.SetActive(false);
             }
         }     
-        verificacao();
+        verificacao(-1);
     }
 
-    public void verificacao()
+    public void verificacao(int p)
     {
        
         for (int k = 0; k < material.Count; k++)
@@ -48,14 +48,12 @@ public class controleUIInventario : MonoBehaviour
                         if (material[k].material[j].item.ID == heldItem.ID
                             && heldItem.currentQuantity >= material[k].material[j].quantidade)
                         {
-                            Debug.Log("aaa " + k+ " " +j);
                             material[k].material[j].temItem = true;
                             i = Inventary.inventorySlot.Count;
                             break;
                         }
                         else
                         {
-                            Debug.Log("bbb " + k + " " + j);
                             material[k].material[j].temItem = false;
                         }
                     }
@@ -75,9 +73,39 @@ public class controleUIInventario : MonoBehaviour
                 if (!material[k].material[j].temItem)
                 {
                     construcao[k].interactable = false;
+                    if (p == k) pla.StopPlacement();
                     break;
                 }
             }
+        }
+    }
+
+    public void tiraitem(int i)
+    {
+        for (int k = 0; k < material[i].material.Count; k++)
+        {
+            for (int j = 0; j < Inventary.inventorySlot.Count; j++)
+            {
+                Item heldItem = Inventary.inventorySlot[j].getItem();
+                if (heldItem != null)
+                {
+                    if (heldItem.ID == material[i].material[k].item.ID &&
+                        heldItem.currentQuantity >= material[i].material[k].quantidade)
+                    {
+                        heldItem.currentQuantity -= material[i].material[k].quantidade;
+
+                        if (heldItem.currentQuantity <= 0)
+                            Inventary.inventorySlot[j].SetItem(null);
+
+                        break;
+                    }
+
+                }
+            }
+        }
+        for (int j = 0; j < Inventary.inventorySlot.Count; j++)
+        {
+            Inventary.inventorySlot[j].UpdateData();
         }
     }
 

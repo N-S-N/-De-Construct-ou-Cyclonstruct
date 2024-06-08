@@ -83,7 +83,21 @@ MonoBehaviour:
   isPrevayAtivet:
   - {fileID: 7716596243279262435}
   - {fileID: 1145736438543458430}
-  EventIsPrevay: []
+  EventIsPrevay:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1580521788491710607}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &686686427735801459
 AudioSource:
   m_ObjectHideFlags: 0
@@ -365,6 +379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8046c148e6294094498d3bf60289aeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+    quantidade: 3
   frente: {fileID: 2567873309846413827}
   trais: {fileID: 5138642791307839671}
   isRuning: {fileID: 0}

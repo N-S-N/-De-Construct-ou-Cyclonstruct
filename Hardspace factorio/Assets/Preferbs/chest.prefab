@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a355b1cbb89ca44969f4173e3c1da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 3987064323678162985, guid: 32be178d37008e14ba57de49e2ce2c70, type: 3}
+    quantidade: 10
   chestUIPrefab: {fileID: 2731472107196445190, guid: a9b9f48bb51b3a74ab10a5880efe4a08, type: 3}
   chestUIparent: {fileID: 0}
   allChestSlot: []
@@ -219,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tranformobj: {fileID: 0}
+  tranformobjMission: {fileID: 0}
 --- !u!114 &7832152940250167486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,4 +238,18 @@ MonoBehaviour:
   ColaderDesativete:
   - {fileID: 4100942919300393582}
   isPrevayAtivet: []
-  EventIsPrevay: []
+  EventIsPrevay:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7420188762512470382}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -49,7 +49,21 @@ MonoBehaviour:
   ColaderDesativete:
   - {fileID: 727002287164755452}
   isPrevayAtivet: []
-  EventIsPrevay: []
+  EventIsPrevay:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6014970821548179482}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &2129809293757162562
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,6 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac93ec96c956995458f64c3adc413b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 3987064323678162985, guid: 32be178d37008e14ba57de49e2ce2c70, type: 3}
+    quantidade: 1
   SpeedForSeconds: 1
   time: 0
   item: {fileID: 0}

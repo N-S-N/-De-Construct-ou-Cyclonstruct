@@ -44,6 +44,7 @@ public class navecontroler : MonoBehaviour
         if (index == componets.Count)
         {
             gameObject.SetActive(false);
+            index = 0;
         }
     }
 

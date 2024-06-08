@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac93ec96c956995458f64c3adc413b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: []
   SpeedForSeconds: 1
   time: 0
   item: {fileID: 0}

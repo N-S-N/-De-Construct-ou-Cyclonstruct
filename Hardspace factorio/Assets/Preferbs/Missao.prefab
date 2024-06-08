@@ -293,6 +293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a76aaf4d90d8954aba6231fa515b570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+    quantidade: 20
+  - item: {fileID: 3987064323678162985, guid: 452ac280b5ae082499301683a5c8e503, type: 3}
+    quantidade: 5
   _isMisaonOfTier: 0
   missao:
   - Eventos:

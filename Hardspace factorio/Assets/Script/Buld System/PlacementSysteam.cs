@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,6 +38,10 @@ public class PlacementSysteam : MonoBehaviour
 
     [SerializeField] UnityEvent tier, mission,verificacao;
 
+    [SerializeField]public controleUIInventario controle;
+
+    private int IdCusto =-1;
+
     private int Id = -1;
 
     private void Start()
@@ -44,6 +49,10 @@ public class PlacementSysteam : MonoBehaviour
         StopPlacement();
         floorData = new GridData();
         furnitureData = new();
+    }
+    public void IdCUSTO(int i) 
+    {
+        IdCusto = i;
     }
 
     public void StartPlacement(int ID)
@@ -58,7 +67,9 @@ public class PlacementSysteam : MonoBehaviour
                                           database,
                                           floorData,
                                           furnitureData,
-                                          objectPlacer);
+                                          objectPlacer,
+                                          this,
+                                          IdCusto);
         _inputManager.Onclicked += PlaceStructure;
         _inputManager.OnExit += StopPlacement;
                    
@@ -72,7 +83,6 @@ public class PlacementSysteam : MonoBehaviour
         StopPlacement();
         _gridVisualization.SetActive(true);
         buldingState = new RemovingState(_grid, previw, floorData, furnitureData, objectPlacer);
-
         _inputManager.Onclicked += PlaceStructure;
         _inputManager.OnExit += StopPlacement;
     }
@@ -97,7 +107,7 @@ public class PlacementSysteam : MonoBehaviour
 
             //StopPlacement();
         }
-        verificacao.Invoke();
+        
     }
 
     //para o load

@@ -293,6 +293,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a76aaf4d90d8954aba6231fa515b570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 4908552242043748998, guid: 5d919487473397840b8f9a9bc03b5a96, type: 3}
+    quantidade: 100
+  - item: {fileID: 3987064323678162985, guid: 452ac280b5ae082499301683a5c8e503, type: 3}
+    quantidade: 100
+  - item: {fileID: 3987064323678162985, guid: 9f42eb87dbafc424d9dc2ab546a97149, type: 3}
+    quantidade: 100
   _isMisaonOfTier: 1
   missao:
   - Eventos:
@@ -333,6 +340,7 @@ MonoBehaviour:
   allintrustriSlot: []
   inputintrustriSlot: []
   chestInstantiatedParent: {fileID: 0}
+  missiontSlot: {fileID: 0}
   anyon:
     serializedVersion: 2
     m_Bits: 1024

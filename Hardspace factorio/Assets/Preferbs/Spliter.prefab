@@ -50,7 +50,21 @@ MonoBehaviour:
   - {fileID: 5825633922044286496}
   - {fileID: 5718375506177585828}
   isPrevayAtivet: []
-  EventIsPrevay: []
+  EventIsPrevay:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6876562624798286247}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3153537754143285786
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedForSeconds: 1
   time: 0
+  material:
+  - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+    quantidade: 5
   item: {fileID: 0}
   lateralDeSaida:
   - {fileID: 1857034146598510711}

@@ -41,7 +41,7 @@ public class Belt : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();   
         svspeed = mSpeed / SpeedForSeconds;
-        colider = GetComponent<Collider2D>();
+        Invoke("delay",0.2f);
         animator.speed = SpeedForSeconds;
         time = svspeed;
 
@@ -62,9 +62,15 @@ public class Belt : MonoBehaviour
             render.color = tiers[0];
         }
     }
+
+    void delay()
+    {
+        colider = GetComponent<Collider2D>();
+    }
     public void updatelocal()
-    {        
-        Invoke("ray",0.3f);
+    {
+        if (colider == true)
+            Invoke("ray",0.3f);
     }
     private void OnDestroy()
     {
@@ -120,7 +126,6 @@ public class Belt : MonoBehaviour
                 right.collider.GetComponent<tunioScript>().updatelocal();
         }
         #endregion
-
         if (colider == true)
         {
             for (int i = 0; i < material.Count; i++)
@@ -183,8 +188,9 @@ public class Belt : MonoBehaviour
 
     }
     private Vector2 Direction()
-    {
+    {        
         return (lateralDeSaida.position - colider.bounds.center).normalized;
+        
     }
     void moveIteam()
     {

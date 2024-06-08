@@ -15,12 +15,17 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
 
-        if(Input.GetMouseButton(0))
-            Onclicked?.Invoke();
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(0))
+            InvokeRepeating("butom",0,0.1f);
+        if (Input.GetMouseButtonUp(0))
+            CancelInvoke();
+        if (Input.GetKeyDown(KeyCode.Escape))
             OnExit?.Invoke();
     }
-
+    void butom()
+    {
+        Onclicked?.Invoke();
+    }
     public bool IsPointerOverUI()
         => EventSystem.current.IsPointerOverGameObject(); 
 

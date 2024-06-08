@@ -10,14 +10,17 @@ public class PlacementState : IBuildingState
     GridData floorData;
     GridData furnitureData;
     ObjectPlacer objectPlacer;
-
+    PlacementSysteam placementSysteam;
+    int IdCusto;
     public PlacementState(int iD,
                           Grid grid,
                           PreviwSystem previousSystem,
                           ObjectsDataBaseSO dataBase,
                           GridData floorData,
                           GridData furnitureData,
-                          ObjectPlacer objectPlacer)
+                          ObjectPlacer objectPlacer,
+                          PlacementSysteam placementSysteam,
+                          int idCusto)
     {
         ID = iD;
         this.grid = grid;
@@ -26,6 +29,8 @@ public class PlacementState : IBuildingState
         this.floorData = floorData;
         this.furnitureData = furnitureData;
         this.objectPlacer = objectPlacer;
+        this.placementSysteam = placementSysteam;
+        IdCusto = idCusto;
 
         selectedObjectIndex = dataBase.objectsData.FindIndex(data => data.ID == ID);
         if (selectedObjectIndex > -1)
@@ -37,7 +42,7 @@ public class PlacementState : IBuildingState
         }
         else
             throw new System.Exception($"No object with ID {iD}");
-
+       
     }
 
 
@@ -46,11 +51,19 @@ public class PlacementState : IBuildingState
         previousSystem.StopShowPreaview();
     }
 
+    public void Idcus(int custo)
+    {
+        IdCusto = custo;
+    }
+
     public void OnAction(Vector3Int gridPosition, float rotation)
     {
         bool placementValidity = checkplacementValidity(gridPosition, selectedObjectIndex);
         if (!placementValidity)
             return;
+
+        placementSysteam.controle.tiraitem(IdCusto);
+        placementSysteam.controle.verificacao(IdCusto);
 
         Vector3 eulerRotation = new Vector3(0, 0, rotation);
 

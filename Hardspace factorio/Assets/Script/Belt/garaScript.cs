@@ -40,7 +40,7 @@ public class garaScript : MonoBehaviour
     //instancia e update
     private void Start()
     {
-        coll = GetComponent<Collider2D>();
+        Invoke("delay", 0.5f);
         animator = GetComponent<Animator>();
         animator.speed = 0;
         svspeed = mSpeed / SpeedForSeconds;
@@ -49,6 +49,10 @@ public class garaScript : MonoBehaviour
         OnDestroy();
     }
 
+    void delay()
+    {
+        coll = GetComponent<Collider2D>();
+    }
     private void OnDestroy()
     {
         RaycastHit2D down = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), Vector2.down, 0.5F, update);

@@ -78,7 +78,7 @@ public class missaoScripter : MonoBehaviour
     {
         Destroy(chestSlot);
         Destroy(missiontSlot);
-        if (coll == false) return;
+        if (coll == false && coll.enabled == false) return;
         if (material.Count > 0) 
         {
             for (int i = 0; i < material.Count; i++)

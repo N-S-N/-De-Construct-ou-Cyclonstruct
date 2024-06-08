@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ee7d06a8a72c84cb2c501dfdc5261e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material:
+  - item: {fileID: 3987064323678162985, guid: 8bfb4251489f4b34da89661e4ac7263d, type: 3}
+    quantidade: 10
   chestUIPrefab: {fileID: 2731472107196445190, guid: 7efabacacef34154084abb497cf1de9b, type: 3}
   allintrustriSlot: []
   inputintrustriSlot: []
@@ -241,7 +244,21 @@ MonoBehaviour:
   ColaderDesativete:
   - {fileID: 2319949987385034881}
   isPrevayAtivet: []
-  EventIsPrevay: []
+  EventIsPrevay:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1443174919955812822}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &5895044177805786403
 AudioSource:
   m_ObjectHideFlags: 0
