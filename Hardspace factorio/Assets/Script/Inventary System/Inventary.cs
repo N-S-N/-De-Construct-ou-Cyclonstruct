@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.Events;
 
 public class Inventary : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class Inventary : MonoBehaviour
     public List<GameObject> allItemPrefabs = new List<GameObject>();
     private string saveFileName = "inventorySava.json";
 
+    [Header("eventos")]
+    [SerializeField] UnityEvent evento;
     //chest
     private List<Slot> chestSlot = new List<Slot>();
     private GameObject chestSlotParant;
@@ -163,6 +166,7 @@ public class Inventary : MonoBehaviour
                 else
                     openmission(m_HitDetectinChest.collider.GetComponent<missaoScripter>());
                 chestUi.SetActive(true);
+                evento.Invoke();
             }
             else
             {

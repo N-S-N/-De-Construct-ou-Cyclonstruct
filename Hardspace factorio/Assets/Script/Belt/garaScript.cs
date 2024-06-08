@@ -118,6 +118,13 @@ public class garaScript : MonoBehaviour
             }
         }
     }
+
+
+    void missaotot()
+    {
+        FindObjectOfType<totorialGmae>().proximo(12);
+    }
+
     public void updatelocal()
     {
         Invoke("updateData", 0.2f);
@@ -203,7 +210,7 @@ public class garaScript : MonoBehaviour
         }
 
     }
-
+    bool a = false;
     void timeandtetection()
     {
         if (!discanso)
@@ -292,6 +299,11 @@ public class garaScript : MonoBehaviour
                                         isRuning.GetComponent<Item>().currentQuantity = 1;
                                         isRuning.SetActive(true);
                                         outputtrustriSlot[o-1].UpdateData();
+                                        if (!a)
+                                        {
+                                            a = true;
+                                            missaotot();
+                                        }
                                         break;
                                     }
                                 }
@@ -380,6 +392,11 @@ public class garaScript : MonoBehaviour
                                         isRuning.GetComponent<Item>().currentQuantity = 1;
                                         isRuning.SetActive(true);
                                         outputtrustriSlot[o].UpdateData();
+                                        if (!a)
+                                        {
+                                            a = true;
+                                            missaotot();
+                                        }
                                         break;
                                     }
                                 }
@@ -440,6 +457,11 @@ public class garaScript : MonoBehaviour
                                     isRuning.GetComponent<Item>().currentQuantity = 1;
                                     isRuning.SetActive(true);
                                     outputtrustriSlot[o].UpdateData();
+                                    if (!a)
+                                    {
+                                        a = true;
+                                        missaotot();
+                                    }
                                     break;
                                 }
                             }
@@ -528,6 +550,11 @@ public class garaScript : MonoBehaviour
                                         isRuning.GetComponent<Item>().currentQuantity = 1;
                                         isRuning.SetActive(true);
                                         outputtrustriSlot[o - 1].UpdateData();
+                                        if (!a)
+                                        {
+                                            a = true;
+                                            missaotot();
+                                        }
                                         break;
                                     }
                                 }

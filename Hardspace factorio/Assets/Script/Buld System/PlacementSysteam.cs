@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Reflection;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -36,7 +33,7 @@ public class PlacementSysteam : MonoBehaviour
 
     [SerializeField] List<int> missionValidesion = new List<int>();
 
-    [SerializeField] UnityEvent tier, mission,verificacao;
+    [SerializeField]public UnityEvent tier, mission,totorialplata,garra,bau, desativar;
 
     [SerializeField]public controleUIInventario controle;
 
@@ -97,16 +94,7 @@ public class PlacementSysteam : MonoBehaviour
         Vector3Int GridPossision = _grid.WorldToCell(mousePosision);
 
         buldingState.OnAction(GridPossision, currentRotation);
-
-        if (-1 != missionValidesion.IndexOf(Id))
-        {
-            if(Id == 8)
-                tier.Invoke();
-            if (Id == 7)  
-                mission.Invoke();
-
-            //StopPlacement();
-        }
+        
         
     }
 

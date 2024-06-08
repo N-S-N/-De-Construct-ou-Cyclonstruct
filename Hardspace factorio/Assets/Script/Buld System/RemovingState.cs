@@ -74,4 +74,9 @@ public class RemovingState : IBuildingState
     {
         throw new System.NotImplementedException();
     }
+
+    public int Idcus()
+    {
+        throw new System.NotImplementedException();
+    }
 }

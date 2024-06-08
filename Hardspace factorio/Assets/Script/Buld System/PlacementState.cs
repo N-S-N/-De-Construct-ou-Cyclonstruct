@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using UnityEngine;
 
 public class PlacementState : IBuildingState
@@ -51,9 +53,9 @@ public class PlacementState : IBuildingState
         previousSystem.StopShowPreaview();
     }
 
-    public void Idcus(int custo)
+    public int Idcus()
     {
-        IdCusto = custo;
+        return ID;
     }
 
     public void OnAction(Vector3Int gridPosition, float rotation)
@@ -64,6 +66,28 @@ public class PlacementState : IBuildingState
 
         placementSysteam.controle.tiraitem(IdCusto);
         placementSysteam.controle.verificacao(IdCusto);
+
+        if (ID == 9)
+        {
+            Debug.Log("BBB");
+            placementSysteam.totorialplata.Invoke();
+        }
+        if (ID == 4)
+        {
+            placementSysteam. garra.Invoke();
+        }
+        if (ID == 3)
+        {
+            placementSysteam.bau.Invoke();
+        }
+        if (ID == 8)
+            placementSysteam.tier.Invoke();
+        if (ID == 7)
+        {
+            Debug.Log("AAA");
+            placementSysteam.mission.Invoke();
+            placementSysteam.desativar.Invoke();
+        }
 
         Vector3 eulerRotation = new Vector3(0, 0, rotation);
 

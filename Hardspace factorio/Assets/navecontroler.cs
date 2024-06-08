@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class navecontroler : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class navecontroler : MonoBehaviour
     private Inventary inventory;
     public GameObject player;
     int index = 0;
+    [SerializeField] UnityEvent totorial;
 
     public void setactiveteGameobj()
     {
@@ -43,12 +44,16 @@ public class navecontroler : MonoBehaviour
         componets[index-1].parte.SetActive(false);
         if (index == componets.Count)
         {
+            totorial.Invoke();
             gameObject.SetActive(false);
             index = 0;
         }
     }
 
-
+    public void mission()
+    {
+        FindObjectOfType<totorialGmae>().proximo(5);
+    }
 }
 [System.Serializable]
 public class ParteFufete
