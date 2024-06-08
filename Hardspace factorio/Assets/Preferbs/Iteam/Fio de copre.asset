@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Fio de copre
   m_EditorClassIdentifier: 
   createdItemPrefab:
-  - {fileID: 4908552242043748998, guid: 5d919487473397840b8f9a9bc03b5a96, type: 3}
+  - {fileID: 3987064323678162985, guid: 32be178d37008e14ba57de49e2ce2c70, type: 3}
   quantityProduced: 01000000
   timeProducedForSeconds: 1
   requiredIngredients:
-  - IdItem: 2
+  - IdItem: 6
     requiredQuantity: 1
   - IdItem: 3
     requiredQuantity: 1

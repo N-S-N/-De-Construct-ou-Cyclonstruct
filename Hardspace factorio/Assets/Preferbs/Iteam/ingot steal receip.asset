@@ -17,5 +17,5 @@ MonoBehaviour:
   quantityProduced: 01000000
   timeProducedForSeconds: 1
   requiredIngredients:
-  - IdItem: 6
+  - IdItem: 7
     requiredQuantity: 1
